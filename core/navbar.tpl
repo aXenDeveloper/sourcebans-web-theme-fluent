@@ -1,5 +1,5 @@
-<div id="tabsWrapper">
-    <div id="mainwrapper">
+<main>
+    <nav class="responsive_show:desktop layout_box">
         <div id="tabs">
             <ul>
                 {foreach from=$navbar item=nav}
@@ -16,25 +16,24 @@
                 {/if}
             </div>
             {if $login}
-            <div style="float: right;">
-                <ul>
-                    <li>
-                        <a style="background-color: #B8383B;" href='index.php?p=logout'>Logout</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="user">Welcome, <a href='index.php?p=account'>{$username}</a></div>
+                <div>
+                    <ul>
+                        <li>
+                            <a style="background-color: #B8383B;" href='index.php?p=logout'>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="user">Welcome, <a href='index.php?p=account'>{$username}</a></div>
             {else}
-            <div style="float: right;">
-                <ul>
-                    <li>
-                        <a style="background-color: #70B04A;" href='index.php?p=login'>Login</a>
-                    </li>
-                </ul>
-            </div>
+                <div>
+                    <ul>
+                        <li>
+                            <a style="background-color: #70B04A;" href='index.php?p=login'>Login</a>
+                        </li>
+                    </ul>
+                </div>
             {/if}
         </div>
-    </div>
-</div>
-<div id="mainwrapper">
-    <div id="innerwrapper">
+    </nav>
+    <div id="layout_body" class="layout_container">
+        <div id="innerwrapper">

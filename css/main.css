@@ -1,6 +1,14 @@
 :root {
     --theme-text_color: 53, 60, 65;
     --theme-page_background: 237, 240, 244;
+    --container--width: 1630px;
+    --theme-header: 255, 255, 255;
+    --theme-header_text: 45, 55, 72;
+    --header--height: 80px;
+    --box--radius: 4px;
+    --theme-area_background_dark: 29, 29, 29;
+    --box--boxShadow: 0px 2px 4px -1px rgba( var(--theme-area_background_dark), 0.1 );
+    --box--backgroundColor: #fff;
 }
 
 @font-face {
@@ -9,7 +17,7 @@
 }
 
 body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: "Inter", sans-serif;
     font-size: 13px;
     line-height: 1.5;
     color: rgb( var(--theme-text_color) );
@@ -17,6 +25,110 @@ body {
     background-color: rgb( var(--theme-page_background) );
     margin: 0;
 }
+
+
+.layout_container {
+    max-width: var(--container--width);
+    padding: 0 15px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.layout_box {
+    box-shadow: var(--box--boxShadow);
+    border-radius: var(--box--radius);
+    background-color: var(--box--backgroundColor);
+}
+
+/* ================ Show / Hide ================ */
+@media (min-width: 980px) {
+    .responsive_hide\:desktop {
+        display: none !important;
+    }
+}
+
+@media (max-width: 980px) {
+    .responsive_show\:desktop {
+        display: none !important;
+    }
+}
+
+
+/* ================ Header ================ */
+header {
+    background-color: rgb( var(--theme-header) );
+    color: rgb( var(--theme-header_text) );
+}
+
+header > .layout_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#logo {
+    display: inline-flex;
+    align-items: center;
+    align-self: stretch;
+    height: var(--header--height);
+}
+
+
+/* ================ Main ================ */
+main {
+    display: flex;
+}
+
+#layout_body {
+    flex: 1;
+}
+
+
+
+/* ================ Nav ================ */
+nav {
+    width: 220px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 a:link {
     text-decoration: none;
@@ -212,12 +324,12 @@ div.dialog-control{
     height: 100%;
 }
 
-#header {
+/* #header {
     width: 984px;
-    margin: 0 auto 0 auto;  /*centers the box, no matter the overall width */
+    margin: 0 auto 0 auto;  
     height: 200px;
     border: 0;
-}
+} 
 
 #tabsWrapper {
     width: 100%;
@@ -226,6 +338,8 @@ div.dialog-control{
     height: 50px;
     background-color: #38322c;
 }
+
+*/
 
 #innerwrapper {
     text-align: left; /* re_aligns text to left, second part of two part MSIE centering workaround */
@@ -258,27 +372,11 @@ div.dialog-control{
     width: 100%;
     padding: 20px 0 20px 0;
     background-color: #38322c;
-    margin-top: 40px;
 }
 
-/** ================ Header ================ **/
-
-#head-logo {
-    float: left;
-    margin-top: 73px;
-}
-
-.searchbox {
-    width: 200px;
-    padding: 10px 6px 12px 6px;
-    background-color: #DADFE1;
-    color: #34495E;
-    border:0;
-    margin-bottom: 5px;
-}
 
 /** ================ Tabs ================ **/
-
+/* 
 #tabs {
     float: left;
     width: 100%;
@@ -318,7 +416,6 @@ div.dialog-control{
 }
 
 #tabs ul li.active a {
-    /* padding: 0.1em 0.6em; */
     padding: 0 16px;
     color: white;
     background-color: #2A2723;
@@ -342,6 +439,8 @@ h3 {
     background-color: #A69E97;
     color: #e6e6e6;
 }
+*/
+
 /** ================ ToolTips ================ **/
 .tool-tip {
     color: #fff;
@@ -390,7 +489,7 @@ h3 {
     background: url(../images/tooltip_sqr.png) bottom right;
 }
 /** ================ Navigation ================ **/
-
+/*
 #nav {
     position: absolute;
     top: 10px;
@@ -450,6 +549,7 @@ a.nav_link:hover {
     text-transform: uppercase;
     font-size: 11px;
 }
+*/
 
 /** ================ Content ================ **/
 /* Buttons
