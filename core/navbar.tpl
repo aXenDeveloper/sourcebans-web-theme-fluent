@@ -1,6 +1,16 @@
 <main>
-    <nav class="responsive_show:desktop layout_box">
-        <div id="tabs">
+    <nav class="responsive_show:desktop">
+        <div class="nav_user layout_padding:half">
+            {if $login}
+                <!-- Logout -->
+                <a class="layout_button layout_button:important" href='index.php?p=logout'>Wyloguj</a>
+                <div style="color: #000;">Welcome, <a href='index.php?p=account'>{$username}</a></div>
+            {else}
+                <!-- Login -->
+                <a class="layout_button layout_button:success" href='index.php?p=login'>Posiadasz konto? Zaloguj się</a>
+            {/if}
+        </div>
+        <div class="nav_tab">
             <ul>
                 {foreach from=$navbar item=nav}
                     <li class="{$nav.state}">
@@ -8,31 +18,15 @@
                     </li>
                 {/foreach}
             </ul>
-            <div id="nav">
+            <ul>
                 {if $isAdmin}
                     {foreach from=$adminbar item=admin}
-                        <a class="nav_link {$admin.state}" href="index.php?p=admin&c={$admin.endpoint}">{$admin.title}</a>
+                        <li>
+                            <a class="nav_link {$admin.state}" href="index.php?p=admin&c={$admin.endpoint}">{$admin.title}</a>
+                        </li>
                     {/foreach}
                 {/if}
-            </div>
-            {if $login}
-                <div>
-                    <ul>
-                        <li>
-                            <a style="background-color: #B8383B;" href='index.php?p=logout'>Logout</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="user">Welcome, <a href='index.php?p=account'>{$username}</a></div>
-            {else}
-                <div>
-                    <ul>
-                        <li>
-                            <a style="background-color: #70B04A;" href='index.php?p=login'>Login</a>
-                        </li>
-                    </ul>
-                </div>
-            {/if}
+            </ul>
         </div>
     </nav>
     <div id="layout_body" class="layout_container">

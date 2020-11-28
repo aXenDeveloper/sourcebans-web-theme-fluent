@@ -17,25 +17,11 @@
 <body>
     <header>
         <div class="layout_container responsive_hide:mobile">
-            <a href="index.php" id="logo">
+            <a href="http://localhost/sourcebans/" id="logo">
                 <img src="images/{$logo}" alt="SourceBans Logo" />
             </a>
             <div class="header_action responsive_show:desktop">
                 test
             </div>
-        </div>
-        <div id="search">
-            {literal}
-                <form method="get" action="index.php">
-                    <input type="hidden" name="p" value="banlist" />
-                    <input class="searchbox" alt="Search Bans" name="searchText" type="text" onfocus="this.value='';" onblur="if (this.value=='') {this.value=' Search Bans...';}" value=" Search Bans..." />
-                    <input type="submit" name="Submit" value="Search" style="cursor:pointer;" class="button" />
-                </form>
-                <form method="get" action="index.php">
-                    <input type="hidden" name="p" value="commslist" />
-                    <input class="searchbox" alt="Search Comms" name="searchText" type="text" onfocus="this.value='';" onblur="if (this.value=='') {this.value=' Search Comms...';}" value=" Search Comms... " />
-                    <input type="submit" name="Submit" value="Search" style="cursor:pointer;" class="button" />
-                </form>
-            {/literal}
         </div>
     </header>
