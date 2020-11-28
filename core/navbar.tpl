@@ -1,6 +1,17 @@
 <main>
     <nav class="responsive_show:desktop">
         <div class="nav_user layout_padding:half">
+            <script type="text/javascript" src="themes/{$theme}/scripts/jsColor.js"></script>
+            <ul class="nav_user_action layout_padding:half">
+                <li class="jscolor_li">
+                    <button data-jscolor="{mode:'HSV', onInput:'setColorThemeCookie(this)'}"></button>
+                </li>
+                <li class="jscolor_li">
+                    <button id="jscolor_reset" style="display: none;"><i class="fa fa-refresh"></i></button>
+                </li>
+            </ul>
+            <script type="text/javascript" src="themes/{$theme}/scripts/jsTheme.js"></script>
+
             {if $login}
                 <!-- Logout -->
                 <a class="layout_button layout_button:important" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i> Wyloguj</a>
@@ -14,6 +25,7 @@
                 <a class="layout_button layout_button:success" href='index.php?p=login'>Posiadasz konto? Zaloguj się</a>
             {/if}
         </div>
+
         <div class="nav_tab">
             <ul>
                 {foreach from=$navbar item=nav}
@@ -33,5 +45,5 @@
             </ul>
         </div>
     </nav>
-    <div id="layout_body" class="layout_container">
+    <div class="layout_body layout_container">
         <div id="innerwrapper">
