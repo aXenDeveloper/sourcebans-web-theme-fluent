@@ -1,4 +1,6 @@
 :root {
+    --layout_main--color: 33, 147, 230;
+
     --container--width: 1630px;
     --header--height: 80px;
 
@@ -13,7 +15,7 @@
     --box--backgroundColor: #fff;
 
     --theme-link: 26, 32, 44;
-    --theme-link_hover: 23, 126, 201;
+    --theme-link_hover: var(--layout_main--color);
 
     --layout_button--background-hover: 0, 0, 0, .08;
     --layout_button--border-radius: 4px;
@@ -64,6 +66,10 @@ a:hover {
 
 .layout_padding\:half {
     padding: 10px;
+}
+
+.layout_text\:center {
+    text-align: center;
 }
 
 /* ================ Show / Hide ================ */
@@ -118,6 +124,11 @@ nav {
     background-color: #fff;
 }
 
+.nav_user_hello {
+    font-size: 14px;
+    text-align: center;
+}
+
 .nav_tab {
     
 }
@@ -130,8 +141,39 @@ nav {
 
 .nav_tab ul li a {
     display: block;
-    padding: 10px;
-    background-color: lightcoral;
+    padding: 15px 25px;
+    color: #000;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.nav_tab ul li a::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba( var(--layout_button--background-hover) );
+    transform: scaleX(0);
+    height: 100%;
+    transition-property: transform;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+    transform-origin: left;
+}
+
+.nav_tab ul li a:hover::after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+}
+
+.nav_tab ul li.active a {
+    border-left: 5px solid rgba( var(--layout_main--color) );
 }
 
 

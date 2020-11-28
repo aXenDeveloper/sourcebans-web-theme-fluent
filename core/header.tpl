@@ -11,13 +11,16 @@
     <link href="themes/{$theme}/css/main.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="./scripts/mootools.js"></script>
     <script type="text/javascript" src="./scripts/contextMenoo.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
     {$xajax}
 </head>
 
 <body>
     <header>
         <div class="layout_container responsive_hide:mobile">
-            <a href="http://localhost/sourcebans/" id="logo">
+            <a href="http://localhost/sourcebans/index.php?p=home" id="logo">
                 <img src="images/{$logo}" alt="SourceBans Logo" />
             </a>
             <div class="header_action responsive_show:desktop">
