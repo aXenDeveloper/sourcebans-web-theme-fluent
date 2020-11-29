@@ -2,6 +2,8 @@
 <html lang="en" class="tee">
 
 <head>
+    <script type="text/javascript" src="themes/{$theme}/scripts/initial.js"></script>
+
     <style id="colorTheme" type="text/css"></style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />

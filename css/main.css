@@ -21,6 +21,10 @@
     --layout_button--border-radius: 4px;
 }
 
+[data-theme="dark"]:root {
+    --theme-page_background: 0, 0, 0;
+}
+
 @font-face {
     font-family: Inter;
     src: url(../css/Inter.ttf);
@@ -137,8 +141,21 @@ nav {
     font-size: 20px;
 }
 
-.nav_user_action li:not(:last-child) {
-    margin-right: 10px;
+.nav_user_action li {
+    margin: 0 5px;
+}
+
+.nav_user_action li button {
+    background: transparent !important;
+    color: #000;
+    padding: 0;
+    border: 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nav_user_action li button:focus {
+    outline: none;
 }
 
 .nav_tab {
@@ -194,15 +211,6 @@ nav {
     font-family: 'font awesome 5 free';
     font-weight: 700;
 }
-
-    .jscolor_li button {
-        background: transparent !important;
-        color: #000;
-        padding: 0;
-        border: 0;
-        font-size: 20px;
-        cursor: pointer;
-    }
 
 
 /* ================ Button ================ */

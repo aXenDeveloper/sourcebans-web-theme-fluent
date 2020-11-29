@@ -1,8 +1,11 @@
 <main>
     <nav class="responsive_show:desktop">
         <div class="nav_user layout_padding:half">
-            <script type="text/javascript" src="themes/{$theme}/scripts/jsColor.js"></script>
+            <script type="text/javascript" src="themes/{$theme}/scripts/jscolor.js"></script>
             <ul class="nav_user_action layout_padding:half">
+                <li>
+                    <button id="user_action_change_dark"><i class="fas fa-moon"></i></button>
+                </li>
                 <li class="jscolor_li">
                     <button data-jscolor="{mode:'HSV', onInput:'setColorThemeCookie(this)'}"></button>
                 </li>
@@ -10,7 +13,7 @@
                     <button id="jscolor_reset" style="display: none;"><i class="fa fa-refresh"></i></button>
                 </li>
             </ul>
-            <script type="text/javascript" src="themes/{$theme}/scripts/jsTheme.js"></script>
+            <script type="text/javascript" src="themes/{$theme}/scripts/userActions.js"></script>
 
             {if $login}
                 <!-- Logout -->
