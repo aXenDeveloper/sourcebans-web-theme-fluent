@@ -9,6 +9,8 @@
     --theme-header: 255, 255, 255;
     --theme-header_text: 45, 55, 72;
     --theme-area_background_dark: 29, 29, 29;
+    --theme-nav_background: 255, 255, 255;
+    --theme-nav_text: 0, 0, 0;
 
     --box--radius: 4px;
     --box--boxShadow: 0px 2px 4px -1px rgba( var(--theme-area_background_dark), 0.1 );
@@ -19,10 +21,6 @@
 
     --layout_button--background-hover: 0, 0, 0, .08;
     --layout_button--border-radius: 4px;
-}
-
-[data-theme="dark"]:root {
-    --theme-page_background: 0, 0, 0;
 }
 
 @font-face {
@@ -124,12 +122,13 @@ main {
 /* ================ Nav ================ */
 nav {
     width: 255px;
-    background-color: #fff;
+    background-color: rgb( var(--theme-nav_background) );
 }
 
 .nav_user_hello {
     font-size: 14px;
     text-align: center;
+    color: rgb( var(--theme-nav_text) );
 }
 
 .nav_user_action {
@@ -147,7 +146,7 @@ nav {
 
 .nav_user_action li button {
     background: transparent !important;
-    color: #000;
+    color: rgb( var(--theme-nav_text) );
     padding: 0;
     border: 0;
     font-size: 20px;
@@ -171,7 +170,7 @@ nav {
 .nav_tab ul li a {
     display: block;
     padding: 15px 25px;
-    color: #000;
+    color: rgb( var(--theme-nav_text) );
     position: relative;
     z-index: 1;
     overflow: hidden;

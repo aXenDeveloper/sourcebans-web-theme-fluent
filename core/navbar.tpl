@@ -21,7 +21,7 @@
     
                 <div class="layout_padding:half nav_user_hello">
                     <!-- Welcome -->
-                    <div style="color: #000;">Witaj, <a href='index.php?p=account'><i class="fas fa-user"></i> {$username}</a></div>
+                    Witaj, <a href='index.php?p=account'><i class="fas fa-user"></i> {$username}</a>
                 </div>
             {else}
                 <!-- Login -->

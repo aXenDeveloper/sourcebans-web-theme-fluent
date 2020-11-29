@@ -6,7 +6,7 @@ const selectElements = {
     dark: document.querySelector('#user_action_change_dark')
 }
 
-const colorBackground = ".tee header";
+const colorBackground = "";
 const colorBorder = ".tee .nav_tab ul li.active a";
 const colorColor = ".tee .jscolor_li button.jscolor";
 
