@@ -11,6 +11,8 @@
     --theme-area_background_dark: 29, 29, 29;
     --theme-nav_background: 255, 255, 255;
     --theme-nav_text: 0, 0, 0;
+    --theme-footer_text: 53, 60, 65;
+    --theme-footer_background: var(--theme-nav_background);
 
     --box--radius: 4px;
     --box--boxShadow: 0px 2px 4px -1px rgba( var(--theme-area_background_dark), 0.1 );
@@ -115,9 +117,8 @@ main {
 
 .layout_body {
     flex: 1;
+    margin: 20px 0;
 }
-
-
 
 /* ================ Nav ================ */
 nav {
@@ -176,6 +177,10 @@ nav {
     overflow: hidden;
 }
 
+.nav_tab ul li a:hover {
+    color: rgb( var(--theme-nav_text) );
+}
+
 .nav_tab ul li a::after {
     content: "";
     position: absolute;
@@ -202,6 +207,7 @@ nav {
 
 .nav_tab ul li.active a {
     border-left: 5px solid rgba( var(--layout_main--color) );
+    font-weight: bold;
 }
 
 /* ================ JSColor ================ */
@@ -221,14 +227,10 @@ nav {
     padding: 10px 20px;
     border-radius: var(--layout_button--border-radius);
     background-color: #31708f;
-    color: #fff;
+    color: #fff !important;
     position: relative;
     z-index: 1;
     overflow: hidden;
-}
-
-.layout_button:hover {
-    color: #fff;
 }
 
 .layout_button::after {
@@ -265,44 +267,120 @@ nav {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-a:link {
-    text-decoration: none;
-    color : #4d4742;
+/* ================ Footer ================ */
+footer {
+    background-color: rgb( var(--theme-footer_background) );
 }
 
-a:active {
-    color: #b05015;
+footer > .layout_container {
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb( var(--theme-footer_text) );
 }
 
-a:visited {
-    text-decoration: none;
-    color : #4d4742;
+footer a {
+    font-weight: bold;
 }
 
-a:hover {
-    color: #b05015;
+.footer_sourcebans, .footer_copyright {
+    display: flex;
+    flex-direction: column;
 }
-*/
+
+.footer_sourcebans {text-align: left;}
+.footer_copyright {text-align: right;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .inputbox {
     border: 1px solid #000000;
@@ -470,33 +548,6 @@ div.dialog-control{
 
 .clearfix {display: inline-block;}
 
-/* ================ STRUCTURE ================ */
-
-#mainwrapper {
-    flex: 1;
-    width: 984px;
-    margin: 0 auto 0 auto;  /*centers the box, no matter the overall width */
-    text-align: left; /* re_aligns text to left second part of two part MSIE centering workaround */
-    height: 100%;
-}
-
-/* #header {
-    width: 984px;
-    margin: 0 auto 0 auto;  
-    height: 200px;
-    border: 0;
-} 
-
-#tabsWrapper {
-    width: 100%;
-    margin: 0 auto;
-    text-align: left;
-    height: 50px;
-    background-color: #38322c;
-}
-
-*/
-
 #innerwrapper {
     text-align: left; /* re_aligns text to left, second part of two part MSIE centering workaround */
 }
@@ -516,86 +567,6 @@ div.dialog-control{
     color: #4d4742;
     margin-bottom: 10px;
 }
-
-#content {
-    height: 100%;
-    overflow:hidden;
-}
-
-#footer {
-    clear:both;
-    color: #919191;
-    width: 100%;
-    padding: 20px 0 20px 0;
-    background-color: #38322c;
-}
-
-
-/** ================ Tabs ================ **/
-/* 
-#tabs {
-    float: left;
-    width: 100%;
-    margin-left: 0;
-}
-
-#tabs ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-#tabs ul li {
-    float: left;
-}
-
-#tabs ul li a {
-    border: 0;
-    display: block;
-    padding: 0 16px;
-    text-align: center;
-    color: #eee;
-    font-size: 11px;
-    font-weight: bolder;
-    line-height: 50px;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-#tabs ul li a:hover {
-    border: 0;
-    color: #eee;
-    background-color: #2A2723;
-}
-
-#tabs ul li.active {
-}
-
-#tabs ul li.active a {
-    padding: 0 16px;
-    color: white;
-    background-color: #2A2723;
-}
-
-#tabs ul li.active a:hover {
-    color: white;
-    text-decoration: none;
-}
-
-h4 {
-    margin:0px;
-}
-
-h3 {
-    margin-top:5px;
-    margin-bottom:15px;
-    font-size: 12px;
-    padding: 10px;
-    font-weight: bold;
-    background-color: #A69E97;
-    color: #e6e6e6;
-}
-*/
 
 /** ================ ToolTips ================ **/
 .tool-tip {
@@ -644,79 +615,6 @@ h3 {
     padding: 4px 8px 8px;
     background: url(../images/tooltip_sqr.png) bottom right;
 }
-/** ================ Navigation ================ **/
-/*
-#nav {
-    position: absolute;
-    top: 10px;
-    color: #2A2723;
-    float: left;
-    width: 74%;
-    font-size: 13px;
-    transition: all 0.5s ease;
-}
-
-a.nav_link:link,
-a.nav_link:visited {
-    color: #2A2723;
-    text-decoration: none;
-    padding: 0 5px;
-}
-
-a.nav_link:hover {
-}
-
-#nav a:hover, #nav a.first:hover {
-    color : #666666;
-    text-decoration: none;
-    transition: all 0.5s ease;
-}
-#nav a {
-    color: #2A2723;
-}
-#nav a.first {
-    border-left: 0px none;
-}
-
-#nav a.active {
-    color: #666666;
-}
-
-#search {
-    text-align: right;
-    margin-top: 55px;
-}
-
-#searchbtn{
-    width: 100%;
-    padding: 8px 12px;
-    border-radius: 0;
-    font-size: 14px;
-    text-transform: uppercase;
-}
-
-.button {
-    border: 0;
-    width: 60px;
-    height: 38px;
-    color: #DADFE1;
-    background-color: #5885A2;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 11px;
-}
-*/
-
-/** ================ Content ================ **/
-/* Buttons
-.btn{
-	background-color: #e9e9e9;
-	background-repeat: no-repeat;
-	background-position: 2px 50%;
-	padding:1px 1px 1px 20px;
-	font-weight: bold;
-	margin: 0 0.5em;
-} */
 
 .btn{
     font-family: Verdana, Arial, Tahoma, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;

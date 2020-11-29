@@ -8,7 +8,7 @@ const selectElements = {
 
 const colorBackground = "";
 const colorBorder = ".tee .nav_tab ul li.active a";
-const colorColor = ".tee .jscolor_li button.jscolor";
+const colorColor = ".tee .jscolor_li button.jscolor, .tee a:hover";
 
 const setColorTheme = picker => {
     selectElements.color.innerHTML = `

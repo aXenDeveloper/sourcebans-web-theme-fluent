@@ -49,4 +49,3 @@
         </div>
     </nav>
     <div class="layout_body layout_container">
-        <div id="innerwrapper">
