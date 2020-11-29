@@ -1,7 +1,7 @@
 [data-theme="dark"]:root {
     --theme-page_background: 18, 18, 18;
     --theme-header: 0, 0, 0;
-    --theme-nav_background: 20, 21, 22;
+    --theme-nav_background: 22, 22, 22;
     --theme-nav_text: 255, 255, 255;
     --theme-link: 230, 230, 230;
     --layout_button--background-hover: 255, 255, 255, .08;

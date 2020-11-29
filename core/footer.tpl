@@ -1,9 +1,8 @@
 	</div>
 	</div>
-	</div>
 	</main>
 	<footer>
-	    <div class="layout_container">
+	    <div id="mainwrapper" class="layout_container">
 	        <div class="footer_sourcebans">
 	            <a href="https://sbpp.github.io/" target="_blank" rel="noopener">SourceBans++</a> {$version}{$git}
 	            <span>Powered by <a href="https://www.sourcemod.net" target="_blank" rel="noopener">SourceMod</a></span>
