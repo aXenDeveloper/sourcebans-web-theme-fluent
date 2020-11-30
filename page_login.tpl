@@ -15,21 +15,19 @@
                         <div id="loginPassword.msg" class="badentry"></div>
                     </li>
                     <li class="login_box_data_options">
-                        <div>
-                            <input id="loginRememberMe" type="checkbox" name="remember" value="checked" vspace="5px" />
-                            <span style="cursor:pointer;" onclick="($('loginRememberMe').checked?$('loginRememberMe').checked=false:$('loginRememberMe').checked=true)">Remember me</span>
+                        <div class="login_box_data_options:remember">
+                            <input id="loginRememberMe" type="checkbox" name="remember" value="checked" />
+                            <span onclick="($('loginRememberMe').checked?$('loginRememberMe').checked=false:$('loginRememberMe').checked=true)">Remember me</span>
                         </div>
     
                         -{if $steamlogin_show == 1}-
-                            <div>
-                                <a href="index.php?p=lostpassword">Lost your password?</a>
-                            </div>
+                            <a href="index.php?p=lostpassword">Lost your password?</a>
                         -{/if}-
                     </li>
                 -{/if}-
                 -{if $steamlogin_show == 1}-
                     <li>
-                        <button onclick="DoLogin('');" name="alogin" class="layout_button layout_button:success layout_button:full" id="alogin" value="Login">Login</button>
+                        <button onclick="DoLogin('');" name="alogin" class="layout_button layout_button:success layout_button:full" id="alogin">Login</button>
                     </li>
                 -{/if}-
                 <li class="layout_text:center">

@@ -27,6 +27,7 @@
     --input--shadow: rgba(44, 95, 140, .08);
     --input--background: #fff;
     --input--border: rgba(113, 128, 150, .4);
+    --input--border-focusShadow: rgba( var(--layout_main--color), 0.3 ) 0px 0px 0px 4px;
 }
 
 * {
@@ -107,6 +108,12 @@ a:hover {
     width: 100%;
 }
 
+.layout_input:focus {
+    box-shadow: var(--input--border-focusShadow);
+    border: 1px solid rgb( var(--layout_main--color) );
+    outline: 0;
+}
+
 /* ================ Show / Hide ================ */
 @media (min-width: 980px) {
     .responsive_hide\:desktop {
@@ -140,6 +147,10 @@ header > .layout_container {
     align-items: center;
     align-self: stretch;
     height: var(--header--height);
+}
+
+.header_logo img {
+    width: 100%;
 }
 
 /* ================ Main ================ */
@@ -342,7 +353,7 @@ footer a {
     line-height: 1.2;
     letter-spacing: -.02em;
     margin: 0;
-    color: rgb( var(--theme-text_dark) );
+    color: inherit;
 }
 
 /* ================ Login - Page ================ */
@@ -357,14 +368,20 @@ footer a {
     max-width: 450px;
 }
 
-.login_box_data > ul {
+.login_box_data > ul,
+.login_reset_box_data > ul {
     padding: 20px;
     margin: 0;
     list-style: none;
 }
 
-.login_box_data > ul > li:not(:last-child) {
+.login_box_data > ul > li:not(:last-child),
+.login_reset_box_data > ul > li:not(:last-child) {
     margin-bottom: 15px;
+}
+
+.login_reset_box_data_email input {
+    margin-top: 10px;
 }
 
 .login_box_data > ul > li > label {
@@ -376,6 +393,16 @@ footer a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.login_box_data_options\:remember {
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+
+.login_box_data_options\:remember input {
+    margin-right: 5px;
 }
 
 /* ================ Breadcrumb ================ */

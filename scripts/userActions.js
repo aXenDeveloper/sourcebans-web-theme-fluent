@@ -7,7 +7,7 @@ const selectElements = {
 }
 
 const colorBackground = ".tee .layout_box_title";
-const colorBorder = ".tee .nav_tab ul li.active a";
+const colorBorder = ".tee .nav_tab ul li.active a, .tee .layout_input:focus";
 const colorColor = ".tee .jscolor_li button.jscolor, .tee a:hover";
 
 const setColorTheme = picker => {
@@ -15,6 +15,7 @@ const setColorTheme = picker => {
         ${colorBackground} { background-color: ${picker}; }
         ${colorBorder} { border-color: ${picker}; }
         ${colorColor} { color: ${picker}; }
+        .tee .layout_input:focus { box-shadow: ${picker}4d 0px 0px 0px 4px; }
     `;
     selectElements.colorReset.style.display = 'block';
     localStorage.setItem(localStorageName.color, picker);
