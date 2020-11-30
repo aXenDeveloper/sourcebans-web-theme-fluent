@@ -23,6 +23,16 @@
 
     --layout_button--background-hover: 0, 0, 0, .08;
     --layout_button--border-radius: 4px;
+
+    --input--shadow: rgba(44, 95, 140, .08);
+    --input--background: #fff;
+    --input--border: rgba(113, 128, 150, .4);
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 @font-face {
@@ -85,6 +95,16 @@ a:hover {
 
 .layout_text\:center {
     text-align: center;
+}
+
+.layout_input {
+    border-radius: 4px;
+    padding: 11px;
+    color: inherit;
+    box-shadow: var(--input--shadow) 0px 3px 4px -1px;
+    background-color: var(--input--background);
+    border: 1px solid var(--input--border);
+    width: 100%;
 }
 
 /* ================ Show / Hide ================ */
@@ -231,7 +251,7 @@ nav {
 
 
 /* ================ Button ================ */
-.layout_button {
+.layout_button, .btn {
     display: block;
     font-size: 14px;
     font-weight: 400;
@@ -243,6 +263,8 @@ nav {
     position: relative;
     z-index: 1;
     overflow: hidden;
+    cursor: pointer;
+    border: 0;
 }
 
 .layout_button::after {
@@ -276,6 +298,10 @@ nav {
 
 .layout_button\:important {
     background-color: rgb(202, 30, 30);
+}
+
+.layout_button\:full {
+    width: 100%;
 }
 
 
@@ -323,6 +349,32 @@ footer a {
 .login {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.login_box {
+    width: 98%;
+    max-width: 450px;
+}
+
+.login_box_data > ul {
+    padding: 20px;
+    margin: 0;
+    list-style: none;
+}
+
+.login_box_data > ul > li:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.login_box_data > ul > li > label {
+    display: none;
+    opacity: 0;
+}
+
+.login_box_data_options {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -636,27 +688,6 @@ div.dialog-control{
     background: url(../images/tooltip_sqr.png) bottom right;
 }
 
-.btn{
-    font-family: Verdana, Arial, Tahoma, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;
-    font-weight:400;
-    font-size: 13px;
-    color: #fff;
-    border:1px solid;
-    border-radius: 3px;
-    padding:6px 12px;
-    transition: all 0.5s ease;
-}
-
-.btnhvr{
-    color: #fff;
-    font-family: Verdana, Arial, Tahoma, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;
-    font-weight: 400;
-    border: 1px solid;
-    border-radius: 3px;
-    padding: 6px 12px;
-    transition: all 0.5s ease;
-}
-
 .game{
     background-color: #8CC152;
     border-color: #8CC152;
@@ -780,68 +811,6 @@ div.dialog-control{
     background-color: #A69E97;
     color: #fff;
 }
-
-/** ================ Login ================ **/
-
-#login {
-    width: 305px;
-    height: 260px;
-    background-color: #e0e0e0;
-    margin: 30px auto;
-    padding: 12px;
-}
-
-#lostpassword {
-    width: 305px;
-    margin: 30px auto;
-    padding: 12px;
-    background-color: #e0e0e0;
-}
-
-
-#loginLogo {
-    text-align: center;
-    height: 60px;
-}
-
-#loginUsernameDiv,
-#loginPasswordDiv,
-#loginRememberMeDiv,
-#loginSubmit {
-    padding: 6px 0;
-}
-
-
-.loginmedium {
-    width: 278px;
-    padding: 6px 12px;
-    font-size: 18px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-
-#loginSubmit {
-    text-align: right;
-}
-
-#loginbutton {
-    padding: 5px 10px;
-    font-size: 14px;
-    background-color: #000;
-    border: 2px outset #999;
-    color: #FFF;
-    font-weight: 700;
-}
-
-#loginOtherlinks {
-    border-top: 1px solid #aaa9a9;
-    text-align: center;
-    padding: 8px 0;
-    margin-top: 26px;
-}
-
-
 
 /** ================ Admin ================ **/
 /* Admin table */

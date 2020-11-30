@@ -17,15 +17,15 @@
 
             {if $login}
                 <!-- Logout -->
-                <a class="layout_button layout_button:important" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i> Wyloguj</a>
+                <a class="layout_button layout_button:important" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i> Logout</a>
     
                 <div class="layout_padding:half nav_user_hello">
                     <!-- Welcome -->
-                    Witaj, <a href='index.php?p=account'><i class="fas fa-user"></i> {$username}</a>
+                    Welcome, <a href='index.php?p=account'><i class="fas fa-user"></i> {$username}</a>
                 </div>
             {else}
-                <!-- Login -->
-                <a class="layout_button layout_button:success" href='index.php?p=login'>Posiadasz konto? Zaloguj się</a>
+                <!-- Existing user? Sign In -->
+                <a class="layout_button layout_button:success" href='index.php?p=login'>Existing user? Sign In</a>
             {/if}
         </div>
 
