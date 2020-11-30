@@ -7,6 +7,7 @@
     --layout_button--background-hover: 255, 255, 255, .08;
     --theme-text_color: 239, 239, 239;
     --theme-footer_text: 214, 214, 214;
+    --box--backgroundColor: 22, 22, 22;
 }
 
 [data-theme="dark"] .nav_user_action li button#user_action_change_dark {

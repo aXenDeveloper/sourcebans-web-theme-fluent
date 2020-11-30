@@ -16,7 +16,7 @@
 
     --box--radius: 4px;
     --box--boxShadow: 0px 2px 4px -1px rgba( var(--theme-area_background_dark), 0.1 );
-    --box--backgroundColor: #fff;
+    --box--backgroundColor: 255, 255, 255;
 
     --theme-link: 26, 32, 44;
     --theme-link_hover: var(--layout_main--color);
@@ -61,7 +61,18 @@ a:hover {
 .layout_box {
     box-shadow: var(--box--boxShadow);
     border-radius: var(--box--radius);
-    background-color: var(--box--backgroundColor);
+    background-color: rgb( var(--box--backgroundColor) );
+}
+
+.layout_box_title {
+    background-color: rgb( var(--layout_main--color) );
+    color: #fff;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
 .layout_padding {
@@ -294,19 +305,38 @@ footer a {
 .footer_sourcebans {text-align: left;}
 .footer_copyright {text-align: right;}
 
+/* ================ Page ================ */
+.page_header {
+    margin-bottom: 5px;
+}
 
+.page_header > h1 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    margin: 0;
+    color: rgb( var(--theme-text_dark) );
+}
 
+/* ================ Login - Page ================ */
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+/* ================ Breadcrumb ================ */
+.breadcrumb {
+    font-size: 13px;
+    font-weight: 400;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
 
-
-
-
-
-
-
-
-
-
+.breadcrumb > *:last-child {
+    font-weight: bold;
+}
 
 
 
@@ -558,18 +588,6 @@ div.dialog-control{
     height: 22px;
 }
 
-#breadcrumb {
-    width: 100%;
-    font-size: 12px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-#content_title {
-    font-size: 26px;
-    color: #4d4742;
-    margin-bottom: 10px;
-}
-
 /** ================ ToolTips ================ **/
 .tool-tip {
     color: #fff;
@@ -662,10 +680,6 @@ div.dialog-control{
 .cancel{
     background-color: #CF7336;
     border: 1px solid #CF7336;
-}
-.login{
-    width: 100%;
-    text-transform: uppercase;
 }
 .refresh{
     background-color: #3BAFDA;
@@ -1350,10 +1364,6 @@ div.contextmenu .separator {
 .front-module-header {
     margin-bottom: 3px;
     font-size: 12px;
-    font-weight: 600;
-}
-
-#breadcrumb > a:last-child {
     font-weight: 600;
 }
 
