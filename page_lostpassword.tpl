@@ -1,6 +1,8 @@
 <div class="login">
     <div class="login_box layout_box">
-        <h3 class="layout_box_title">Lost your password</h3>
+        <div class="layout_box_title">
+            <h2>Lost your password</h2>
+        </div>
         <div class="login_reset_box_data layout_padding">
             <ul>
                 <li>

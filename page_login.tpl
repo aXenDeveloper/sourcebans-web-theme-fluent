@@ -1,6 +1,8 @@
 <div class="login">
     <div class="login_box layout_box">
-        <h3 class="layout_box_title">Admin Login</h3>
+        <div class="layout_box_title">
+            <h2>Admin Login</h2>
+        </div>
         <div class="login_box_data layout_padding">
             <ul>
                 -{if $steamlogin_show == 1}-
