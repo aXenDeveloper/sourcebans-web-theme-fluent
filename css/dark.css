@@ -1,15 +1,18 @@
-[data-theme="dark"]:root {
-    --theme-page_background: 18, 18, 18;
-    --theme-header: 0, 0, 0;
-    --theme-nav_background: 22, 22, 22;
-    --theme-nav_text: 255, 255, 255;
-    --theme-link: 230, 230, 230;
-    --layout_button--background-hover: 255, 255, 255, .08;
-    --theme-text_color: 239, 239, 239;
-    --theme-footer_text: 214, 214, 214;
-    --box--backgroundColor: 22, 22, 22;
+[data-theme='dark']:root {
+	--theme-link: 230, 230, 230;
+	--layout_button--background-hover: 255, 255, 255, 0.08;
+	--theme-footer_text: 214, 214, 214;
+	--box--backgroundColor: #121318;
+
+	--theme-text_color: #e6e6e6;
+	--theme-page_background: #0f1015;
+	--theme-header: #09090c;
+	--theme-header_text: #b5b5b5;
+
+	--theme-nav_background: 18, 19, 24;
+	--theme-nav_text: 255, 255, 255;
 }
 
-[data-theme="dark"] .nav_user_action li button#user_action_change_dark {
-    color: #ffe200;
+[data-theme='dark'] .nav_user_action li button#user_action_change_dark {
+	color: #ffe200;
 }

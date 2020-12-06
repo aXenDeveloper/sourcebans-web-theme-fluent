@@ -4,10 +4,10 @@
 	--container--width: 1630px;
 	--header--height: 80px;
 
-	--theme-text_color: 53, 60, 65;
-	--theme-page_background: 237, 240, 244;
-	--theme-header: 255, 255, 255;
-	--theme-header_text: 45, 55, 72;
+	--theme-text_color: #353c41;
+	--theme-page_background: #edf0f4;
+	--theme-header: #fff;
+	--theme-header_text: #2d3748;
 	--theme-area_background_dark: 29, 29, 29;
 	--theme-nav_background: 255, 255, 255;
 	--theme-nav_text: 0, 0, 0;
@@ -16,7 +16,7 @@
 
 	--box--radius: 4px;
 	--box--boxShadow: 0px 2px 4px -1px rgba(var(--theme-area_background_dark), 0.1);
-	--box--backgroundColor: 255, 255, 255;
+	--box--backgroundColor: #fff;
 
 	--theme-link: 26, 32, 44;
 	--theme-link_hover: var(--layout_main--color);
@@ -41,18 +41,13 @@
 	src: url(../css/Inter.ttf);
 }
 
-@font-face {
-	font-family: Poppins;
-	src: url(../css/Poppins.ttf);
-}
-
 body {
 	font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 	font-size: 13px;
 	line-height: 1.5;
-	color: rgb(var(--theme-text_color));
+	color: var(--theme-text_color);
 	height: 100%;
-	background-color: rgb(var(--theme-page_background));
+	background-color: var(--theme-page_background);
 	margin: 0;
 }
 
@@ -77,7 +72,7 @@ a:hover {
 .layout_box {
 	box-shadow: var(--box--boxShadow);
 	border-radius: var(--box--radius);
-	background-color: rgb(var(--box--backgroundColor));
+	background-color: var(--box--backgroundColor);
 }
 
 .layout_box_title {
@@ -137,12 +132,17 @@ a:hover {
 table.layout_table {
 	width: 100%;
 	border-spacing: 0;
+	cursor: pointer;
 }
 
 table.layout_table thead {
 	background-color: rgb(var(--layout_main--color));
 	font-weight: bold;
 	color: #fff;
+	text-align: center;
+}
+
+table.layout_table tbody {
 	text-align: center;
 }
 
@@ -172,8 +172,8 @@ table.layout_table .layout_table_options ul {
 
 /* ================ Header ================ */
 header {
-	background-color: rgb(var(--theme-header));
-	color: rgb(var(--theme-header_text));
+	background-color: var(--theme-header);
+	color: var(--theme-header_text);
 	box-shadow: var(--box--boxShadow);
 }
 
@@ -255,7 +255,7 @@ nav {
 .nav_tab ul li a {
 	display: block;
 	padding: 15px 25px;
-	color: rgb(var(--theme-nav_text));
+	color: rgb(var(--theme-nav_text), 0.7);
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
@@ -463,6 +463,22 @@ footer a {
 	width: 200px;
 	padding-left: 2px;
 }
+
+/* ================ Login - Page ================ */
+
+.collapse {
+}
+
+.collapse_content {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+
+.collapse_content > td {
+}
+
+/* ================ =============== ================ */
 
 .dbg.b {
 	font-size: 12px;
