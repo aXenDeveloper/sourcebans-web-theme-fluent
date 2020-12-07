@@ -5,6 +5,7 @@
 	--header--height: 80px;
 
 	--theme-text_color: #353c41;
+	--theme-text_light: 45, 45, 45;
 	--theme-page_background: #edf0f4;
 	--theme-header: #fff;
 	--theme-header_text: #2d3748;
@@ -28,6 +29,10 @@
 	--input--background: #fff;
 	--input--border: rgba(113, 128, 150, 0.4);
 	--input--border-focusShadow: rgba(var(--layout_main--color), 0.3) 0px 0px 0px 4px;
+
+	--table-unbanned: #eaffe9;
+	--table-banned: #fff7e4;
+	--table-permanent: #ffe0dc;
 }
 
 * {
@@ -49,11 +54,11 @@ body {
 	height: 100%;
 	background-color: var(--theme-page_background);
 	margin: 0;
+	cursor: inherit !important;
 }
 
 a {
-	transition: all 0.2s ease;
-	-webkit-transition: all 0.2s ease;
+	transition: color 0.2s ease;
 	color: rgb(var(--theme-link));
 	text-decoration: none;
 }
@@ -132,18 +137,32 @@ a:hover {
 table.layout_table {
 	width: 100%;
 	border-spacing: 0;
-	cursor: pointer;
+	color: rgb(var(--theme-text_light));
 }
 
-table.layout_table thead {
+table.layout_table thead,
+td.listtable_top {
 	background-color: rgb(var(--layout_main--color));
 	font-weight: bold;
 	color: #fff;
-	text-align: center;
 }
 
-table.layout_table tbody {
-	text-align: center;
+table.layout_table > tbody > tr.collapse {
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+table.layout_table > tbody > tr.collapse:hover {
+	background-color: rgba(var(--layout_button--background-hover));
+}
+
+table.layout_table tbody td {
+	padding: 5px;
+}
+
+table.layout_table tbody td:first-child img {
+	width: 16px;
+	height: 16px;
 }
 
 table.layout_table thead th {
@@ -155,6 +174,22 @@ table.layout_table .layout_table_options ul {
 	list-style: none;
 	padding: 0 10px;
 	margin: 0;
+}
+
+table.layout_table .layout_table_hide > td {
+	padding: 0;
+}
+
+td.listtable_1_unbanned {
+	background-color: var(--table-unbanned);
+}
+
+td.listtable_1_permanent {
+	background-color: var(--table-permanent);
+}
+
+td.listtable_1_banned {
+	background-color: var(--table-banned);
 }
 
 /* ================ Show / Hide ================ */
@@ -1016,14 +1051,6 @@ div.dialog-control {
 
 /** ================ Banlist ================ **/
 
-.tbl_hover {
-	cursor: pointer;
-	background-color: #eaebeb;
-}
-.tbl_out {
-	background-color: #fff;
-}
-
 table.listtable {
 	font-family: Verdana, Arial, Tahoma, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;
 	font-size: 10px;
@@ -1048,6 +1075,7 @@ table.listtable3 {
 	border-width: 0px 0px 0px 0px;
 }
 
+/*
 td.listtable_top {
 	font-size: 11px;
 	font-weight: bold;
@@ -1057,50 +1085,7 @@ td.listtable_top {
 	height: 30px;
 	text-transform: uppercase;
 }
-
-a.listtable_top {
-	color: #fff;
-}
-
-td.listtable_1 {
-	font-family: Verdana, Arial, Tahoma, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;
-	font-size: 10px;
-	padding-top: 4px;
-	padding-right: 4px;
-	padding-bottom: 4px;
-	padding-left: 4px;
-	background-color: #e0e0e0;
-}
-
-td.listtable_1_unbanned {
-	font-family: Verdana, Arial, Tahoma, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;
-	font-size: 10px;
-	padding-top: 4px;
-	padding-right: 4px;
-	padding-bottom: 4px;
-	padding-left: 4px;
-	background-color: #c8f7c5;
-}
-
-td.listtable_1_permanent {
-	font-family: Verdana, Arial, Tahoma, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;
-	font-size: 10px;
-	padding-top: 4px;
-	padding-right: 4px;
-	padding-bottom: 4px;
-	padding-left: 4px;
-	background-color: #f1a9a0;
-}
-
-td.listtable_1_banned {
-	font-family: Verdana, Arial, Tahoma, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;
-	font-size: 10px;
-	padding-top: 4px;
-	padding-right: 4px;
-	padding-bottom: 4px;
-	padding-left: 4px;
-	background-color: #fde3a7;
-}
+*/
 
 td.listtable_2 {
 	font-family: Verdana, Arial, Tahoma, Trebuchet MS, Sans-Serif, Georgia, Courier, Times New Roman, Serif;

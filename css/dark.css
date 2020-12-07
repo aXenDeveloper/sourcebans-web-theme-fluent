@@ -1,5 +1,6 @@
 [data-theme='dark']:root {
 	--theme-link: 230, 230, 230;
+	--theme-text_light: 182, 182, 182;
 	--layout_button--background-hover: 255, 255, 255, 0.08;
 	--theme-footer_text: 214, 214, 214;
 	--box--backgroundColor: #121318;

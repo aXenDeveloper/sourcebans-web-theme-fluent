@@ -6,7 +6,7 @@
                 <th>OS</th>
                 <th>VAC</th>
                 <th class="layout_text:left">Hostname</th>
-                <th>IP adress</th>
+                <th class="layout_text:left">IP adress</th>
                 <th>Players</th>
                 <th>Map</th>
                 <th>Connect</th>
@@ -15,21 +15,21 @@
         <tbody>
             {foreach from=$server_list item=server}
                 <tr id="server_{$server.sid}" {if $IN_SERVERS_PAGE}class="collapse" {/if}>
-                    <td>
+                    <td class="layout_text:center">
                         <img src="images/games/{$server.icon}" alt="{$server.icon}" />
                     </td>
-                    <td id="os_{$server.sid}"></td>
-                    <td id="vac_{$server.sid}"></td>
-                    <td class="layout_text:left" id="host_{$server.sid}"><i>Querying Server Data...</i></td>
+                    <td id="os_{$server.sid}" class="layout_text:center"></td>
+                    <td id="vac_{$server.sid}" class="layout_text:center"></td>
+                    <td id="host_{$server.sid}"><i>Querying Server Data...</i></td>
                     <td>{$server.ip}:{$server.port}</td>
-                    <td id="players_{$server.sid}">N/A</td>
-                    <td id="map_{$server.sid}">N/A</td>
-                    <td>
-                        <a href="steam://connect/{$server.ip}:{$server.port}">Connect</a>
+                    <td id="players_{$server.sid}" class="layout_text:center">N/A</td>
+                    <td id="map_{$server.sid}" class="layout_text:center">N/A</td>
+                    <td class="layout_text:center">
+                        <a class="layout_button layout_button:success" href="steam://connect/{$server.ip}:{$server.port}"><i class="fa fa-sign-in"></i> Connect</a>
                     </td>
                 </tr>
                 {if $IN_SERVERS_PAGE}
-                    <tr id="server_{$server.sid}:desc">
+                    <tr id="server_{$server.sid}:desc" class="layout_table_hide">
                         <td colspan="8">
                             <div class="collapse_content" id="sinfo_{$server.sid}">
                                 <table id="playerlist_{$server.sid}" class="layout_table" name="playerlist_{$server.sid}"></table>
