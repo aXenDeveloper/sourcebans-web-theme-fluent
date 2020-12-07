@@ -1,0 +1,21 @@
+[data-theme='dark'] {
+    &:root {
+        --theme-link: rgb(230, 230, 230);
+        --theme-text_light: rgb(182, 182, 182);
+        --layout_button--background-hover: rgba(255, 255, 255, 0.08);
+        --theme-footer_text: rgb(214, 214, 214);
+        --box--backgroundColor: #121318;
+
+        --theme-text_color: #e6e6e6;
+        --theme-page_background: #0f1015;
+        --theme-header: #09090c;
+        --theme-header_text: #b5b5b5;
+
+        --theme-nav_background: rgb(18, 19, 24);
+        --theme-nav_text: rgb(255, 255, 255);
+    }
+
+    .nav_user_action li button#user_action_change_dark {
+        color: #ffe200;
+    }
+}

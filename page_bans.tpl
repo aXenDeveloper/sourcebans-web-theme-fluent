@@ -1,3 +1,26 @@
+<div class="layout_box">
+    <div class="layout_table layout_padding">
+        <table>
+            <thead>
+                <tr>
+                    <th>MOD/Country</th>
+                    <th>Date</th>
+                    <th class="layout_text:left">Player</th>
+                    <th class="layout_text:left">Admin</th>
+                    <th>Length</th>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach from=$ban_list item=ban name=banlist}
+                    <tr id="server_{$server.sid}" class="collapse">
+                        <td class="layout_text:center">{$ban.mod_icon}</td>
+                    </tr>
+                {/foreach}
+            </tbody>
+        </table>
+    </div>
+</div>
+
 {if $comment}
     <h3>{$commenttype} Comment</h3>
     <table width="90%" align="center" border="0" style="border-collapse:collapse;" id="group.details" cellpadding="3">

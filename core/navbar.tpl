@@ -1,8 +1,7 @@
 <main>
-    <nav class="responsive_show:desktop">
-        <div class="nav_user layout_padding:half">
-            <script type="text/javascript" src="themes/{$theme}/scripts/jscolor.js"></script>
-            <ul class="nav_user_action layout_padding:half">
+    <div class="layout_topBar">
+        <div class="layout_container">
+            <ul class="layout_topBar_action layout_padding:half">
                 <li>
                     <button id="user_action_change_dark"><i class="fas fa-moon"></i></button>
                 </li>
@@ -13,6 +12,11 @@
                     <button id="jscolor_reset" style="display: none;"><i class="fa fa-refresh"></i></button>
                 </li>
             </ul>
+        </div>
+    </div>
+    <nav class="responsive_show:desktop">
+        <div class="nav_user layout_padding:half">
+            <script type="text/javascript" src="themes/{$theme}/scripts/jscolor.js"></script>
             <script type="text/javascript" src="themes/{$theme}/scripts/userActions.js"></script>
 
             {if $login}
