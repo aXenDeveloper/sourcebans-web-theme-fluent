@@ -1,15 +1,136 @@
+@-webkit-keyframes slideFromRight {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.mobile {
+  display: none;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1100;
+}
+
+.mobile_show {
+  display: block;
+  opacity: 1;
+}
+
+.mobile_fadeIn {
+  -webkit-animation: fadeIn 0.2s ease-out;
+          animation: fadeIn 0.2s ease-out;
+}
+
+.mobile_fadeOut {
+  -webkit-animation: fadeOut 0.2s ease-out;
+          animation: fadeOut 0.2s ease-out;
+}
+
+.mobile_nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  width: 340px;
+  max-width: calc(100% - 50px);
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  -webkit-animation: slideFromRight 0.2s ease-out;
+          animation: slideFromRight 0.2s ease-out;
+}
+
+.mobile_nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 .layout_topBar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: #000;
-  color: #fff;
-  padding: 10px;
   z-index: 1000;
+  background-color: var(--backdrop-background);
+  -webkit-backdrop-filter: var(--backdrop-filter-value);
+          backdrop-filter: var(--backdrop-filter-value);
+  color: var(--backdrop-text_color);
+  -webkit-box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.53);
+          box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.53);
+  padding: 10px 0;
+  height: 65px;
+}
+
+.layout_topBar > .layout_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .layout_topBar_action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -21,8 +142,8 @@
 
 .layout_topBar_action li button {
   background: transparent !important;
-  color: #fff;
   padding: 0;
+  color: var(--backdrop-text_color);
   border: 0;
   font-size: 20px;
   cursor: pointer;
@@ -30,6 +151,18 @@
 
 .layout_topBar_action li button:focus {
   outline: none;
+}
+
+.layout_topBar_userBar {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 :root {
@@ -41,7 +174,8 @@
   --theme-text_color: #353c41;
   --theme-page_background: #edf0f4;
   --theme-text_light: rgb(45, 45, 45);
-  --theme-header: #fff;
+  --theme-header_code: 255, 255, 255;
+  --theme-header: rgb(var(--theme-header_code));
   --theme-header_text: #2d3748;
   --theme-area_background_dark: rgb(29, 29, 29);
   --theme-area_background_dark_0_1: rgba(29, 29, 29, 0.1);
@@ -65,16 +199,14 @@
   --table-unbanned: #eaffe9;
   --table-banned: #fff7e4;
   --table-permanent: #ffe0dc;
+  --backdrop-filter-value: blur(15px);
+  --backdrop-background: rgba(var(--theme-header_code), 0.84);
+  --backdrop-text_color: rgb(0, 0, 0);
 }
 
 * {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-@font-face {
-  font-family: Inter;
-  src: url(../css/Inter.ttf);
+          box-sizing: border-box;
 }
 
 body {
@@ -181,14 +313,15 @@ a:hover {
 }
 
 /* ================ Header ================ */
-header {
+.header {
   background-color: var(--theme-header);
   color: var(--theme-header_text);
   -webkit-box-shadow: var(--box--boxShadow);
           box-shadow: var(--box--boxShadow);
+  margin-top: 65px;
 }
 
-header > .layout_container {
+.header > .layout_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -200,7 +333,7 @@ header > .layout_container {
           align-items: center;
 }
 
-header_logo {
+.header_logo {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -212,7 +345,7 @@ header_logo {
   height: var(--header--height);
 }
 
-header_logo img {
+.header_logo img {
   max-width: 100%;
   max-height: 100%;
 }
@@ -232,43 +365,39 @@ main {
 }
 
 /* ================ Nav ================ */
-nav {
+.nav {
   width: 255px;
   background-color: var(--theme-nav_background);
 }
 
-nav ul {
+.nav ul {
   padding: 0;
-  margin: 10px 0;
+  margin: 0;
   list-style: none;
 }
 
-nav ul li.active {
+.nav ul li.active {
   border-left: 5px solid var(--layout_main--color);
   font-weight: bold;
 }
 
-nav ul li a {
+.nav ul li a {
   display: block;
   padding: 15px 25px;
-  color: var(--theme-nav_text_color_0_7);
+  color: var(--theme-nav_text_color_0_7) !important;
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
 
-nav ul li a:hover {
-  color: var(--theme-nav_text);
-}
-
-nav ul li a:hover::after {
+.nav ul li a:hover::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
   -webkit-transition-timing-function: ease;
           transition-timing-function: ease;
 }
 
-nav ul li a::after {
+.nav ul li a::after {
   content: '';
   position: absolute;
   z-index: -1;
@@ -581,13 +710,14 @@ td.listtable_1_banned {
   --box--backgroundColor: #121318;
   --theme-text_color: #e6e6e6;
   --theme-page_background: #0f1015;
-  --theme-header: #09090c;
+  --theme-header_code: 9, 9, 12;
   --theme-header_text: #b5b5b5;
   --theme-nav_background: rgb(18, 19, 24);
   --theme-nav_text: rgb(255, 255, 255);
+  --backdrop-text_color: rgb(255, 255, 255);
 }
 
-[data-theme='dark'] .nav_user_action li button#user_action_change_dark {
+[data-theme='dark'] .layout_topBar .layout_topBar_action button#user_action_change_dark {
   color: #ffe200;
 }
 

@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <div class="layout_container responsive_hide:mobile">
             <a href="http://localhost/sourcebans/index.php?p=home" class="header_logo">
                 <img src="images/{$logo}" alt="SourceBans Logo" />

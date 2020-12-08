@@ -6,8 +6,8 @@ const selectElements = {
     dark: document.querySelector('#user_action_change_dark')
 }
 
-const colorBackground = ".tee .layout_box_title, .tee table.layout_table thead";
-const colorBorder = ".tee .nav_tab ul li.active a, .tee .layout_input:focus";
+const colorBackground = ".tee .layout_table table thead, .tee .layout_table table td.listtable_top";
+const colorBorder = ".tee nav ul li.active, .tee .layout_input:focus";
 const colorColor = ".tee .jscolor_li button.jscolor, .tee a:hover";
 
 const setColorTheme = picker => {

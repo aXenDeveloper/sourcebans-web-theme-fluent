@@ -8,14 +8,16 @@
 
         --theme-text_color: #e6e6e6;
         --theme-page_background: #0f1015;
-        --theme-header: #09090c;
+        --theme-header_code: 9, 9, 12;
         --theme-header_text: #b5b5b5;
 
         --theme-nav_background: rgb(18, 19, 24);
         --theme-nav_text: rgb(255, 255, 255);
+
+        --backdrop-text_color: rgb(255, 255, 255);
     }
 
-    .nav_user_action li button#user_action_change_dark {
+    .layout_topBar .layout_topBar_action button#user_action_change_dark {
         color: #ffe200;
     }
 }

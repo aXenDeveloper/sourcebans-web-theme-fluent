@@ -1,35 +1,124 @@
+@keyframes slideFromRight {
+    0% {
+        right: -100%;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.mobile {
+    display: none;
+    opacity: 0;
+
+    &_show {
+        display: block;
+        opacity: 1;
+    }
+
+    background-color: rgba(255, 255, 255, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1100;
+
+    &_fadeIn {
+        animation: fadeIn 0.2s ease-out;
+    }
+
+    &_fadeOut {
+        animation: fadeOut 0.2s ease-out;
+    }
+
+    &_nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000;
+        width: 340px;
+        max-width: calc(100% - 50px);
+        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+        animation: slideFromRight 0.2s ease-out;
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+    }
+}
+
 .layout_topBar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: #000;
-    color: #fff;
-    padding: 10px;
     z-index: 1000;
-}
+    background-color: var(--backdrop-background);
+    backdrop-filter: var(--backdrop-filter-value);
+    color: var(--backdrop-text_color);
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.53);
+    padding: 10px 0;
+    height: 65px;
 
-.layout_topBar_action {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+    > .layout_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-.layout_topBar_action li {
-    margin: 0 5px;
-}
+    &_action {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
 
-.layout_topBar_action li button {
-    background: transparent !important;
-    color: #fff;
-    padding: 0;
-    border: 0;
-    font-size: 20px;
-    cursor: pointer;
-}
+        li {
+            margin: 0 5px;
 
-.layout_topBar_action li button:focus {
-    outline: none;
+            button {
+                background: transparent !important;
+                padding: 0;
+                color: var(--backdrop-text_color);
+                border: 0;
+                font-size: 20px;
+                cursor: pointer;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    &_userBar {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+    }
 }
 
 :root {
@@ -42,7 +131,9 @@
     --theme-text_color: #353c41;
     --theme-page_background: #edf0f4;
     --theme-text_light: rgb(45, 45, 45);
-    --theme-header: #fff;
+
+    --theme-header_code: 255, 255, 255;
+    --theme-header: rgb(var(--theme-header_code));
     --theme-header_text: #2d3748;
 
     --theme-area_background_dark: rgb(29, 29, 29);
@@ -73,17 +164,14 @@
     --table-unbanned: #eaffe9;
     --table-banned: #fff7e4;
     --table-permanent: #ffe0dc;
+
+    --backdrop-filter-value: blur(15px);
+    --backdrop-background: rgba(var(--theme-header_code), 0.84);
+    --backdrop-text_color: rgb(0, 0, 0);
 }
 
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-
-@font-face {
-    font-family: Inter;
-    src: url(../css/Inter.ttf);
 }
 
 body {
@@ -189,10 +277,11 @@ a {
 }
 
 /* ================ Header ================ */
-header {
+.header {
     background-color: var(--theme-header);
     color: var(--theme-header_text);
     box-shadow: var(--box--boxShadow);
+    margin-top: 65px;
 
     > .layout_container {
         display: flex;
@@ -224,13 +313,13 @@ main {
 }
 
 /* ================ Nav ================ */
-nav {
+.nav {
     width: 255px;
     background-color: var(--theme-nav_background);
 
     ul {
         padding: 0;
-        margin: 10px 0;
+        margin: 0;
         list-style: none;
 
         li {
@@ -242,13 +331,13 @@ nav {
             a {
                 display: block;
                 padding: 15px 25px;
-                color: var(--theme-nav_text_color_0_7);
+                color: var(--theme-nav_text_color_0_7) !important;
                 position: relative;
                 z-index: 1;
                 overflow: hidden;
 
                 &:hover {
-                    color: var(--theme-nav_text);
+                    // color: var(--theme-nav_text);
 
                     &::after {
                         transform: scaleX(1);

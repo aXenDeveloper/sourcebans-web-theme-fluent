@@ -13,6 +13,9 @@
 	        </div>
 	    </div>
 	</footer>
+	<script type="text/javascript" src="themes/{$theme}/scripts/nav.js"></script>
+	<script type="text/javascript" src="themes/{$theme}/scripts/jscolor.js"></script>
+	<script type="text/javascript" src="themes/{$theme}/scripts/userActions.js"></script>
 	<script>
 	    {$query}
 
