@@ -2,12 +2,12 @@
 	</div>
 	</main>
 	<footer>
-	    <div id="mainwrapper" class="layout_container">
-	        <div class="footer_sourcebans">
+	    <div id="mainwrapper" class="layout_container layout_flex layout_flex-jc:space-between layout_flex-ai:center">
+	        <div class="layout_flex layout_flex-fd:column layout_text:left">
 	            <a href="https://sbpp.github.io/" target="_blank" rel="noopener">SourceBans++</a> {$version}{$git}
 	            <span>Powered by <a href="https://www.sourcemod.net" target="_blank" rel="noopener">SourceMod</a></span>
 	        </div>
-	        <div class="footer_copyright">
+	        <div class="layout_flex layout_flex-fd:column layout_text:right">
 	            <span>Copyright © (website name)</span>
 	            <a href="https://axendev.net/" title="Theme by aXenDev" target="_blank" rel="noopener">Theme by aXenDev</a>
 	        </div>

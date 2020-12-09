@@ -1,10 +1,10 @@
-<div class="login">
-    <div class="login_box layout_box">
+<div class="layout_flex layout_flex-jc:center layout_flex-ai:center">
+    <div class="layout_box_small layout_box">
         <div class="layout_box_title">
             <h2>Lost your password</h2>
         </div>
-        <div class="login_reset_box_data layout_padding">
-            <ul>
+        <div class="layout_padding">
+            <ul class="layout_box_small_ul">
                 <li>
                     <span>Please type your email address in the box below to have your password reset.</span>
                 </li>

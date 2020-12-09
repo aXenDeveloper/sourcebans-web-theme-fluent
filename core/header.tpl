@@ -25,7 +25,7 @@
 
 <body>
     <header class="header">
-        <div class="layout_container responsive_hide:mobile">
+        <div class="layout_container responsive_hide:mobile layout_flex layout_flex-jc:space-between layout_flex-ai:center">
             <a href="http://localhost/sourcebans/index.php?p=home" class="header_logo">
                 <img src="images/{$logo}" alt="SourceBans Logo" />
             </a>

@@ -1,0 +1,83 @@
+.nav {
+    width: 255px;
+    background-color: var(--theme-nav_background);
+
+    ul {
+        @include reset-list(0, 0);
+
+        li {
+            &.active {
+                border-left: 5px solid var(--layout_main--color);
+                font-weight: bold;
+            }
+
+            a {
+                display: block;
+                padding: 15px 25px;
+                color: var(--theme-nav_text_color_0_7) !important;
+                position: relative;
+                z-index: 1;
+                overflow: hidden;
+
+                &:hover {
+                    &::after {
+                        transform: scaleX(1);
+                        transition-timing-function: ease;
+                    }
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: var(--layout_button--background-hover);
+                    transform: scaleX(0);
+                    height: 100%;
+                    transition-property: transform;
+                    transition-duration: 0.3s;
+                    transition-timing-function: ease-out;
+                    transform-origin: left;
+                }
+            }
+        }
+    }
+
+    &_mobile {
+        display: none;
+        opacity: 0;
+
+        &.show {
+            display: block;
+            opacity: 1;
+        }
+
+        background-color: rgba(255, 255, 255, 0.4);
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1100;
+        animation: fadeIn 0.2s ease-out;
+
+        &_tab {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #000;
+            width: 340px;
+            max-width: calc(100% - 50px);
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+            animation: slideFromRight 0.2s ease-out;
+
+            ul {
+                @include reset-list(0, 0);
+            }
+        }
+    }
+}

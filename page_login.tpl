@@ -1,10 +1,10 @@
-<div class="login">
-    <div class="login_box layout_box">
+<div class="layout_flex layout_flex-jc:center layout_flex-ai:center">
+    <div class="layout_box_small layout_box">
         <div class="layout_box_title">
             <h2>Admin Login</h2>
         </div>
-        <div class="login_box_data layout_padding">
-            <ul>
+        <div class="layout_padding">
+            <ul class="layout_box_small_ul">
                 -{if $steamlogin_show == 1}-
                     <li>
                         <label for="loginUsername">Username</label>
@@ -16,8 +16,8 @@
                         <input id="loginPassword" class="layout_input" type="password" name="password" value="" placeholder="Password" />
                         <div id="loginPassword.msg" class="badentry"></div>
                     </li>
-                    <li class="login_box_data_options">
-                        <div class="login_box_data_options:remember">
+                    <li class="layout_flex layout_flex-jc:space-between layout_flex-ai:center">
+                        <div>
                             <input id="loginRememberMe" type="checkbox" name="remember" value="checked" />
                             <span onclick="($('loginRememberMe').checked?$('loginRememberMe').checked=false:$('loginRememberMe').checked=true)">Remember me</span>
                         </div>

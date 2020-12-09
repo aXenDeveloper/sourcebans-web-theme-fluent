@@ -1,7 +1,7 @@
-<main>
+<main class="layout_flex">
     <div class="layout_topBar">
-        <div class="layout_container">
-            <ul class="layout_topBar_action layout_padding:half">
+        <div class="layout_container layout_flex layout_flex-jc:space-between layout_flex-ai:center">
+            <ul class="layout_topBar_action layout_padding:half layout_flex">
                 <li>
                     <button id="user_action_change_dark"><i class="fas fa-moon"></i></button>
                 </li>
@@ -13,7 +13,7 @@
                 </li>
             </ul>
 
-            <ul class="layout_topBar_userBar responsive_show:desktop">
+            <ul class="layout_topBar_userBar responsive_show:desktop layout_flex layout_flex-ai:center">
                 {if $login}
                     <li>
                         Welcome, <a href='index.php?p=account'><i class="fas fa-user"></i> {$username}</a>
@@ -28,13 +28,13 @@
                 {/if}
             </ul>
 
-            <button id="button_mobile_open" class="nav_mobile responsive_hide:desktop">test</button>
+            <button id="button_mobile_open" class="responsive_hide:desktop">test</button>
         </div>
     </div>
 
-    <div id="layout_mobile" class="mobile">
-        <button id="button_mobile_close" class="mobile_close">Close</button>
-        <nav class="mobile_nav">
+    <div id="layout_mobile" class="nav_mobile">
+        <button id="button_mobile_close" class="nav_mobile_close">Close</button>
+        <nav class="nav_mobile_tab">
             <ul>
                 {foreach from=$navbar item=nav}
                     <li class="{$nav.state}">
@@ -65,4 +65,4 @@
             </ul>
         </div>
     </nav>
-    <div id="mainwrapper" class="layout_body layout_container">
+    <div id="mainwrapper" class="layout_body layout_container layout_flex:11">
