@@ -12,8 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{$title}</title>
     <link rel="Shortcut Icon" href="themes/{$theme}/images/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="themes/{$theme}/style/main.css" />
-    <link rel="stylesheet" type="text/css" href="themes/{$theme}/style/main.css.map" />
+    <link rel="stylesheet" type="text/css" href="themes/{$theme}/style/global.css" />
+    <link rel="stylesheet" type="text/css" href="themes/{$theme}/style/global.css.map" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
     <meta name="description" content="Sourcebans for website" />

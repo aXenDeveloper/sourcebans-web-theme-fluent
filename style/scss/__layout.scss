@@ -60,6 +60,14 @@
             &\:space-between {
                 justify-content: space-between;
             }
+
+            &\:end {
+                justify-content: flex-end;
+            }
+
+            &\:start {
+                justify-content: flex-start;
+            }
         }
 
         &-ai {
@@ -115,55 +123,7 @@
         }
     }
 
-    &_button {
-        display: block;
-        font-size: 14px;
-        font-weight: 400;
-        text-align: center;
-        padding: 10px 20px;
-        border-radius: var(--layout_button--border-radius);
-        background-color: #31708f;
-        color: #fff !important;
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-        cursor: pointer;
-        border: 0;
-
-        &::after {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--layout_button--background-hover);
-            transform: scaleX(0);
-            height: 100%;
-            transition-property: transform;
-            transition-duration: 0.7s;
-            transition-timing-function: ease-out;
-            transform-origin: left;
-        }
-
-        &:hover::after {
-            transform: scaleX(1);
-            transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-        }
-
-        &\:success {
-            background-color: rgb(38, 123, 60);
-        }
-
-        &\:important {
-            background-color: rgb(202, 30, 30);
-        }
-
-        &\:full {
-            width: 100%;
-        }
-    }
+    @import './layout/_button';
 
     &_topBar {
         position: fixed;
@@ -176,24 +136,51 @@
         color: var(--backdrop-text_color);
         box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.53);
         padding: 10px 0;
-        height: 65px;
+        height: 60px;
+
+        @media screen and (max-width: 980px) {
+            padding: 0;
+            height: 50px;
+
+            > .layout_container {
+                padding: 0;
+                margin: 0;
+            }
+        }
 
         &_action {
             @include reset-list(0, 0);
 
             li {
-                margin: 0 5px;
+                font-size: 20px;
+
+                @media screen and (max-width: 980px) {
+                    font-size: 22px;
+                }
 
                 button {
                     background: transparent !important;
                     padding: 0;
                     color: var(--backdrop-text_color);
                     border: 0;
-                    font-size: 20px;
+                    font-size: inherit;
+                    width: 20px;
                     cursor: pointer;
+
+                    @media screen and (max-width: 980px) {
+                        @include mobile-button;
+                    }
 
                     &:focus {
                         outline: none;
+                    }
+                }
+
+                &:not(:last-child) {
+                    margin-right: 15px;
+
+                    @media screen and (max-width: 980px) {
+                        margin-right: 0;
                     }
                 }
             }
@@ -203,4 +190,6 @@
             @include reset-list(0, 0);
         }
     }
+
+    @import './layout/_table';
 }

@@ -4,6 +4,10 @@
     box-shadow: var(--box--boxShadow);
     margin-top: 65px;
 
+    @media screen and (max-width: 980px) {
+        margin-top: 50px;
+    }
+
     &_logo {
         display: inline-flex;
         align-items: center;

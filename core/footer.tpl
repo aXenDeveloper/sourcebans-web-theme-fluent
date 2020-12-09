@@ -1,8 +1,8 @@
 	<!-- </div> -->
 	</div>
 	</main>
-	<footer>
-	    <div id="mainwrapper" class="layout_container layout_flex layout_flex-jc:space-between layout_flex-ai:center">
+	<footer class="footer">
+	    <div class="layout_container layout_flex layout_flex-jc:space-between layout_flex-ai:center">
 	        <div class="layout_flex layout_flex-fd:column layout_text:left">
 	            <a href="https://sbpp.github.io/" target="_blank" rel="noopener">SourceBans++</a> {$version}{$git}
 	            <span>Powered by <a href="https://www.sourcemod.net" target="_blank" rel="noopener">SourceMod</a></span>

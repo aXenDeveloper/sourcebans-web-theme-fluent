@@ -1,4 +1,4 @@
-.layout_table {
+&_table {
     @media (max-width: 980px) {
         max-width: calc(100vw - 40px);
         overflow-x: auto;

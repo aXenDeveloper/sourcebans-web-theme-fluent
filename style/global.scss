@@ -17,11 +17,13 @@
     --theme-area_background_dark_0_1: rgba(29, 29, 29, 0.1);
     --theme-nav_background: rgb(255, 255, 255);
     --theme-nav_text: 0, 0, 0;
-    --theme-nav_text_color: rgb(var(----theme-nav_text));
-    --theme-nav_text_color_0_7: rgba(var(----theme-nav_text), 0.7);
+    --theme-nav_text_color: rgb(var(--theme-nav_text));
+    --theme-nav_text_color_0_7: rgba(var(--theme-nav_text), 0.7);
+    --theme-nav_text_color_0_1: rgba(var(--theme-nav_text), 0.1);
 
     --theme-footer_text: rgb(53, 60, 65);
     --theme-footer_background: var(--theme-nav_background);
+    --theme-nav-mobile: rgba(0, 0, 0, 0.4);
 
     --box--radius: 4px;
     --box--boxShadow: 0px 2px 4px -1px var(--theme-area_background_dark_0_1);
@@ -51,6 +53,14 @@
     margin: $margin;
     padding: $padding;
     list-style: none;
+}
+
+@mixin mobile-button {
+    width: 44px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 * {
@@ -84,18 +94,17 @@ a {
 @import './scss/_header';
 @import './scss/_nav';
 @import './scss/_animation';
-@import './scss/_table';
 @import './scss/_dark';
 @import './scss/_old';
 
 /* ================ Show / Hide ================ */
-@media (min-width: 980px) {
+@media screen and (min-width: 980px) {
     .responsive_hide\:desktop {
         display: none !important;
     }
 }
 
-@media (max-width: 980px) {
+@media screen and (max-width: 980px) {
     .responsive_show\:desktop {
         display: none !important;
     }

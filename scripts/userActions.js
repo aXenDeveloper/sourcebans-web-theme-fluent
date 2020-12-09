@@ -17,7 +17,7 @@ const setColorTheme = picker => {
         ${colorColor} { color: ${picker}; }
         .tee .layout_input:focus { box-shadow: ${picker}4d 0px 0px 0px 4px; }
     `;
-    selectElements.colorReset.style.display = 'block';
+    selectElements.colorReset.style.display = 'flex';
     localStorage.setItem(localStorageName.color, picker);
 };
 
