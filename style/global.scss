@@ -163,3 +163,23 @@ a {
     overflow: hidden;
     transition: max-height 0.3s ease;
 }
+
+.ban_list_detal {
+    @include reset-list(0, 0);
+    flex: 1;
+
+    li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 5px 0;
+
+        span {
+            display: block;
+        }
+
+        span:first-child {
+            width: 200px;
+        }
+    }
+}

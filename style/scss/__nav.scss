@@ -9,6 +9,10 @@
             &.active {
                 border-left: 5px solid var(--layout_main--color);
                 font-weight: bold;
+
+                a {
+                    transform: translateX(-5px);
+                }
             }
 
             a {
@@ -89,6 +93,10 @@
                     @include reset-list(0, 0);
 
                     li {
+                        &.active {
+                            font-weight: bold;
+                        }
+
                         a {
                             display: block;
                             color: var(--theme-nav_text_color_0_7) !important;

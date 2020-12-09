@@ -52,7 +52,9 @@
                     <ul>
                         {foreach from=$navbar item=nav}
                             <li class="{$nav.state}">
-                                <a href="index.php?p={$nav.endpoint}" class="tip" title="{$nav.title}::{$nav.description}" target="_self">{$nav.title}</a>
+                                <a href="index.php?p={$nav.endpoint}" class="tip" title="{$nav.title}::{$nav.description}" target="_self">
+                                    <i class="fas fa-bars"></i> {$nav.title}
+                                </a>
                             </li>
                         {/foreach}
                     </ul>
@@ -66,7 +68,9 @@
             <ul>
                 {foreach from=$navbar item=nav}
                     <li class="{$nav.state}">
-                        <a href="index.php?p={$nav.endpoint}" class="tip" title="{$nav.title}::{$nav.description}" target="_self">{$nav.title}</a>
+                        <a href="index.php?p={$nav.endpoint}" class="tip" title="{$nav.title}::{$nav.description}" target="_self">
+                            <i class="fas fa-bars"></i> {$nav.title}
+                        </a>
                     </li>
                 {/foreach}
             </ul>
@@ -74,7 +78,9 @@
                 {if $isAdmin}
                     {foreach from=$adminbar item=admin}
                         <li {if $admin.state}class="{$admin.state}" {/if}>
-                            <a class="nav_link {$admin.state}" href="index.php?p=admin&c={$admin.endpoint}">{$admin.title}</a>
+                            <a class="nav_link {$admin.state}" href="index.php?p=admin&c={$admin.endpoint}">
+                                <i class="fas fa-bars"></i> {$admin.title}
+                            </a>
                         </li>
                     {/foreach}
                 {/if}

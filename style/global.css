@@ -111,6 +111,12 @@ a:hover {
   margin-bottom: 15px;
 }
 
+.layout_list\:reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .layout_padding {
   padding: 20px;
 }
@@ -190,6 +196,10 @@ a:hover {
 
 .layout_text\:right {
   text-align: right;
+}
+
+.layout_text\:italic {
+  font-style: italic;
 }
 
 .layout_input {
@@ -300,6 +310,13 @@ a:hover {
   margin: 0;
   padding: 0;
   list-style: none;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 980px) {
+  .layout_topBar_action {
+    margin-right: initial;
+  }
 }
 
 .layout_topBar_action li {
@@ -401,8 +418,8 @@ a:hover {
   height: 16px;
 }
 
-.layout_table table_hide > td {
-  padding: 0;
+.layout_table_hide > td {
+  padding: 0 !important;
 }
 
 .layout td.listtable_1_unbanned {
@@ -477,6 +494,11 @@ a:hover {
 .nav ul li.active {
   border-left: 5px solid var(--layout_main--color);
   font-weight: bold;
+}
+
+.nav ul li.active a {
+  -webkit-transform: translateX(-5px);
+          transform: translateX(-5px);
 }
 
 .nav ul li a {
@@ -565,6 +587,10 @@ a:hover {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.nav_mobile_tab nav ul li.active {
+  font-weight: bold;
 }
 
 .nav_mobile_tab nav ul li a {
@@ -1620,5 +1646,35 @@ hr {
   overflow: hidden;
   -webkit-transition: max-height 0.3s ease;
   transition: max-height 0.3s ease;
+}
+
+.ban_list_detal {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.ban_list_detal li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 0;
+}
+
+.ban_list_detal li span {
+  display: block;
+}
+
+.ban_list_detal li span:first-child {
+  width: 200px;
 }
 /*# sourceMappingURL=global.css.map */

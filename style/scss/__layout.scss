@@ -41,6 +41,12 @@
         }
     }
 
+    &_list {
+        &\:reset {
+            @include reset-list(0, 0);
+        }
+    }
+
     &_padding {
         padding: 20px;
 
@@ -99,11 +105,17 @@
         &\:center {
             text-align: center;
         }
+
         &\:left {
             text-align: left;
         }
+
         &\:right {
             text-align: right;
+        }
+
+        &\:italic {
+            font-style: italic;
         }
     }
 
@@ -150,6 +162,11 @@
 
         &_action {
             @include reset-list(0, 0);
+            margin-right: auto;
+
+            @media screen and (max-width: 980px) {
+                margin-right: initial;
+            }
 
             li {
                 font-size: 20px;

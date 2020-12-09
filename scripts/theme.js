@@ -57,3 +57,5 @@ jscolor.presets.default = {
     forceStyle: false,
     onInput: 'setColorTheme(this)'
 };
+
+document.querySelectorAll('.layout_button').forEach(e => e.addEventListener('click', el => el.stopPropagation()))

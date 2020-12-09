@@ -41,11 +41,11 @@
                 }
             }
         }
+    }
 
-        &_hide {
-            > td {
-                padding: 0;
-            }
+    &_hide {
+        > td {
+            padding: 0 !important;
         }
     }
 }
