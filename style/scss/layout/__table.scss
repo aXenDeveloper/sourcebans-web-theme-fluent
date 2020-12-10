@@ -9,7 +9,10 @@
         width: 100%;
         border-spacing: 0;
         color: var(--theme-text_light);
-        white-space: nowrap;
+
+        @media (max-width: 980px) {
+            white-space: nowrap;
+        }
 
         thead,
         td.listtable_top {

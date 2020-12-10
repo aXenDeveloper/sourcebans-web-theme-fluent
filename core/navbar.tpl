@@ -35,32 +35,32 @@
     </div>
 
     <div id="layout_mobile" class="nav_mobile">
-        <div class="nav_mobile_tab">
-            <button id="button_mobile_close" class="nav_mobile_close">
-                <i class="fas fa-times"></i>
-            </button>
+        <button id="button_mobile_close" class="nav_mobile_close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="nav_mobile_content">
 
-            <div class="nav_mobile_content">
-                <div class="nav_mobile_tab_top layout_padding layout_flex">
-                    {if $login}
-                        <a class="layout_button layout_button:important layout_button:full" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i> Logout</a>
-                    {else}
-                        <a class="layout_button layout_button:success layout_button:full" href='index.php?p=login'>Existing user? Sign In</a>
-                    {/if}
-                </div>
-                <nav class="nav_mobile_tab_nav">
-                    <ul>
-                        {foreach from=$navbar item=nav}
-                            <li class="{$nav.state}">
-                                <a href="index.php?p={$nav.endpoint}" class="tip" title="{$nav.title}::{$nav.description}" target="_self">
-                                    {$nav.title}
-                                </a>
-                            </li>
-                        {/foreach}
-                    </ul>
-                </nav>
+            <div class="nav_mobile_tab_top layout_padding layout_flex">
+                {if $login}
+                    <a class="layout_button layout_button:important layout_button:full" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i> Logout</a>
+                {else}
+                    <a class="layout_button layout_button:success layout_button:full" href='index.php?p=login'>Existing user? Sign In</a>
+                {/if}
             </div>
+            <nav class="nav_mobile_tab_nav">
+                <ul>
+                    {foreach from=$navbar item=nav}
+                        <li class="{$nav.state}">
+                            <a href="index.php?p={$nav.endpoint}" class="tip" title="{$nav.title}::{$nav.description}" target="_self">
+                                {$nav.title}
+                            </a>
+                        </li>
+                    {/foreach}
+                </ul>
+            </nav>
+
         </div>
+        <div class="nav_mobile_background"></div>
     </div>
 
     <nav id="navBar" class="nav responsive_show:desktop">

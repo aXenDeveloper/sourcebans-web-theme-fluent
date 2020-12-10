@@ -51,7 +51,98 @@
     }
 
     &_mobile {
-        display: none;
+        &.show {
+            .nav_mobile_content {
+                transform: translateX(0);
+            }
+
+            .nav_mobile_background {
+                display: block;
+            }
+
+            .nav_mobile_close {
+                animation: fadeIn 0.2s 0.5s ease-out forwards;
+            }
+        }
+
+        &_content {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1100;
+            width: 340px;
+            max-width: calc(100% - 50px);
+            background-color: var(--theme-nav_background);
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+            transform: translateX(calc(100% + 45px));
+            transition: transform 0.2s ease-in-out;
+            overflow: auto;
+        }
+
+        &_tab {
+            &_nav {
+                ul {
+                    @include reset-list(0, 0);
+
+                    li {
+                        &.active {
+                            font-weight: bold;
+                        }
+
+                        a {
+                            display: block;
+                            color: var(--theme-nav_text_color_0_7) !important;
+                            padding: 12px 20px;
+                        }
+                    }
+                }
+            }
+
+            &_top {
+                background-color: var(--theme-nav_background);
+                position: sticky;
+                top: 0;
+                border-bottom: 1px solid var(--theme-nav_text_color_0_1);
+            }
+        }
+
+        &_background {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--theme-nav-mobile);
+        }
+
+        &_open {
+            @include mobile-button;
+            font-size: 22px;
+            background: transparent;
+            border: 0;
+            color: var(--backdrop-text_color);
+        }
+
+        &_close {
+            background: var(--theme-nav_background);
+            width: 35px;
+            height: 35px;
+            border-radius: 40px;
+            color: var(--backdrop-text_color);
+            text-align: center;
+            font-size: 22px;
+            position: fixed;
+            opacity: 0;
+            top: 5px;
+            right: 345px;
+            z-index: 2000;
+            border: 0;
+        }
+
+        /* display: none;
         opacity: 0;
 
         &.show {
@@ -135,6 +226,6 @@
             right: 345px;
             z-index: 2000;
             border: 0;
-        }
+        } */
     }
 }
