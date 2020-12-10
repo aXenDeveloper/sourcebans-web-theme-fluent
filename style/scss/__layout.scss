@@ -128,8 +128,21 @@
         border: 1px solid var(--input--border);
         width: 100%;
 
+        &-checked {
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px 0 0;
+            border: 0;
+
+            &:focus {
+                box-shadow: var(--input--border-focusShadow);
+                border: 1px solid var(--layout_main--color);
+                outline: 0;
+            }
+        }
+
         &:focus {
-            box-shadow: var(input--border-focusShadow);
+            box-shadow: var(--input--border-focusShadow);
             border: 1px solid var(--layout_main--color);
             outline: 0;
         }

@@ -213,9 +213,23 @@ a:hover {
   width: 100%;
 }
 
+.layout_input-checked {
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 10px 0 0;
+  border: 0;
+}
+
+.layout_input-checked:focus {
+  -webkit-box-shadow: var(--input--border-focusShadow);
+          box-shadow: var(--input--border-focusShadow);
+  border: 1px solid var(--layout_main--color);
+  outline: 0;
+}
+
 .layout_input:focus {
-  -webkit-box-shadow: var(input--border-focusShadow);
-          box-shadow: var(input--border-focusShadow);
+  -webkit-box-shadow: var(--input--border-focusShadow);
+          box-shadow: var(--input--border-focusShadow);
   border: 1px solid var(--layout_main--color);
   outline: 0;
 }
@@ -373,13 +387,6 @@ a:hover {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-@media (max-width: 980px) {
-  .layout_table {
-    max-width: calc(100vw - 40px);
-    overflow-x: auto;
-  }
 }
 
 .layout_table table {

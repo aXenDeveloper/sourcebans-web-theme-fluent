@@ -17,8 +17,8 @@
                         <div id="loginPassword.msg" class="badentry"></div>
                     </li>
                     <li class="layout_flex layout_flex-jc:space-between layout_flex-ai:center">
-                        <div>
-                            <input id="loginRememberMe" type="checkbox" name="remember" value="checked" />
+                        <div class="layout_flex layout_flex-jc:space-between layout_flex-ai:center">
+                            <input id="loginRememberMe" class="layout_input-checked" type="checkbox" name="remember" value="checked" />
                             <span onclick="($('loginRememberMe').checked?$('loginRememberMe').checked=false:$('loginRememberMe').checked=true)">Remember me</span>
                         </div>
     

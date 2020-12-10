@@ -53,7 +53,7 @@
                         {foreach from=$navbar item=nav}
                             <li class="{$nav.state}">
                                 <a href="index.php?p={$nav.endpoint}" class="tip" title="{$nav.title}::{$nav.description}" target="_self">
-                                    <i class="fas fa-bars"></i> {$nav.title}
+                                    {$nav.title}
                                 </a>
                             </li>
                         {/foreach}
@@ -69,7 +69,7 @@
                 {foreach from=$navbar item=nav}
                     <li class="{$nav.state}">
                         <a href="index.php?p={$nav.endpoint}" class="tip" title="{$nav.title}::{$nav.description}" target="_self">
-                            <i class="fas fa-bars"></i> {$nav.title}
+                            {$nav.title}
                         </a>
                     </li>
                 {/foreach}
@@ -79,7 +79,7 @@
                     {foreach from=$adminbar item=admin}
                         <li {if $admin.state}class="{$admin.state}" {/if}>
                             <a class="nav_link {$admin.state}" href="index.php?p=admin&c={$admin.endpoint}">
-                                <i class="fas fa-bars"></i> {$admin.title}
+                                {$admin.title}
                             </a>
                         </li>
                     {/foreach}
