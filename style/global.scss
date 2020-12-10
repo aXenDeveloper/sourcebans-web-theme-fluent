@@ -111,6 +111,11 @@ a {
 }
 
 /* ================ Main ================ */
+@media screen and (min-width: 980px) {
+    main {
+        display: flex;
+    }
+}
 .layout_body {
     margin: 20px 0;
 }

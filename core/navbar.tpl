@@ -1,4 +1,4 @@
-<main class="layout_flex">
+<main>
     <div class="layout_topBar">
         <div class="layout_container layout_flex layout_flex-jc:end layout_flex-ai:center">
             <ul class="layout_topBar_action layout_padding:half layout_flex">
