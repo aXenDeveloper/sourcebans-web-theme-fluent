@@ -7,7 +7,7 @@
     --header--height: 80px;
     --theme-text_color: #353c41;
     --theme-page_background: #edf0f4;
-    --theme-text_light: rgb(45, 45, 45);
+    --theme-text_light: rgb(76, 86, 101);
 
     --theme-header_code: 255, 255, 255;
     --theme-header: rgb(var(--theme-header_code));
@@ -20,6 +20,9 @@
     --theme-nav_text_color: rgb(var(--theme-nav_text));
     --theme-nav_text_color_0_7: rgba(var(--theme-nav_text), 0.7);
     --theme-nav_text_color_0_1: rgba(var(--theme-nav_text), 0.1);
+
+    --theme-area_background_reset: rgb(255, 255, 255);
+    --theme-area_background_reset_0_9: rgba(255, 255, 255, 0.9);
 
     --theme-footer_text: rgb(53, 60, 65);
     --theme-footer_background: var(--theme-nav_background);
@@ -40,13 +43,28 @@
     --input--border: rgba(113, 128, 150, 0.4);
     --input--border-focusShadow: var(--layout_main--color_0_3) 0px 0px 0px 4px;
 
-    --table-unbanned: #eaffe9;
-    --table-banned: #fff7e4;
-    --table-permanent: #ffe0dc;
-
     --backdrop-filter-value: blur(15px);
     --backdrop-background: rgba(var(--theme-header_code), 0.84);
     --backdrop-text_color: rgb(0, 0, 0);
+
+    //  ========== Button ==========
+    --button-success: rgb(38, 123, 60);
+    --button-important: rgb(202, 30, 30);
+    --button-light: rgb(232, 242, 250);
+    --button-light-text: rgb(14, 76, 121);
+
+    //  ========== Table ==========
+    --table-unbanned-code: 44, 140, 105;
+    --table-unbanned: rgba(var(--table-unbanned-code), 0.1);
+    --table-unbanned-text: rgb(var(--table-unbanned-code));
+
+    --table-banned-code: 221, 107, 32;
+    --table-banned: rgba(var(--table-banned-code), 0.1);
+    --table-banned-text: rgb(var(--table-banned-code));
+
+    --table-permanent-code: 197, 48, 48;
+    --table-permanent: rgba(var(--table-permanent-code), 0.1);
+    --table-permanent-text: rgb(var(--table-permanent-code));
 }
 
 @mixin reset-list($margin, $padding) {

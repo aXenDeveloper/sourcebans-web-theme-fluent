@@ -20,8 +20,8 @@
     
                     <input type="hidden" name="page" id="page" value="{$page}">
     
-                    <a class="layout_button layout_button:important" onclick="ProcessComment();">Add comment</a>
-                    <a class="layout_button layout_button:important" onclick="history.go(-1)">Cancel</a>
+                    <a class="layout_button" onclick="ProcessComment();">Add comment</a>
+                    <a class="layout_button layout_button:light" onclick="history.go(-1)">Cancel</a>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@
     text-align: center;
     padding: 10px 20px;
     border-radius: var(--layout_button--border-radius);
-    background-color: #31708f;
+    background-color: var(--layout_main--color);
     color: #fff !important;
     position: relative;
     z-index: 1;
@@ -36,11 +36,16 @@
     }
 
     &\:success {
-        background-color: rgb(38, 123, 60);
+        background-color: var(--button-success);
     }
 
     &\:important {
-        background-color: rgb(202, 30, 30);
+        background-color: var(--button-important);
+    }
+
+    &\:light {
+        background-color: var(--button-light);
+        color: var(--button-light-text) !important;
     }
 
     &\:full {

@@ -263,3 +263,18 @@
 
     @import './layout/_table';
 }
+
+.listtable_1_unbanned {
+    background-color: var(--table-unbanned);
+    color: var(--table-unbanned-text);
+}
+
+.listtable_1_permanent {
+    background-color: var(--table-permanent);
+    color: var(--table-permanent-text);
+}
+
+.listtable_1_banned {
+    background-color: var(--table-banned);
+    color: var(--table-banned-text);
+}
