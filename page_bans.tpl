@@ -1,61 +1,32 @@
 {if $comment}
-    <h3>{$commenttype} Comment</h3>
-    <table width="90%" align="center" border="0" style="border-collapse:collapse;" id="group.details" cellpadding="3">
-        <tr>
-            <td valign="top">
-                <div class="rowdesc">{help_icon title="Comment Text" message="Type the text you would like to say."}Comment</div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div align="left">
-                    <textarea rows="10" cols="60" class="submit-fields" style="width:500px;" id="commenttext" name="commenttext">{$commenttext}</textarea>
-                </div>
-                <div id="commenttext.msg" class="badentry"></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="hidden" name="bid" id="bid" value="{$comment}">
-                <input type="hidden" name="ctype" id="ctype" value="{$ctype}">
-                {if $cid != ""}
-                    <input type="hidden" name="cid" id="cid" value="{$cid}">
-                {else}
-                    <input type="hidden" name="cid" id="cid" value="-1">
-                {/if}
-                <input type="hidden" name="page" id="page" value="{$page}">
-                {sb_button text="$commenttype Comment" onclick="ProcessComment();" class="ok" id="acom" submit=false}&nbsp;
-                {sb_button text="Back" onclick="history.go(-1)" class="cancel" id="aback"}
-            </td>
-        </tr>
-        {foreach from="$othercomments" item="com"}
-            <tr>
-                <td colspan='3'>
-                    <hr>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>{$com.comname}</b></td>
-                <td align="right"><b>{$com.added}</b>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2'>
-                    {$com.commenttxt}
-                </td>
-            </tr>
-            {if $com.editname != ''}
-                <tr>
-                    <td colspan='3'>
-                        <span style='font-size:6pt;color:grey;'>last edit {$com.edittime} by {$com.editname}</span>
-                    </td>
-                </tr>
-            {/if}
-        {/foreach}
-    </table>
-{else}
+    <div class="layout_flex layout_flex-jc:center layout_flex-ai:center">
+        <div class="layout_box">
+            <div class="layout_box_title">
+                <h2>{$commenttype} Comment</h2>
+            </div>
     
+            <div class="layout_padding">
+                <textarea rows="10" cols="60" class="submit-fields" style="width:500px;" id="commenttext" name="commenttext">{$commenttext}</textarea>
+                <div id="commenttext.msg" class="badentry"></div>
+                <div class="layout_margin-top:half layout_flex layout_flex-jc:space-between layout_flex-ai:center">
+                    <input type="hidden" name="bid" id="bid" value="{$comment}">
+                    <input type="hidden" name="ctype" id="ctype" value="{$ctype}">
+    
+                    {if $cid != ""}
+                        <input type="hidden" name="cid" id="cid" value="{$cid}">
+                    {else}
+                        <input type="hidden" name="cid" id="cid" value="-1">
+                    {/if}
+    
+                    <input type="hidden" name="page" id="page" value="{$page}">
+    
+                    <a class="layout_button layout_button:important" onclick="ProcessComment();">Add comment</a>
+                    <a class="layout_button layout_button:important" onclick="history.go(-1)">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{else}
     <div id="banlist-nav"><a href="index.php?p=banlist&hideinactive={if $hidetext == 'Hide'}true{else}false{/if}{$searchlink|htmlspecialchars}" title="{$hidetext} inactive">{$hidetext} inactive</a> | <i>Total Bans: {$total_bans}</i></div>
     
     <h3 align="left">Banlist Overview - <i>Total Bans: {$total_bans}</i></h3>
@@ -90,7 +61,7 @@
                             <tr class="collapse">
                                 {if $view_bans}
                                     <td>
-                                        <input type="checkbox" name="chkb_{$smarty.foreach.banlist.index}" id="chkb_{$smarty.foreach.banlist.index}" value="{$ban.ban_id}">
+                                        <input type="checkbox" name="chkb_{$smarty.foreach.banlist.index}" id="chkb_{$smarty.foreach.banlist.index}" class="layout_input-checkbox" value="{$ban.ban_id}">
                                     </td>
                                 {/if}
                                 <td class="layout_text:center">{$ban.mod_icon}</td>
@@ -301,7 +272,7 @@
         
                                             </ul>
         
-                                            <ul class="layout_list:reset">
+                                            <ul class="ban_action">
                                                 {if $view_bans}
                                                     {if $ban.unbanned && $ban.reban_link != false}
                                                         <li>{$ban.reban_link}</li>
@@ -361,4 +332,7 @@
         {/if}
     </div>
     <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
+    <script>
+        document.querySelectorAll('.layout_input-checkbox').forEach(e => e.addEventListener('click', el => el.stopPropagation()));
+    </script>
 {/if}

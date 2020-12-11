@@ -8,17 +8,17 @@
                 -{if $steamlogin_show == 1}-
                     <li>
                         <label for="loginUsername">Username</label>
-                        <input id="loginUsername" class="layout_input" type="text" name="username" value="" placeholder="Username" />
+                        <input id="loginUsername" class="layout_input layout_margin-top:half" type="text" name="username" value="" placeholder="Username" />
                         <div id="loginUsername.msg" class="badentry"></div>
                     </li>
                     <li>
                         <label for="loginPassword">Password</label>
-                        <input id="loginPassword" class="layout_input" type="password" name="password" value="" placeholder="Password" />
+                        <input id="loginPassword" class="layout_input layout_margin-top:half" type="password" name="password" value="" placeholder="Password" />
                         <div id="loginPassword.msg" class="badentry"></div>
                     </li>
                     <li class="layout_flex layout_flex-jc:space-between layout_flex-ai:center">
                         <div class="layout_flex layout_flex-jc:space-between layout_flex-ai:center">
-                            <input id="loginRememberMe" class="layout_input-checked" type="checkbox" name="remember" value="checked" />
+                            <input id="loginRememberMe" class="layout_input-checkbox" type="checkbox" name="remember" value="checked" />
                             <span onclick="($('loginRememberMe').checked?$('loginRememberMe').checked=false:$('loginRememberMe').checked=true)">Remember me</span>
                         </div>
     

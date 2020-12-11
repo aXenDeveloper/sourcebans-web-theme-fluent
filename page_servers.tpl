@@ -48,4 +48,7 @@
 
 {if $IN_SERVERS_PAGE}
     <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
+    <script>
+        document.querySelectorAll('.layout_button').forEach(e => e.addEventListener('click', el => el.stopPropagation()));
+    </script>
 {/if}

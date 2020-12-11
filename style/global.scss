@@ -188,3 +188,11 @@ a {
         }
     }
 }
+
+.ban {
+    &_action {
+        @include reset-list(0, 10px);
+        width: 200px;
+        background: #f1f1f1;
+    }
+}
