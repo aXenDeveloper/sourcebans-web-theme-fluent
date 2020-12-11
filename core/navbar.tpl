@@ -1,7 +1,7 @@
 <main>
     <div class="layout_topBar">
-        <div class="layout_container layout_flex layout_flex-jc:end layout_flex-ai:center">
-            <ul class="layout_topBar_action layout_padding:half layout_flex">
+        <div class="layout_container flex flex-jc:end flex-ai:center">
+            <ul class="layout_topBar_action flex">
                 <li>
                     <button id="user_action_change_dark"><i class="fas fa-moon"></i></button>
                 </li>
@@ -13,17 +13,17 @@
                 </li>
             </ul>
 
-            <ul class="layout_topBar_userBar responsive_show:desktop layout_flex layout_flex-ai:center">
+            <ul class="layout_topBar_userBar responsive_show:desktop flex flex-ai:center">
                 {if $login}
                     <li>
                         Welcome, <a href='index.php?p=account'><i class="fas fa-user"></i> {$username}</a>
                     </li>
                     <li>
-                        <a class="layout_button layout_button:important" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <a class="button button:important" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </li>
                 {else}
                     <li>
-                        <a class="layout_button layout_button:success" href='index.php?p=login'>Existing user? Sign In</a>
+                        <a class="button button:success" href='index.php?p=login'>Existing user? Sign In</a>
                     </li>
                 {/if}
             </ul>
@@ -40,11 +40,11 @@
         </button>
         <div class="nav_mobile_content">
 
-            <div class="nav_mobile_tab_top layout_padding layout_flex">
+            <div class="nav_mobile_tab_top padding flex">
                 {if $login}
-                    <a class="layout_button layout_button:important layout_button:full" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <a class="button button:important button:full" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i> Logout</a>
                 {else}
-                    <a class="layout_button layout_button:success layout_button:full" href='index.php?p=login'>Existing user? Sign In</a>
+                    <a class="button button:success button:full" href='index.php?p=login'>Existing user? Sign In</a>
                 {/if}
             </div>
             <nav class="nav_mobile_tab_nav">
@@ -87,4 +87,4 @@
             </ul>
         </div>
     </nav>
-    <div id="mainwrapper" class="layout_body layout_container layout_flex:11">
+    <div id="mainwrapper" class="layout_body layout_container flex:11">

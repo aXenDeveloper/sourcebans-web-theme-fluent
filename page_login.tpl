@@ -1,25 +1,29 @@
-<div class="layout_flex layout_flex-jc:center layout_flex-ai:center">
+<div class="flex flex-jc:center flex-ai:center">
     <div class="layout_box_small layout_box">
         <div class="layout_box_title">
             <h2>Admin Login</h2>
         </div>
-        <div class="layout_padding">
+        <div class="padding">
             <ul class="layout_box_small_ul">
                 -{if $steamlogin_show == 1}-
                     <li>
                         <label for="loginUsername">Username</label>
-                        <input id="loginUsername" class="layout_input layout_margin-top:half" type="text" name="username" value="" placeholder="Username" />
-                        <div id="loginUsername.msg" class="badentry"></div>
+                        <input id="loginUsername" class="input margin-top:half" type="text" name="username" />
+                        <div id="loginUsername.msg" class="message message:error margin-top:half" style="display: none;"></div>
                     </li>
                     <li>
                         <label for="loginPassword">Password</label>
-                        <input id="loginPassword" class="layout_input layout_margin-top:half" type="password" name="password" value="" placeholder="Password" />
-                        <div id="loginPassword.msg" class="badentry"></div>
+                        <input id="loginPassword" class="input margin-top:half" type="password" name="password" />
+                        <div id="loginPassword.msg" class="message message:error margin-top:half" style="display: none;"></div>
                     </li>
-                    <li class="layout_flex layout_flex-jc:space-between layout_flex-ai:center">
-                        <div class="layout_flex layout_flex-jc:space-between layout_flex-ai:center">
-                            <input id="loginRememberMe" class="layout_input-checkbox" type="checkbox" name="remember" value="checked" />
-                            <span onclick="($('loginRememberMe').checked?$('loginRememberMe').checked=false:$('loginRememberMe').checked=true)">Remember me</span>
+                    <li class="flex flex-jc:space-between flex-ai:center">
+                        <div class="flex flex-jc:space-between flex-ai:center">
+                            <span class="input_checkbox">
+                                <label>
+                                    <input id="loginRememberMe" type="checkbox" name="remember" value="checked" /> Remember me
+                                    <span></span>
+                                </label>
+                            </span>
                         </div>
     
                         -{if $steamlogin_show == 1}-
@@ -29,10 +33,10 @@
                 -{/if}-
                 -{if $steamlogin_show == 1}-
                     <li>
-                        <button onclick="DoLogin('');" name="alogin" class="layout_button layout_button:success layout_button:full" id="alogin">Login</button>
+                        <button onclick="DoLogin('');" name="alogin" class="button button:success button:full" id="alogin">Login</button>
                     </li>
                 -{/if}-
-                <li class="layout_text:center">
+                <li class="text:center">
                     <a href="index.php?p=login&o=steam">
                         <img src="images/steamlogin.png" alt="Login Steam">
                     </a>

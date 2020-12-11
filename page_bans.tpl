@@ -1,14 +1,14 @@
 {if $comment}
-    <div class="layout_flex layout_flex-jc:center layout_flex-ai:center">
+    <div class="flex flex-jc:center flex-ai:center">
         <div class="layout_box">
             <div class="layout_box_title">
                 <h2>{$commenttype} Comment</h2>
             </div>
     
-            <div class="layout_padding">
+            <div class="padding">
                 <textarea rows="10" cols="60" class="submit-fields" style="width:500px;" id="commenttext" name="commenttext">{$commenttext}</textarea>
                 <div id="commenttext.msg" class="badentry"></div>
-                <div class="layout_margin-top:half layout_flex layout_flex-jc:space-between layout_flex-ai:center">
+                <div class="margin-top:half flex flex-jc:space-between flex-ai:center">
                     <input type="hidden" name="bid" id="bid" value="{$comment}">
                     <input type="hidden" name="ctype" id="ctype" value="{$ctype}">
     
@@ -20,8 +20,8 @@
     
                     <input type="hidden" name="page" id="page" value="{$page}">
     
-                    <a class="layout_button" onclick="ProcessComment();">Add comment</a>
-                    <a class="layout_button layout_button:light" onclick="history.go(-1)">Cancel</a>
+                    <a class="button button:primary" onclick="ProcessComment();">Add comment</a>
+                    <a class="button button:light" onclick="history.go(-1)">Cancel</a>
                 </div>
             </div>
         </div>
@@ -34,11 +34,11 @@
     {php} require (TEMPLATES_PATH . "/admin.bans.search.php");{/php}
     
     <div class="layout_box">
-        <div class="layout_table layout_padding">
+        <div class="table padding">
             <div>
                 {$ban_nav}
             </div>
-            <div class="layout_table_box">
+            <div class="table_box">
                 <table>
                     <thead>
                         <tr>
@@ -48,12 +48,12 @@
                                 </th>
                             {/if}
                             <th>MOD/Country</th>
-                            <th class="layout_text:left">Date</th>
-                            <th class="layout_text:left">Player</th>
+                            <th class="text:left">Date</th>
+                            <th class="text:left">Player</th>
                             {if !$hideadminname}
-                                <th class="layout_text:left">Admin</th>
+                                <th class="text:left">Admin</th>
                             {/if}
-                            <th class="layout_text:left">Length</th>
+                            <th class="text:left">Length</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,14 +61,14 @@
                             <tr class="collapse">
                                 {if $view_bans}
                                     <td>
-                                        <input type="checkbox" name="chkb_{$smarty.foreach.banlist.index}" id="chkb_{$smarty.foreach.banlist.index}" class="layout_input-checkbox" value="{$ban.ban_id}">
+                                        <input type="checkbox" name="chkb_{$smarty.foreach.banlist.index}" id="chkb_{$smarty.foreach.banlist.index}" class="input-checkbox" value="{$ban.ban_id}">
                                     </td>
                                 {/if}
-                                <td class="layout_text:center">{$ban.mod_icon}</td>
+                                <td class="text:center">{$ban.mod_icon}</td>
                                 <td>{$ban.ban_date}</td>
         
                                 {if empty($ban.player)}
-                                    <td class="layout_text:italic">No nickname present</td>
+                                    <td class="text:italic">No nickname present</td>
                                 {else}
                                     <td>
                                         {if $ban.demo_available}
@@ -82,22 +82,22 @@
                                     {if !empty($ban.admin)}
                                         <td>{$ban.admin|escape:'html'}</td>
                                     {else}
-                                        <td class="layout_text:italic">Admin deleted</td>
+                                        <td class="text:italic">Admin deleted</td>
                                     {/if}
                                 {/if}
         
                                 <td class="{$ban.class}">{$ban.banlength}</td>
                             </tr>
-                            <tr class="layout_table_hide">
+                            <tr class="table_hide">
                                 <td colspan="8">
                                     <div class="collapse_content">
-                                        <div class="layout_padding layout_flex layout_flex-jc:space-between">
+                                        <div class="padding flex flex-jc:space-between">
                                             <ul class="ban_list_detal">
                                                 <li>
                                                     <span><i class="fas fa-user"></i> Player</span>
         
                                                     {if empty($ban.player)}
-                                                        <span class="layout_text:italic">No nickname present</span>
+                                                        <span class="text:italic">No nickname present</span>
                                                     {else}
                                                         <span>{$ban.player|escape:'html'|stripslashes}</span>
                                                     {/if}
@@ -106,7 +106,7 @@
                                                     <span><i class="fab fa-steam-symbol"></i> Steam ID</span>
         
                                                     {if empty($ban.steamid)}
-                                                        <span class="layout_text:italic">No Steam ID present</span>
+                                                        <span class="text:italic">No Steam ID present</span>
                                                     {else}
                                                         <span>{$ban.steamid}</span>
                                                     {/if}
@@ -115,7 +115,7 @@
                                                     <span><i class="fab fa-steam-symbol"></i> Steam3 ID</span>
         
                                                     {if empty($ban.steamid)}
-                                                        <span class="layout_text:italic">No Steam3 ID present</span>
+                                                        <span class="text:italic">No Steam3 ID present</span>
                                                     {else}
                                                         <span>
                                                             <a href="http://steamcommunity.com/profiles/{$ban.steamid3}" target="_blank">{$ban.steamid3}</a>
@@ -126,7 +126,7 @@
                                                     <span><i class="fab fa-steam-symbol"></i> Steam Community</span>
         
                                                     {if empty($ban.steamid)}
-                                                        <span class="layout_text:italic">No Steam Community ID present</span>
+                                                        <span class="text:italic">No Steam Community ID present</span>
                                                     {else}
                                                         <span>
                                                             <a href="http://steamcommunity.com/profiles/{$ban.communityid}" target="_blank">{$ban.communityid}</a>
@@ -137,7 +137,7 @@
                                                     <span><i class="fas fa-network-wired"></i> IP address</span>
         
                                                     {if $ban.ip == "none"}
-                                                        <span class="layout_text:italic">No IP address present</span>
+                                                        <span class="text:italic">No IP address present</span>
                                                     {else}
                                                         <span>{$ban.ip}</span>
                                                     {/if}
@@ -156,7 +156,7 @@
                                                         <span><i class="fas fa-stop"></i> Unban reason</span>
             
                                                         {if $ban.ureason == ""}
-                                                            <span class="layout_text:italic">No reason present</span>
+                                                            <span class="text:italic">No reason present</span>
                                                         {else}
                                                             <span>{$ban.ureason}</span>
                                                         {/if}
@@ -167,7 +167,7 @@
                                                         {if !empty($ban.removedby)}
                                                             <span>{$ban.removedby|escape:'html'}</span>
                                                         {else}
-                                                            <span class="layout_text:italic">Admin deleted</span>
+                                                            <span class="text:italic">Admin deleted</span>
                                                         {/if}
                                                     </li>
                                                 {/if}
@@ -175,7 +175,7 @@
                                                     <span><i class="fas fa-clock"></i> Expires on</span>
         
                                                     {if $ban.expires == "never"}
-                                                        <span class="layout_text:italic">Not applicable</span>
+                                                        <span class="text:italic">Not applicable</span>
                                                     {else}
                                                         <span>{$ban.expires}</span>
                                                     {/if}
@@ -191,7 +191,7 @@
                                                         {if !empty($ban.admin)}
                                                             <span>{$ban.admin|escape:'html'}</span>
                                                         {else}
-                                                            <span class="layout_text:italic">Admin deleted</span>
+                                                            <span class="text:italic">Admin deleted</span>
                                                         {/if}
                                                     </li>
                                                 {/if}
@@ -202,7 +202,7 @@
                                                 <li>
                                                     <span>Blocked ({$ban.blockcount})</span>
                                                     {if $ban.banlog == ""}
-                                                        <span class="layout_text:italic">Never</span>
+                                                        <span class="text:italic">Never</span>
                                                     {else}
                                                         <span>{$ban.banlog}</span>
                                                     {/if}
@@ -210,7 +210,7 @@
                                                 {if $view_comments}
                                                     <li>
                                                         <span>Comments</span>
-                                                        <div class="layout_flex">
+                                                        <div class="flex">
             
                                                             {if $ban.commentdata != "None"}
                                                                 <table width="100%" border="0">
@@ -333,6 +333,6 @@
     </div>
     <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
     <script>
-        document.querySelectorAll('.layout_input-checkbox').forEach(e => e.addEventListener('click', el => el.stopPropagation()));
+        document.querySelectorAll('.input-checkbox').forEach(e => e.addEventListener('click', el => el.stopPropagation()));
     </script>
 {/if}

@@ -39,7 +39,6 @@
     --layout_button--border-radius: 4px;
 
     --input--shadow: rgba(44, 95, 140, 0.08);
-    --input--background: #fff;
     --input--border: rgba(113, 128, 150, 0.4);
     --input--border-focusShadow: var(--layout_main--color_0_3) 0px 0px 0px 4px;
 
@@ -65,6 +64,12 @@
     --table-permanent-code: 197, 48, 48;
     --table-permanent: rgba(var(--table-permanent-code), 0.1);
     --table-permanent-text: rgb(var(--table-permanent-code));
+
+    //  ========== Table ==========
+    --message-info: #1f7bbb;
+    --message-error: #c53030;
+    --message-general: #70767d;
+    --message-succes: #2a884b;
 }
 
 @mixin reset-list($margin, $padding) {
@@ -107,13 +112,71 @@ a {
     }
 }
 
+@import './scss/framework/buttons';
+@import './scss/framework/animations';
+@import './scss/framework/fonts';
+@import './scss/framework/tables';
+@import './scss/framework/inputs';
+@import './scss/framework/messages';
+
 @import './scss/_layout';
 @import './scss/_footer';
 @import './scss/_header';
 @import './scss/_nav';
-@import './scss/_animation';
 @import './scss/_dark';
 @import './scss/_old';
+
+.list {
+    &_reset {
+        @include reset-list(0, 0);
+    }
+}
+
+.flex {
+    display: flex;
+
+    &-jc {
+        &\:center {
+            justify-content: center;
+        }
+
+        &\:space-between {
+            justify-content: space-between;
+        }
+
+        &\:end {
+            justify-content: flex-end;
+        }
+
+        &\:start {
+            justify-content: flex-start;
+        }
+    }
+
+    &-ai {
+        &\:center {
+            align-items: center;
+        }
+
+        &\:start {
+            align-items: flex-start;
+        }
+
+        &\:end {
+            align-items: flex-end;
+        }
+    }
+
+    &-fd {
+        &\:column {
+            flex-direction: column;
+        }
+    }
+
+    &\:11 {
+        flex: 1;
+    }
+}
 
 /* ================ Show / Hide ================ */
 @media screen and (min-width: 980px) {
@@ -134,6 +197,7 @@ a {
         display: flex;
     }
 }
+
 .layout_body {
     margin: 20px 0;
 }

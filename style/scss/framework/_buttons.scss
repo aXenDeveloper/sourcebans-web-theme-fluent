@@ -1,11 +1,10 @@
-&_button {
+.button {
     display: block;
     font-size: 14px;
     font-weight: 400;
     text-align: center;
     padding: 10px 20px;
     border-radius: var(--layout_button--border-radius);
-    background-color: var(--layout_main--color);
     color: #fff !important;
     position: relative;
     z-index: 1;
@@ -41,6 +40,10 @@
 
     &\:important {
         background-color: var(--button-important);
+    }
+
+    &\:primary {
+        background-color: var(--layout_main--color);
     }
 
     &\:light {

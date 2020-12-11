@@ -33,7 +33,7 @@
             max-width: 450px;
 
             &_ul {
-                @include reset-list(0, 20px);
+                @include reset-list(0, 0);
 
                 li:not(:last-child) {
                     margin-bottom: 15px;
@@ -41,154 +41,6 @@
             }
         }
     }
-
-    &_list {
-        &\:reset {
-            @include reset-list(0, 0);
-        }
-    }
-
-    &_padding {
-        padding: 20px;
-
-        &\:half {
-            padding: 10px;
-        }
-    }
-
-    &_margin {
-        margin: 20px;
-
-        &\:half {
-            margin: 10px;
-        }
-
-        &-top {
-            margin-top: 20px;
-
-            &\:half {
-                margin-top: 10px;
-            }
-        }
-
-        &-bottom {
-            margin-bottom: 20px;
-
-            &\:half {
-                margin-bottom: 10px;
-            }
-        }
-
-        &-left {
-            margin-left: 20px;
-
-            &\:half {
-                margin-left: 10px;
-            }
-        }
-
-        &-right {
-            margin-right: 20px;
-
-            &\:half {
-                margin-right: 10px;
-            }
-        }
-    }
-
-    &_flex {
-        display: flex;
-
-        &-jc {
-            &\:center {
-                justify-content: center;
-            }
-
-            &\:space-between {
-                justify-content: space-between;
-            }
-
-            &\:end {
-                justify-content: flex-end;
-            }
-
-            &\:start {
-                justify-content: flex-start;
-            }
-        }
-
-        &-ai {
-            &\:center {
-                align-items: center;
-            }
-
-            &\:start {
-                align-items: flex-start;
-            }
-
-            &\:end {
-                align-items: flex-end;
-            }
-        }
-
-        &-fd {
-            &\:column {
-                flex-direction: column;
-            }
-        }
-
-        &\:11 {
-            flex: 1;
-        }
-    }
-
-    &_text {
-        &\:center {
-            text-align: center;
-        }
-
-        &\:left {
-            text-align: left;
-        }
-
-        &\:right {
-            text-align: right;
-        }
-
-        &\:italic {
-            font-style: italic;
-        }
-    }
-
-    &_input {
-        border-radius: 4px;
-        padding: 11px;
-        color: inherit;
-        box-shadow: var(--input--shadow) 0px 3px 4px -1px;
-        background-color: var(--input--background);
-        border: 1px solid var(--input--border);
-        width: 100%;
-
-        &-checkbox {
-            border-radius: 4px;
-            cursor: pointer;
-
-            &:focus {
-                box-shadow: var(--input--border-focusShadow);
-                border: 1px solid var(--layout_main--color);
-                outline: 0;
-            }
-        }
-
-        &:focus {
-            border-radius: 4px;
-            box-shadow: var(--input--border-focusShadow);
-            border: 1px solid var(--layout_main--color);
-            outline: 0;
-        }
-    }
-
-    @import './layout/_button';
 
     &_topBar {
         position: fixed;
@@ -201,7 +53,6 @@
         color: var(--backdrop-text_color);
         box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.53);
         padding: 10px 0;
-        height: 60px;
 
         @media screen and (max-width: 980px) {
             padding: 0;
@@ -260,8 +111,54 @@
             @include reset-list(0, 0);
         }
     }
+}
 
-    @import './layout/_table';
+.padding {
+    padding: 20px;
+
+    &\:half {
+        padding: 10px;
+    }
+}
+
+.margin {
+    margin: 20px;
+
+    &\:half {
+        margin: 10px;
+    }
+
+    &-top {
+        margin-top: 20px;
+
+        &\:half {
+            margin-top: 10px;
+        }
+    }
+
+    &-bottom {
+        margin-bottom: 20px;
+
+        &\:half {
+            margin-bottom: 10px;
+        }
+    }
+
+    &-left {
+        margin-left: 20px;
+
+        &\:half {
+            margin-left: 10px;
+        }
+    }
+
+    &-right {
+        margin-right: 20px;
+
+        &\:half {
+            margin-right: 10px;
+        }
+    }
 }
 
 .listtable_1_unbanned {
