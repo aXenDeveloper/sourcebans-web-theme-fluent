@@ -7,7 +7,9 @@
     
             <div class="padding">
                 <textarea rows="10" cols="60" class="submit-fields" style="width:500px;" id="commenttext" name="commenttext">{$commenttext}</textarea>
-                <div id="commenttext.msg" class="badentry"></div>
+    
+                <div id="commenttext.msg" class="message message:error" style="display:none;"></div>
+    
                 <div class="margin-top:half flex flex-jc:space-between flex-ai:center">
                     <input type="hidden" name="bid" id="bid" value="{$comment}">
                     <input type="hidden" name="ctype" id="ctype" value="{$ctype}">
@@ -28,24 +30,25 @@
     </div>
 {else}
     {php} require (TEMPLATES_PATH . "/admin.bans.search.php");{/php}
+    
+    <div class="layout_box margin-bottom padding:half flex flex-jc:space-between flex-ai:center m:flex-fd:column">
+        <span>
+            <a href="index.php?p=banlist&hideinactive={if $hidetext == 'Hide'}true{else}false{/if}{$searchlink|htmlspecialchars}" title="{$hidetext} inactive">{$hidetext} inactive</a> | <i>Total Bans: {$total_bans}</i>
+        </span>
+        <div class="pagination">
+            {$ban_nav}
+        </div>
+    </div>
+    
     <div class="layout_box">
         <div class="table padding">
-            <div class="flex flex-jc:space-between flex-ai:center margin-bottom:half">
-                <span>
-                    <a href="index.php?p=banlist&hideinactive={if $hidetext == 'Hide'}true{else}false{/if}{$searchlink|htmlspecialchars}" title="{$hidetext} inactive">{$hidetext} inactive</a> | <i>Total Bans: {$total_bans}</i>
-                </span>
-                <span>
-                    {$ban_nav}
-                </span>
-            </div>
-    
             <div class="table_box">
                 <table class="table_box">
                     <thead>
                         <tr>
                             {if $view_bans}
-                                <th>
-                                    <div class="ok" style="height:16px;width:16px;cursor:pointer;" title="Select All" name="tickswitch" id="tickswitch" onclick="TickSelectAll()"></div>
+                                <th class="text:left">
+                                    <input type="checkbox" title="Select All" name="tickswitch" id="tickswitch" onclick="TickSelectAll()" class="input-checkbox" />
                                 </th>
                             {/if}
                             <th>MOD/Country</th>
@@ -290,29 +293,52 @@
                 </table>
             </div>
         </div>
+    </div>
     
-        {if $can_export }
-            <a href="./exportbans.php?type=steam" title="Export Permanent SteamID Bans">Export Permanent SteamID Bans</a>&nbsp;&nbsp;|&nbsp;
-            <a href="./exportbans.php?type=ip" title="Export Permanent IP Bans">Export Permanent IP Bans</a>
+    <div class="layout_box padding:half margin-top flex flex-ai:center flex-jc:space-between m:flex-fd:column">
+        {if $general_unban || $can_delete}
+            <div>
+                <button onclick="TickSelectAll();return false;" title="Select All" name="tickswitchlink" id="tickswitchlink" class="button button-line button:light margin-right:half">Select All</button>
+        
+                <select name="bulk_action" id="bulk_action" onchange="BulkEdit(this,'{$admin_postkey}');">
+                    <option value="-1">Action</option>
+                    {if $general_unban}
+                        <option value="U">Unban</option>
+                    {/if}
+                    {if $can_delete}
+                        <option value="D">Delete</option>
+                    {/if}
+                </select>
+            </div>
         {/if}
     
     
-        {if $general_unban || $can_delete}
-            &nbsp;&nbsp;L&nbsp;&nbsp;<a href="#" onclick="TickSelectAll();return false;" title="Select All" name="tickswitchlink" id="tickswitchlink">Select All</a>&nbsp;&nbsp;|&nbsp;
-            <select name="bulk_action" id="bulk_action" onchange="BulkEdit(this,'{$admin_postkey}');">
-                <option value="-1">Action</option>
-                {if $general_unban}
-                    <option value="U">Unban</option>
-                {/if}
-                {if $can_delete}
-                    <option value="D">Delete</option>
-                {/if}
-            </select>
-            <hr>
+        {if $can_export}
+            <ul class="list-reset text:right">
+                <li>
+                    <a href="./exportbans.php?type=steam" title="Export Permanent SteamID Bans">Export Permanent SteamID Bans</a>
+                </li>
+                <li>
+                    <a href="./exportbans.php?type=ip" title="Export Permanent IP Bans">Export Permanent IP Bans</a>
+                </li>
+            </ul>
         {/if}
     </div>
+    
     <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
     <script>
         document.querySelectorAll('.input-checkbox').forEach(e => e.addEventListener('click', el => el.stopPropagation()));
     </script>
+    
+    {literal}
+        <script type="text/javascript">
+            window.addEvent('domready', function() {
+            {/literal}
+            {if $view_bans}
+                $('tickswitch').value = 0;
+            {/if}
+            {literal}
+            });
+        </script>
+    {/literal}
 {/if}

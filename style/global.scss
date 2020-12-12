@@ -127,7 +127,7 @@ a {
 @import './scss/_old';
 
 .list {
-    &_reset {
+    &-reset {
         @include reset-list(0, 0);
     }
 }
@@ -178,7 +178,7 @@ a {
     }
 }
 
-/* ================ Show / Hide ================ */
+/* ================ Responsive ================ */
 @media screen and (min-width: 980px) {
     .responsive_hide\:desktop {
         display: none !important;
@@ -188,6 +188,17 @@ a {
 @media screen and (max-width: 980px) {
     .responsive_show\:desktop {
         display: none !important;
+    }
+
+    // Mobile
+    .m {
+        &\:flex {
+            &-fd {
+                &\:column {
+                    flex-direction: column;
+                }
+            }
+        }
     }
 }
 
@@ -305,5 +316,16 @@ a {
 
     > *:not(:first-child):not(:last-child) {
         margin-right: 10px;
+    }
+}
+
+.pagination {
+    display: inline-flex;
+    line-height: 26px;
+    font-size: 12px;
+
+    a {
+        padding: 0 10px;
+        border-radius: 4px;
     }
 }

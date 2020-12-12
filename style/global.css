@@ -148,6 +148,10 @@ a:hover {
   color: var(--button-light-text) !important;
 }
 
+.button-line {
+  display: inline-block;
+}
+
 .button\:full {
   width: 100%;
 }
@@ -1523,7 +1527,7 @@ hr {
   display: block;
 }
 
-.list_reset {
+.list-reset {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1590,7 +1594,7 @@ hr {
           flex: 1;
 }
 
-/* ================ Show / Hide ================ */
+/* ================ Responsive ================ */
 @media screen and (min-width: 980px) {
   .responsive_hide\:desktop {
     display: none !important;
@@ -1600,6 +1604,12 @@ hr {
 @media screen and (max-width: 980px) {
   .responsive_show\:desktop {
     display: none !important;
+  }
+  .m\:flex-fd\:column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
@@ -1737,5 +1747,18 @@ hr {
 
 .ban_list_comments_header > *:not(:first-child):not(:last-child) {
   margin-right: 10px;
+}
+
+.pagination {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  line-height: 26px;
+  font-size: 12px;
+}
+
+.pagination a {
+  padding: 0 10px;
+  border-radius: 4px;
 }
 /*# sourceMappingURL=global.css.map */

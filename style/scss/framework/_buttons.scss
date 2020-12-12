@@ -55,6 +55,10 @@
         color: var(--button-light-text) !important;
     }
 
+    &-line {
+        display: inline-block;
+    }
+
     &\:full {
         width: 100%;
     }
