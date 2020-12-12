@@ -20,7 +20,7 @@
                 </li>
                 <li>
                     <label for="email">Email Address</label>
-                    <input id="email" class="input  margin-top:half" type="text" name="email" />
+                    <input id="email" class="input input-full margin-top:half" type="text" name="email" />
                 </li>
                 <li>
                     <button onclick="xajax_LostPassword($('email').value);" name="reset_password" class="button button:success button:full" id="alogin">Recover Password</button>

@@ -253,7 +253,6 @@ a:hover {
           box-shadow: var(--input--shadow) 0px 3px 4px -1px;
   background-color: var(--theme-area_background_reset);
   border: 1px solid var(--input--border);
-  width: 100%;
 }
 
 .input_checkbox:focus {
@@ -276,6 +275,10 @@ a:hover {
           box-shadow: var(--input--border-focusShadow);
   border: 1px solid var(--layout_main--color);
   outline: 0;
+}
+
+.input-full {
+  width: 100%;
 }
 
 .input:focus {

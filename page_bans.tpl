@@ -300,7 +300,7 @@
             <div>
                 <button onclick="TickSelectAll();return false;" title="Select All" name="tickswitchlink" id="tickswitchlink" class="button button-line button:light margin-right:half">Select All</button>
         
-                <select name="bulk_action" id="bulk_action" onchange="BulkEdit(this,'{$admin_postkey}');">
+                <select name="bulk_action" id="bulk_action" onchange="BulkEdit(this,'{$admin_postkey}');" class="input">
                     <option value="-1">Action</option>
                     {if $general_unban}
                         <option value="U">Unban</option>

@@ -14,7 +14,6 @@
     box-shadow: var(--input--shadow) 0px 3px 4px -1px;
     background-color: var(--theme-area_background_reset);
     border: 1px solid var(--input--border);
-    width: 100%;
 
     &_checkbox {
         @include input-focus();
@@ -26,6 +25,10 @@
         height: 200px;
 
         @include input-focus();
+    }
+
+    &-full {
+        width: 100%;
     }
 
     @include input-focus();
