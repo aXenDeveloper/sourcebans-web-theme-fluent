@@ -30,17 +30,17 @@
     {php} require (TEMPLATES_PATH . "/admin.bans.search.php");{/php}
     <div class="layout_box">
         <div class="table padding">
-            <div class="flex flex-jc:space-between flex-ai:center margin-bottom">
-                <span>
-                    {$ban_nav}
-                </span>
+            <div class="flex flex-jc:space-between flex-ai:center margin-bottom:half">
                 <span>
                     <a href="index.php?p=banlist&hideinactive={if $hidetext == 'Hide'}true{else}false{/if}{$searchlink|htmlspecialchars}" title="{$hidetext} inactive">{$hidetext} inactive</a> | <i>Total Bans: {$total_bans}</i>
+                </span>
+                <span>
+                    {$ban_nav}
                 </span>
             </div>
     
             <div class="table_box">
-                <table>
+                <table class="table_box">
                     <thead>
                         <tr>
                             {if $view_bans}
@@ -147,7 +147,7 @@
                                                         <span class="text:italic">No Steam3 ID present</span>
                                                     {else}
                                                         <span>
-                                                            <a href="http://steamcommunity.com/profiles/{$ban.steamid3}" target="_blank">{$ban.steamid3}</a>
+                                                            <a href="http://steamcommunity.com/profiles/{$ban.steamid3}" target="_blank" rel="noopener">{$ban.steamid3}</a>
                                                         </span>
                                                     {/if}
                                                 </li>
@@ -158,7 +158,7 @@
                                                         <span class="text:italic">No Steam Community ID present</span>
                                                     {else}
                                                         <span>
-                                                            <a href="http://steamcommunity.com/profiles/{$ban.communityid}" target="_blank">{$ban.communityid}</a>
+                                                            <a href="http://steamcommunity.com/profiles/{$ban.communityid}" target="_blank" rel="noopener">{$ban.communityid}</a>
                                                         </span>
                                                     {/if}
                                                 </li>
@@ -193,10 +193,10 @@
                                                     <li>
                                                         <span><i class="fas fa-user-shield"></i> Unbanned by Admin</span>
             
-                                                        {if !empty($ban.removedby)}
-                                                            <span>{$ban.removedby|escape:'html'}</span>
-                                                        {else}
+                                                        {if empty($ban.removedby)}
                                                             <span class="text:italic">Admin deleted</span>
+                                                        {else}
+                                                            <span>{$ban.removedby|escape:'html'}</span>
                                                         {/if}
                                                     </li>
                                                 {/if}
@@ -238,48 +238,49 @@
                                                 </li>
                                             </ul>
         
-                                            <div class="ban_list_comments">
-                                                <div class="layout_box_title">
-                                                    <h2>Comments</h2>
-                                                </div>
-        
-                                                {if $ban.commentdata != "None"}
-                                                    <ul>
-                                                        {foreach from=$ban.commentdata item=commenta}
-                                                            <li>
-                                                                <div class="layout_box-child padding">
-                                                                    <div class="ban_list_comments_header">
-                                                                        {if !empty($commenta.comname)}
-                                                                            <span class="text:bold">{$commenta.comname|escape:'html'}</span>
-                                                                        {else}
-                                                                            <span class="text:italic">Admin deleted</span>
-                                                                        {/if}
-                                                                        <span>{$commenta.added}</span>
-                                                                        {if $commenta.editcomlink != ""}
-                                                                            {$commenta.editcomlink} {$commenta.delcomlink}
-                                                                        {/if}
-                                                                    </div>
-                
-                                                                    <div class="margin-top flex flex-fd:column">
-                                                                        {$commenta.commenttxt}
-                
-                                                                        {if !empty($commenta.edittime)}
-                                                                            <span class="margin-top:half text:italic">
-                                                                                <i class="fas fa-pencil-alt"></i> Last edit {$commenta.edittime} by {$commenta.editname}
-                                                                            </span>
-                                                                        {/if}
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        {/foreach}
-                                                    </ul>
-                                                {else}
-                                                    <div class="padding">
-                                                        {$ban.commentdata}
+                                            {if $view_comments}
+                                                <div class="ban_list_comments">
+                                                    <div class="layout_box_title">
+                                                        <h2>Comments</h2>
                                                     </div>
-                                                {/if}
-                                            </div>
-        
+            
+                                                    {if $ban.commentdata != "None"}
+                                                        <ul>
+                                                            {foreach from=$ban.commentdata item=commenta}
+                                                                <li>
+                                                                    <div class="layout_box-child padding">
+                                                                        <div class="ban_list_comments_header">
+                                                                            {if !empty($commenta.comname)}
+                                                                                <span class="text:bold">{$commenta.comname|escape:'html'}</span>
+                                                                            {else}
+                                                                                <span class="text:italic">Admin deleted</span>
+                                                                            {/if}
+                                                                            <span>{$commenta.added}</span>
+                                                                            {if $commenta.editcomlink != ""}
+                                                                                {$commenta.editcomlink} {$commenta.delcomlink}
+                                                                            {/if}
+                                                                        </div>
+                    
+                                                                        <div class="margin-top flex flex-fd:column">
+                                                                            {$commenta.commenttxt}
+                    
+                                                                            {if !empty($commenta.edittime)}
+                                                                                <span class="margin-top:half text:italic">
+                                                                                    <i class="fas fa-pencil-alt"></i> Last edit {$commenta.edittime} by {$commenta.editname}
+                                                                                </span>
+                                                                            {/if}
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            {/foreach}
+                                                        </ul>
+                                                    {else}
+                                                        <div class="padding">
+                                                            {$ban.commentdata}
+                                                        </div>
+                                                    {/if}
+                                                </div>
+                                            {/if}
                                         </div>
                                     </div>
                                 </td>
