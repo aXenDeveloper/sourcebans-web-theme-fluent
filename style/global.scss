@@ -273,11 +273,11 @@ a {
         align-items: center;
         padding: 5px 0;
 
-        span {
+        > span {
             display: block;
         }
 
-        span:first-child {
+        > span:first-child {
             width: 200px;
         }
     }

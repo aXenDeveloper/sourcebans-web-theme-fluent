@@ -1,12 +1,12 @@
 {if $comment}
     <div class="flex flex-jc:center flex-ai:center">
-        <div class="layout_box">
+        <div class="layout_box layout_box_medium">
             <div class="layout_box_title">
                 <h2>{$commenttype} Comment</h2>
             </div>
     
             <div class="padding">
-                <textarea rows="10" cols="60" class="submit-fields" style="width:500px;" id="commenttext" name="commenttext">{$commenttext}</textarea>
+                <textarea class="input input_textarea" id="commenttext" name="commenttext">{$commenttext}</textarea>
     
                 <div id="commenttext.msg" class="message message:error" style="display:none;"></div>
     
