@@ -96,6 +96,10 @@ a:hover {
   border: 0;
 }
 
+.button a {
+  color: inherit;
+}
+
 .button::after {
   content: '';
   position: absolute;
@@ -180,6 +184,10 @@ a:hover {
 
 .text\:italic {
   font-style: italic;
+}
+
+.text\:bold {
+  font-weight: bold;
 }
 
 @media (max-width: 980px) {
@@ -346,6 +354,12 @@ a:hover {
 
 .layout_box_small_ul li:not(:last-child) {
   margin-bottom: 15px;
+}
+
+.layout_box-child {
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(76, 86, 101, 0.2), var(--box--boxShadow);
+          box-shadow: 0px 0px 0px 1px rgba(76, 86, 101, 0.2), var(--box--boxShadow);
+  border-radius: 4px;
 }
 
 .layout_topBar {
@@ -732,6 +746,8 @@ a:hover {
   --theme-nav_background: rgb(18, 19, 24);
   --theme-nav_text: rgb(255, 255, 255);
   --backdrop-text_color: rgb(255, 255, 255);
+  --button-light: rgb(26, 28, 35);
+  --button-light-text: rgb(255, 255, 255);
 }
 
 [data-theme='dark'] .layout_topBar .layout_topBar_action li #user_action_change_dark i {
@@ -777,7 +793,6 @@ a:hover {
   border-collapse: collapse;
   margin: auto;
   table-layout: fixed;
-  width: 465px;
 }
 
 td.dialog-topleft {
@@ -1655,6 +1670,7 @@ hr {
   margin: 0;
   padding: 0;
   list-style: none;
+  margin-right: 10px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -1681,11 +1697,45 @@ hr {
   width: 200px;
 }
 
-.ban_action {
+.ban_list_comments {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 10px;
+}
+
+.ban_list_comments ul {
   margin: 0;
+  padding: 20px;
+  list-style: none;
+}
+
+.ban_list_comments ul li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.ban_action {
+  margin: 0 15px 0 0;
   padding: 10px;
   list-style: none;
   width: 200px;
-  background: #f1f1f1;
+}
+
+.ban_action li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.ban_list_comments_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ban_list_comments_header span:first-child {
+  margin-right: auto;
+}
+
+.ban_list_comments_header > *:not(:first-child):not(:last-child) {
+  margin-right: 10px;
 }
 /*# sourceMappingURL=global.css.map */

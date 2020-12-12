@@ -40,6 +40,11 @@
                 }
             }
         }
+
+        &-child {
+            box-shadow: 0px 0px 0px 1px rgba(76, 86, 101, 0.2), var(--box--boxShadow);
+            border-radius: 4px;
+        }
     }
 
     &_topBar {

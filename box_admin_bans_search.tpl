@@ -13,10 +13,10 @@
                             <td class="listtable_1" width="66%"><input class="textbox" type="text" id="nick" value="" onmouseup="$('name').checked = true" style="width: 87%;"></td>
                         </tr>
                         <tr>
-                            <td align="center" class="listtable_1" ><input id="steam_" type="radio" name="search_type" value="radiobutton"></td>
-                            <td class="listtable_1" >Steam ID</td>
-                            <td class="listtable_1" >
-                                <input class="textbox" type="text" id="steamid" value="" onmouseup="$('steam_').checked = true"style="width: 50%; margin-right: 12px;"><select class="select" id="steam_match" onmouseup="$('steam_').checked = true" style="width: 33%;">
+                            <td align="center" class="listtable_1"><input id="steam_" type="radio" name="search_type" value="radiobutton"></td>
+                            <td class="listtable_1">Steam ID</td>
+                            <td class="listtable_1">
+                                <input class="textbox" type="text" id="steamid" value="" onmouseup="$('steam_').checked = true" style="width: 50%; margin-right: 12px;"><select class="select" id="steam_match" onmouseup="$('steam_').checked = true" style="width: 33%;">
                                     <option value="0" selected>Exact Match</option>
                                     <option value="1">Partial Match</option>
                                 </select>
@@ -24,29 +24,29 @@
                         </tr>
                         {if !$hideplayerips}
                             <tr>
-                                <td align="center" class="listtable_1" ><input id="ip_" type="radio" name="search_type" value="radiobutton"></td>
-                                <td class="listtable_1" >IP</td>
-                                <td class="listtable_1" ><input class="textbox" type="text" id="ip" value="" onmouseup="$('ip_').checked = true"style="width: 87%;"></td>
+                                <td align="center" class="listtable_1"><input id="ip_" type="radio" name="search_type" value="radiobutton"></td>
+                                <td class="listtable_1">IP</td>
+                                <td class="listtable_1"><input class="textbox" type="text" id="ip" value="" onmouseup="$('ip_').checked = true" style="width: 87%;"></td>
                             </tr>
                         {/if}
                         <tr>
-                            <td align="center" class="listtable_1" ><input id="reason_" type="radio" name="search_type" value="radiobutton"></td>
-                            <td class="listtable_1" >Reason</td>
-                            <td class="listtable_1" ><input class="textbox" type="text" id="ban_reason" value="" onmouseup="$('reason_').checked = true" style="width: 87%;"></td>
+                            <td align="center" class="listtable_1"><input id="reason_" type="radio" name="search_type" value="radiobutton"></td>
+                            <td class="listtable_1">Reason</td>
+                            <td class="listtable_1"><input class="textbox" type="text" id="ban_reason" value="" onmouseup="$('reason_').checked = true" style="width: 87%;"></td>
                         </tr>
                         <tr>
-                            <td align="center" class="listtable_1" ><input id="date" type="radio" name="search_type" value="radiobutton"></td>
-                            <td class="listtable_1" >Date</td>
-                            <td class="listtable_1" >
+                            <td align="center" class="listtable_1"><input id="date" type="radio" name="search_type" value="radiobutton"></td>
+                            <td class="listtable_1">Date</td>
+                            <td class="listtable_1">
                                 <input class="textbox" type="text" id="day" value="DD" onmouseup="$('date').checked = true" maxlength="2" style="width: 22%;">
                                 <input class="textbox" type="text" id="month" value="MM" onmouseup="$('date').checked = true" maxlength="2" style="width: 22%;">
                                 <input class="textbox" type="text" id="year" value="YY" onmouseup="$('date').checked = true" maxlength="4" style="width: 24%;">
                             </td>
                         </tr>
                         <tr>
-                            <td align="center" class="listtable_1" ><input id="length_" type="radio" name="search_type" value="radiobutton"></td>
-                            <td class="listtable_1" >Length</td>
-                            <td class="listtable_1" >
+                            <td align="center" class="listtable_1"><input id="length_" type="radio" name="search_type" value="radiobutton"></td>
+                            <td class="listtable_1">Length</td>
+                            <td class="listtable_1">
                                 <table border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td>
@@ -108,9 +108,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td align="center" class="listtable_1" ><input id="ban_type_" type="radio" name="search_type" value="radiobutton"></td>
-                            <td class="listtable_1" >Type</td>
-                            <td class="listtable_1" >
+                            <td align="center" class="listtable_1"><input id="ban_type_" type="radio" name="search_type" value="radiobutton"></td>
+                            <td class="listtable_1">Type</td>
+                            <td class="listtable_1">
                                 <select class="select" id="ban_type" onmouseup="$('ban_type_').checked = true" style="width: 95%;">
                                     <option value="0" selected>Steam ID</option>
                                     <option value="1">IP Address</option>
@@ -118,45 +118,47 @@
                             </td>
                         </tr>
                         {if !$hideadminname}
+                            <tr>
+                                <td class="listtable_1" align="center"><input id="admin" name="search_type" type="radio" value="radiobutton"></td>
+                                <td class="listtable_1">Admin</td>
+                                <td class="listtable_1">
+                                    <select class="select" id="ban_admin" onmouseup="$('admin').checked = true" style="width: 95%;">
+                                        {foreach from="$admin_list" item="admin}
+                                            <option label="{$admin.user}" value="{$admin.aid}">{$admin.user}</option>
+                                        {/foreach}
+                                    </select>
+                                </td>
+                            </tr>
+                        {/if}
                         <tr>
-                            <td class="listtable_1"  align="center"><input id="admin" name="search_type" type="radio" value="radiobutton"></td>
-                            <td class="listtable_1" >Admin</td>
-                            <td class="listtable_1" >
-                                <select class="select" id="ban_admin" onmouseup="$('admin').checked = true" style="width: 95%;">
-{foreach from="$admin_list" item="admin}
-								<option label="{$admin.user}" value="{$admin.aid}">{$admin.user}</option>
-							{/foreach}
-						</select>           
-					</td> 
-				</tr>
-                {/if}
-			    <tr>
-			    	<td class="listtable_1"  align="center"><input id="where_banned" name="search_type" type="radio" value="radiobutton"></td>
-					<td class="listtable_1" >Server</td>
-			        <td class="listtable_1" >
-						<select class="select" id="server" onmouseup="$('where_banned').checked = true" style="width: 95%;">
-						<option label="Web Ban" value="0">Web Ban</option>
-							{foreach from="$server_list" item="server}
-								<option value="{$server.sid}" id="ss{$server.sid}">Retrieving Hostname... ({$server.ip}:{$server.port})</option>
-							{/foreach}
-						</select>            
-					</td>
-			    </tr>
-				{if $is_admin}
-				<tr>
-			        <td align="center" class="listtable_1" ><input id="comment_" type="radio" name="search_type" value="radiobutton"></td>
-			        <td class="listtable_1" >Comment</td>
-			        <td class="listtable_1" ><input class="textbox" type="text" id="ban_comment" value="" onmouseup="$('comment_').checked = true" style="width: 87%;"></td>
-			    </tr>
-				{/if}
-			    <tr>
-			        <td colspan="4">{sb_button text="Search" onclick="search_bans();" class="ok searchbtn" id="searchbtn" submit=false}</td>
-			    </tr>
-			   </table>
-			   </div>
-		  </td>
-		</tr>
-	</table>
+                            <td class="listtable_1" align="center"><input id="where_banned" name="search_type" type="radio" value="radiobutton"></td>
+                            <td class="listtable_1">Server</td>
+                            <td class="listtable_1">
+                                <select class="select" id="server" onmouseup="$('where_banned').checked = true" style="width: 95%;">
+                                    <option label="Web Ban" value="0">Web Ban</option>
+                                    {foreach from="$server_list" item="server}
+                                        <option value="{$server.sid}" id="ss{$server.sid}">Retrieving Hostname... ({$server.ip}:{$server.port})</option>
+                                    {/foreach}
+                                </select>
+                            </td>
+                        </tr>
+                        {if $is_admin}
+                            <tr>
+                                <td align="center" class="listtable_1"><input id="comment_" type="radio" name="search_type" value="radiobutton"></td>
+                                <td class="listtable_1">Comment</td>
+                                <td class="listtable_1"><input class="textbox" type="text" id="ban_comment" value="" onmouseup="$('comment_').checked = true" style="width: 87%;"></td>
+                            </tr>
+                        {/if}
+                        <tr>
+                            <td colspan="4">{sb_button text="Search" onclick="search_bans();" class="ok searchbtn" id="searchbtn" submit=false}</td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
 {$server_script}
-<script>InitAccordion('tr.sea_open', 'div.panel', 'mainwrapper');</script>
+<script>
+    InitAccordion('tr.sea_open', 'div.panel', 'mainwrapper');
+</script>

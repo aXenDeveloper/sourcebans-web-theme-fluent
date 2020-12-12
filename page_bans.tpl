@@ -20,24 +20,25 @@
     
                     <input type="hidden" name="page" id="page" value="{$page}">
     
-                    <a class="button button:primary" onclick="ProcessComment();">Add comment</a>
+                    <a class="button button:primary" onclick="ProcessComment();">Add</a>
                     <a class="button button:light" onclick="history.go(-1)">Cancel</a>
                 </div>
             </div>
         </div>
     </div>
 {else}
-    <div id="banlist-nav"><a href="index.php?p=banlist&hideinactive={if $hidetext == 'Hide'}true{else}false{/if}{$searchlink|htmlspecialchars}" title="{$hidetext} inactive">{$hidetext} inactive</a> | <i>Total Bans: {$total_bans}</i></div>
-    
-    <h3 align="left">Banlist Overview - <i>Total Bans: {$total_bans}</i></h3>
-    <br />
     {php} require (TEMPLATES_PATH . "/admin.bans.search.php");{/php}
-    
     <div class="layout_box">
         <div class="table padding">
-            <div>
-                {$ban_nav}
+            <div class="flex flex-jc:space-between flex-ai:center margin-bottom">
+                <span>
+                    {$ban_nav}
+                </span>
+                <span>
+                    <a href="index.php?p=banlist&hideinactive={if $hidetext == 'Hide'}true{else}false{/if}{$searchlink|htmlspecialchars}" title="{$hidetext} inactive">{$hidetext} inactive</a> | <i>Total Bans: {$total_bans}</i>
+                </span>
             </div>
+    
             <div class="table_box">
                 <table>
                     <thead>
@@ -91,7 +92,35 @@
                             <tr class="table_hide">
                                 <td colspan="8">
                                     <div class="collapse_content">
-                                        <div class="padding flex flex-jc:space-between">
+                                        <div class="padding flex flex-jc:start">
+                                            <ul class="ban_action">
+                                                <li class="button button:primary">{$ban.demo_link}</li>
+                                                {if $view_bans}
+                                                    {if $ban.unbanned && $ban.reban_link != false}
+                                                        <li class="button button:important">{$ban.reban_link}</li>
+                                                    {/if}
+                                                    <li class="button button:important">{$ban.blockcomm_link}</li>
+                                                    <li class="button button:success">{$ban.addcomment}</li>
+                                                    {if $ban.type == 0}
+                                                        {if $groupban}
+                                                            <li class="button button:important">{$ban.groups_link}</li>
+                                                        {/if}
+                                                        {if $friendsban}
+                                                            <li class="button button:important">{$ban.friend_ban_link}</li>
+                                                        {/if}
+                                                    {/if}
+                                                    {if ($ban.view_edit && !$ban.unbanned)}
+                                                        <li class="button button:light">{$ban.edit_link}</li>
+                                                    {/if}
+                                                    {if ($ban.unbanned == false && $ban.view_unban)}
+                                                        <li class="button button:light">{$ban.unban_link}</li>
+                                                    {/if}
+                                                    {if $ban.view_delete}
+                                                        <li class="button button:light">{$ban.delete_link}</li>
+                                                    {/if}
+                                                {/if}
+                                            </ul>
+        
                                             <ul class="ban_list_detal">
                                                 <li>
                                                     <span><i class="fas fa-user"></i> Player</span>
@@ -196,111 +225,61 @@
                                                     </li>
                                                 {/if}
                                                 <li>
-                                                    <span>Total Bans</span>
+                                                    <span><i class="fas fa-ban"></i> Total Bans</span>
                                                     <span>{$ban.prevoff_link}</span>
                                                 </li>
                                                 <li>
-                                                    <span>Blocked ({$ban.blockcount})</span>
+                                                    <span><i class="fas fa-ban"></i> Blocked ({$ban.blockcount})</span>
                                                     {if $ban.banlog == ""}
                                                         <span class="text:italic">Never</span>
                                                     {else}
                                                         <span>{$ban.banlog}</span>
                                                     {/if}
                                                 </li>
-                                                {if $view_comments}
-                                                    <li>
-                                                        <span>Comments</span>
-                                                        <div class="flex">
-            
-                                                            {if $ban.commentdata != "None"}
-                                                                <table width="100%" border="0">
-                                                                    {foreach from=$ban.commentdata item=commenta}
-                                                                        {if $commenta.morecom}
-                                                                            <tr>
-                                                                                <td colspan='3'>
-                                                                                    <hr>
-                                                                                </td>
-                                                                            </tr>
+                                            </ul>
+        
+                                            <div class="ban_list_comments">
+                                                <div class="layout_box_title">
+                                                    <h2>Comments</h2>
+                                                </div>
+        
+                                                {if $ban.commentdata != "None"}
+                                                    <ul>
+                                                        {foreach from=$ban.commentdata item=commenta}
+                                                            <li>
+                                                                <div class="layout_box-child padding">
+                                                                    <div class="ban_list_comments_header">
+                                                                        {if !empty($commenta.comname)}
+                                                                            <span class="text:bold">{$commenta.comname|escape:'html'}</span>
+                                                                        {else}
+                                                                            <span class="text:italic">Admin deleted</span>
                                                                         {/if}
-                                                                        <tr>
-                                                                            <td>
-                                                                                {if !empty($commenta.comname)}
-                                                                                    <b>{$commenta.comname|escape:'html'}</b>
-                                                                                {else}
-                                                                                    <i>
-                                                                                        <font color="#677882">Admin deleted</font>
-                                                                                    </i>
-                                                                                {/if}
-                                                                            </td>
-                                                                            <td align="right">
-                                                                                <b>{$commenta.added}</b>
-                                                                            </td>
-                                                                            {if $commenta.editcomlink != ""}
-                                                                                <td align="right">
-                                                                                    {$commenta.editcomlink} {$commenta.delcomlink}
-                                                                                </td>
-                                                                            {/if}
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td colspan='3'>
-                                                                                {$commenta.commenttxt}
-                                                                            </td>
-                                                                        </tr>
+                                                                        <span>{$commenta.added}</span>
+                                                                        {if $commenta.editcomlink != ""}
+                                                                            {$commenta.editcomlink} {$commenta.delcomlink}
+                                                                        {/if}
+                                                                    </div>
+                
+                                                                    <div class="margin-top flex flex-fd:column">
+                                                                        {$commenta.commenttxt}
+                
                                                                         {if !empty($commenta.edittime)}
-                                                                            <tr>
-                                                                                <td colspan='3'>
-                                                                                    <span style="font-size:6pt;color:grey;">last edit {$commenta.edittime} by {if !empty($commenta.editname)}{$commenta.editname}
-                                                                                        {else}<i>
-                                                                                                <font color="#677882">Admin deleted</font>
-                                                                                        </i>{/if}</span>
-                                                                                </td>
-                                                                            </tr>
+                                                                            <span class="margin-top:half text:italic">
+                                                                                <i class="fas fa-pencil-alt"></i> Last edit {$commenta.edittime} by {$commenta.editname}
+                                                                            </span>
                                                                         {/if}
-                                                                    {/foreach}
-                                                                </table>
-                                                            {/if}
-                                                            {if $ban.commentdata == "None"}
-                                                                {$ban.commentdata}
-                                                            {/if}
-            
-            
-                                                        </div>
-                                                    </li>
-                                                {/if}
-        
-        
-        
-                                            </ul>
-        
-                                            <ul class="ban_action">
-                                                {if $view_bans}
-                                                    {if $ban.unbanned && $ban.reban_link != false}
-                                                        <li>{$ban.reban_link}</li>
-                                                    {/if}
-                                                    <li>{$ban.blockcomm_link}</li>
-                                                    <li>{$ban.demo_link}</li>
-                                                    <li>{$ban.addcomment}</li>
-                                                    {if $ban.type == 0}
-                                                        {if $groupban}
-                                                            <li>{$ban.groups_link}</li>
-                                                        {/if}
-                                                        {if $friendsban}
-                                                            <li>{$ban.friend_ban_link}</li>
-                                                        {/if}
-                                                    {/if}
-                                                    {if ($ban.view_edit && !$ban.unbanned)}
-                                                        <li>{$ban.edit_link}</li>
-                                                    {/if}
-                                                    {if ($ban.unbanned == false && $ban.view_unban)}
-                                                        <li>{$ban.unban_link}</li>
-                                                    {/if}
-                                                    {if $ban.view_delete}
-                                                        <li>{$ban.delete_link}</li>
-                                                    {/if}
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        {/foreach}
+                                                    </ul>
                                                 {else}
-                                                    <li>{$ban.demo_link}</li>
+                                                    <div class="padding">
+                                                        {$ban.commentdata}
+                                                    </div>
                                                 {/if}
-                                            </ul>
+                                            </div>
+        
                                         </div>
                                     </div>
                                 </td>

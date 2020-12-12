@@ -253,6 +253,7 @@ a {
 
 .ban_list_detal {
     @include reset-list(0, 0);
+    margin-right: 10px;
     flex: 1;
 
     li {
@@ -271,10 +272,38 @@ a {
     }
 }
 
+.ban_list_comments {
+    flex: 1;
+    margin-left: 10px;
+
+    ul {
+        @include reset-list(0, 20px);
+
+        li:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
 .ban {
     &_action {
-        @include reset-list(0, 10px);
+        @include reset-list(0 15px 0 0, 10px);
         width: 200px;
-        background: #f1f1f1;
+
+        li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.ban_list_comments_header {
+    display: flex;
+
+    span:first-child {
+        margin-right: auto;
+    }
+
+    > *:not(:first-child):not(:last-child) {
+        margin-right: 10px;
     }
 }
