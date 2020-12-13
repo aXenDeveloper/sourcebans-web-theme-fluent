@@ -1,0 +1,45 @@
+.admin {
+    &_nav {
+        background-color: var(--layout_main--color);
+        border-radius: 4px;
+        width: 100%;
+        overflow-x: auto;
+        color: #fff;
+
+        ul {
+            @include reset-list(0, 0);
+
+            li {
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    color: inherit;
+                    text-align: center;
+                    width: 115px;
+                    height: 100%;
+                    padding: 15px 10px;
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.2);
+                        border-radius: inherit;
+                    }
+
+                    i {
+                        font-size: 40px;
+                    }
+
+                    span {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    &_dashboard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-gap: 10px;
+    }
+}

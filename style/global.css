@@ -1560,6 +1560,59 @@ hr {
   display: block;
 }
 
+.admin_nav {
+  background-color: var(--layout_main--color);
+  border-radius: 4px;
+  width: 100%;
+  overflow-x: auto;
+  color: #fff;
+}
+
+.admin_nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin_nav ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: inherit;
+  text-align: center;
+  width: 115px;
+  height: 100%;
+  padding: 15px 10px;
+}
+
+.admin_nav ul li a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: inherit;
+}
+
+.admin_nav ul li a i {
+  font-size: 40px;
+}
+
+.admin_nav ul li a span {
+  margin-top: 10px;
+}
+
+.admin_dashboard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 10px;
+}
+
 .list-reset {
   margin: 0;
   padding: 0;
