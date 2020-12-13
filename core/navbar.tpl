@@ -74,17 +74,6 @@
                     </li>
                 {/foreach}
             </ul>
-            <ul>
-                {if $isAdmin}
-                    {foreach from=$adminbar item=admin}
-                        <li {if $admin.state}class="{$admin.state}" {/if}>
-                            <a class="nav_link {$admin.state}" href="index.php?p=admin&c={$admin.endpoint}">
-                                {$admin.title}
-                            </a>
-                        </li>
-                    {/foreach}
-                {/if}
-            </ul>
         </div>
     </nav>
     <div id="mainwrapper" class="layout_body layout_container flex:11">

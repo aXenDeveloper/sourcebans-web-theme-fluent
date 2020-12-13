@@ -1106,17 +1106,13 @@ div.dialog-control {
 }
 
 /* Admin Page Menu */
-#admin-page-menu {
-  width: 20%;
-  float: left;
-}
-
 /* Admin Page Content */
 #admin-page-content {
-  width: 75%;
-  float: right;
   background-color: #e0e0e0;
   padding: 10px;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
 }
 
 /** ================ Permissions ================ **/
@@ -1590,6 +1586,8 @@ hr {
   width: 115px;
   height: 100%;
   padding: 15px 10px;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .admin_nav ul li a:hover {
@@ -1611,6 +1609,51 @@ hr {
   -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 10px;
+}
+
+.admin_tab {
+  width: 280px;
+  margin-right: 20px;
+}
+
+.admin_tab ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin_tab ul li a,
+.admin_tab ul li button {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+  border: 0;
+  background-color: transparent;
+  -webkit-transition: none;
+  transition: none;
+  cursor: pointer;
+}
+
+.admin_tab ul li a:hover,
+.admin_tab ul li button:hover {
+  background-color: var(--layout_main--color);
+  color: #fff;
+}
+
+.admin_tab_content {
+  display: block;
+}
+
+.admin_tab_content:first-of-type {
+  display: block;
+}
+
+.tabcontent {
+  width: 100%;
 }
 
 .list-reset {
@@ -1672,6 +1715,11 @@ hr {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.flex-wrap\:wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .flex\:11 {

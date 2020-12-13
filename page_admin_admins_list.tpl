@@ -1,101 +1,112 @@
-<div id="admin-page-content">
-    <div class="tabcontent" id="List admins">
-        {if not $permission_listadmin}
-            Access Denied
-        {else}
-            <h3>Admins (<span id="admincount">{$admin_count}</span>)</h3>
-            Click on an admin to see more detailed information and actions to perform on them.<br /><br />
-
+<div class="layout_box flex:11 admin_tab_content tabcontent" id="List admins">
+    {if not $permission_listadmin}
+        Access Denied
+    {else}
+        <div class="layout_box_title">
+            <h2>Admins - {$admin_count}</h2>
+        </div>
+        <div class="padding">
+            <p>Click on an admin to see more detailed information and actions to perform on them.</p>
+    
             {php} require (TEMPLATES_PATH . "/admin.admins.search.php");{/php}
-
-            <div id="banlist-nav">
+    
+            <div class="flex flex-jc:end flex-ai:center margin-bottom:half">
                 {$admin_nav}
             </div>
-            <div id="banlist">
-                <table width="99%" cellspacing="0" cellpadding="0" align="center">
-                    <tr>
-                        <td width="34%" class="listtable_top"><b>Name</b></td>
-                        <td width="33%" class="listtable_top"><b>Server Admin Group </b></td>
-                        <td width="33%" class="listtable_top"><b>Web Admin Group</b></td>
-                    </tr>
-                    {foreach from="$admins" item="admin"}
-                        <tr onmouseout="this.className='tbl_out'" onmouseover="this.className='tbl_hover'" class="tbl_out opener">
-                            <td class="listtable_1" style="padding:3px;">{$admin.user} (<a href="./index.php?p=banlist&advSearch={$admin.aid}&advType=admin" title="Show bans">{$admin.bancount} bans</a> | <a href="./index.php?p=banlist&advSearch={$admin.aid}&advType=nodemo" title="Show bans without demo">{$admin.nodemocount} w.d.</a>)</td>
-                            <td class="listtable_1" style="padding:3px;">{$admin.server_group}</td>
-                            <td class="listtable_1" style="padding:3px;">{$admin.web_group}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <div class="opener" align="center" border="1">
-                                    <table width="100%" cellspacing="0" cellpadding="3" bgcolor="#eaebeb">
-                                        <tr>
-                                            <td align="left" colspan="3" class="front-module-header">
-                                                <b>Admin Details of {$admin.user}</b>
-                                            </td>
-                                        </tr>
-                                        <tr align="left">
-                                            <td width="35%" class="front-module-line"><b>Server Admin Permissions</b></td>
-                                            <td width="35%" class="front-module-line"><b>Web Admin Permissions</b></td>
-                                            <td width="30%" valign="top" class="front-module-line"><b>Action</b></td>
-                                        </tr>
-                                        <tr align="left">
-                                            <td valign="top">
-                                                <span style='font-size:10px;color:#1b75d1;'>Web Permissions</span>
-                                                <br/>
-                                                {if $admin.server_flag_string}
-                                                    {foreach from=$admin.server_flag_string item=permission}
-                                                        &bull; {$permission} <br/>
-                                                    {/foreach}
-                                                {else}
-                                                    <i>None</i>
-                                                {/if}
-                                            </td>
-                                            <td valign="top">
-                                                <span style='font-size:10px;color:#1b75d1;'>Server Permissions</span>
-                                                <br/>
-                                                {if $admin.web_flag_string}
-                                                    {foreach from=$admin.web_flag_string item=permission}
-                                                        &bull; {$permission} <br/>
-                                                    {/foreach}
-                                                {else}
-                                                    <i>None</i>
-                                                {/if}
-                                            </td>
-                                            <td width="30%" valign="top">
-                                                <div class="ban-edit">
+    
+            <div class="table">
+                <div class="table_box">
+                    <table class="table_box">
+                        <thead>
+                            <tr>
+                                <th class="text:left">Name</th>
+                                <th class="text:left">Server Admin Group</th>
+                                <th class="text:left">Web Admin Group</th>
+                                <th class="text:left">Immunity Level</th>
+                                <th class="text:left">Last Visited</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {foreach from="$admins" item="admin"}
+                                <tr class="collapse">
+                                    <td>{$admin.user} (<a href="./index.php?p=banlist&advSearch={$admin.aid}&advType=admin" title="Show bans">{$admin.bancount} bans</a> | <a href="./index.php?p=banlist&advSearch={$admin.aid}&advType=nodemo" title="Show bans without demo">{$admin.nodemocount} w.d.</a>)</td>
+                                    <td>{$admin.server_group}</td>
+                                    <td>{$admin.web_group}</td>
+                                    <td>{$admin.immunity}</td>
+                                    <td>{$admin.lastvisit}</td>
+                                </tr>
+                                <tr class="table_hide">
+                                    <td colspan="8">
+                                        <div class="collapse_content">
+                                            <div class="padding:half flex">
+                                                <ul class="ban_action">
+                                                    {if $permission_editadmin}
+                                                        <li class="button button:light">
+                                                            <a href="index.php?p=admin&c=admins&o=editdetails&id={$admin.aid}">
+                                                                <i class="fas fa-clipboard-list"></i> Edit Details
+                                                            </a>
+                                                        </li>
+                                                        <li class="button button:light">
+                                                            <a href="index.php?p=admin&c=admins&o=editpermissions&id={$admin.aid}">
+                                                                <i class="fas fa-subscript"></i> Edit Permissions
+                                                            </a>
+                                                        </li>
+                                                        <li class="button button:light">
+                                                            <a href="index.php?p=admin&c=admins&o=editservers&id={$admin.aid}">
+                                                                <i class="fas fa-server"></i> Edit Server Access
+                                                            </a>
+                                                        </li>
+                                                        <li class="button button:light">
+                                                            <a href="index.php?p=admin&c=admins&o=editgroup&id={$admin.aid}">
+                                                                <i class="fas fa-users"></i> Edit Groups
+                                                            </a>
+                                                        </li>
+                                                    {/if}
+                                                    {if $permission_deleteadmin}
+                                                        <li class="button button:light">
+                                                            <a href="#" onclick="RemoveAdmin({$admin.aid}, '{$admin.user}');">
+                                                                <i class="fas fa-trash"></i> Delete Admin
+                                                            </a>
+                                                        </li>
+                                                    {/if}
+                                                </ul>
+        
+                                                <div class="flex:11 margin-right">
+                                                    <h3>Server Admin Permissions</h3>
                                                     <ul>
-                                                        {if $permission_editadmin}
-                                                            <li>
-                                                                <a href="index.php?p=admin&c=admins&o=editdetails&id={$admin.aid}"><i class="fas fa-clipboard-list fa-lg"></i> Edit Details</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="index.php?p=admin&c=admins&o=editpermissions&id={$admin.aid}"><i class="fas fa-subscript fa-lg"></i> Edit Permissions</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="index.php?p=admin&c=admins&o=editservers&id={$admin.aid}"><i class="fas fa-server fa-lg"></i> Edit Server Access</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="index.php?p=admin&c=admins&o=editgroup&id={$admin.aid}"><i class="fas fa-users fa-lg"></i> Edit Groups</a>
-                                                            </li>
-                                                        {/if}
-                                                        {if $permission_deleteadmin}
-                                                            <li>
-                                                                <a href="#" onclick="RemoveAdmin({$admin.aid}, '{$admin.user}');"><i class="fas fa-trash fa-lg"></i> Delete Admin</a>
-                                                            </li>
+                                                        {if $admin.server_flag_string}
+                                                            {foreach from=$admin.server_flag_string item=permission}
+                                                                <li>{$permission}</li>
+                                                            {/foreach}
+                                                        {else}
+                                                            <li>None</li>
                                                         {/if}
                                                     </ul>
                                                 </div>
-                                                <div class="front-module-line" style="padding:3px;">Immunity Level: <b>{$admin.immunity}</b></div>
-                                                <div class="front-module-line" style="padding:3px;">Last Visited: <b><small>{$admin.lastvisit}</small></b></div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </td>
-                        </tr>
-                    {/foreach}
-                </table>
+        
+                                                <div class="flex:11">
+                                                    <h3>Web Admin Permissions</h3>
+                                                    <ul>
+                                                        {if $admin.web_flag_string}
+                                                            {foreach from=$admin.web_flag_string item=permission}
+                                                                <li>{$permission}</li>
+                                                            {/foreach}
+                                                        {else}
+                                                            <li>None</li>
+                                                        {/if}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {/foreach}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <script type="text/javascript">InitAccordion('tr.opener', 'div.opener', 'mainwrapper');</script>
-        {/if}
-    </div>
+        </div>
+    {/if}
+</div>
+<script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
+</div>

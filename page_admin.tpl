@@ -4,7 +4,7 @@
             <li>
                 <a href="index.php?p=admin&amp;c=admins">
                     <i class="fas fa-user"></i>
-                    <span>Admin Settings</span>
+                    <span>Admin</span>
                 </a>
             </li>
         {/if}
@@ -12,7 +12,7 @@
             <li>
                 <a href="index.php?p=admin&amp;c=servers">
                     <i class="fas fa-server"></i>
-                    <span>Server Settings</span>
+                    <span>Server</span>
                 </a>
             </li>
         {/if}
@@ -36,7 +36,7 @@
             <li>
                 <a href="index.php?p=admin&amp;c=groups">
                     <i class="fas fa-users"></i>
-                    <span>Group Settings</span>
+                    <span>Group</span>
                 </a>
             </li>
         {/if}
@@ -44,7 +44,7 @@
             <li>
                 <a href="index.php?p=admin&amp;c=settings">
                     <i class="fas fa-tools"></i>
-                    <span>Webpanel Settings</span>
+                    <span>Webpanel</span>
                 </a>
             </li>
         {/if}

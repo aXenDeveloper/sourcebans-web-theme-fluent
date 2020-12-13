@@ -299,18 +299,12 @@ div.dialog-control {
 
 /* Admin Page Menu */
 
-#admin-page-menu {
-    width: 20%;
-    float: left;
-}
-
 /* Admin Page Content */
 
 #admin-page-content {
-    width: 75%;
-    float: right;
     background-color: #e0e0e0;
     padding: 10px;
+    flex: 100%;
 }
 
 /** ================ Permissions ================ **/

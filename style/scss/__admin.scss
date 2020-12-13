@@ -19,6 +19,7 @@
                     width: 115px;
                     height: 100%;
                     padding: 15px 10px;
+                    transition: background-color 0.2s ease, color 0.2s ease;
 
                     &:hover {
                         background-color: rgba(0, 0, 0, 0.2);
@@ -42,4 +43,47 @@
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         grid-gap: 10px;
     }
+
+    &_tab {
+        width: 280px;
+        margin-right: 20px;
+
+        ul {
+            @include reset-list(0, 0);
+
+            li {
+                a,
+                button {
+                    display: block;
+                    width: 100%;
+                    padding: 8px 10px;
+                    border-radius: 5px;
+                    font-family: inherit;
+                    font-size: 14px;
+                    text-align: left;
+                    border: 0;
+                    background-color: transparent;
+                    transition: none;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: var(--layout_main--color);
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        &_content {
+            display: block;
+
+            &:first-of-type {
+                display: block;
+            }
+        }
+    }
+}
+
+.tabcontent {
+    width: 100%;
 }

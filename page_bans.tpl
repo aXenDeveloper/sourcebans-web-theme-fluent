@@ -43,7 +43,7 @@
     <div class="layout_box">
         <div class="table padding">
             <div class="table_box">
-                <table class="table_box">
+                <table>
                     <thead>
                         <tr>
                             {if $view_bans}
