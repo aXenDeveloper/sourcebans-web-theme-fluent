@@ -1,19 +1,20 @@
-<div class="layout_box flex:11 admin_tab_content tabcontent" id="List admins">
+<div class="layout_box flex:11 admin_tab_content tabcontent" id="List admins" style="display: block;">
     {if not $permission_listadmin}
         Access Denied
     {else}
-        <div class="layout_box_title">
+        <div class="admin_tab_content_title">
             <h2>Admins - {$admin_count}</h2>
         </div>
+
         <div class="padding">
-            <p>Click on an admin to see more detailed information and actions to perform on them.</p>
-    
+            <span>Click on an admin to see more detailed information and actions to perform on them.</span>
+
             {php} require (TEMPLATES_PATH . "/admin.admins.search.php");{/php}
-    
+
             <div class="flex flex-jc:end flex-ai:center margin-bottom:half">
                 {$admin_nav}
             </div>
-    
+
             <div class="table">
                 <div class="table_box">
                     <table class="table_box">
@@ -29,7 +30,10 @@
                         <tbody>
                             {foreach from="$admins" item="admin"}
                                 <tr class="collapse">
-                                    <td>{$admin.user} (<a href="./index.php?p=banlist&advSearch={$admin.aid}&advType=admin" title="Show bans">{$admin.bancount} bans</a> | <a href="./index.php?p=banlist&advSearch={$admin.aid}&advType=nodemo" title="Show bans without demo">{$admin.nodemocount} w.d.</a>)</td>
+                                    <td>{$admin.user} (<a href="./index.php?p=banlist&advSearch={$admin.aid}&advType=admin"
+                                            title="Show bans">{$admin.bancount} bans</a> | <a
+                                            href="./index.php?p=banlist&advSearch={$admin.aid}&advType=nodemo"
+                                            title="Show bans without demo">{$admin.nodemocount} w.d.</a>)</td>
                                     <td>{$admin.server_group}</td>
                                     <td>{$admin.web_group}</td>
                                     <td>{$admin.immunity}</td>
@@ -70,7 +74,7 @@
                                                         </li>
                                                     {/if}
                                                 </ul>
-        
+
                                                 <div class="flex:11 margin-right">
                                                     <h3>Server Admin Permissions</h3>
                                                     <ul>
@@ -83,7 +87,7 @@
                                                         {/if}
                                                     </ul>
                                                 </div>
-        
+
                                                 <div class="flex:11">
                                                     <h3>Web Admin Permissions</h3>
                                                     <ul>
@@ -106,7 +110,6 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
     {/if}
-</div>
-<script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
 </div>

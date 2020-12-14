@@ -44,7 +44,8 @@
             <tr>
                 <td valign="top">
                     <div class="rowdesc">
-                        {help_icon title="Steam ID / Community ID" message="The Steam ID or Community ID of the person to ban."}Steam ID / Community ID
+                        {help_icon title="Steam ID / Community ID" message="The Steam ID or Community ID of the person to ban."}Steam
+                        ID / Community ID
                     </div>
                 </td>
                 <td>
@@ -57,7 +58,8 @@
             <tr>
                 <td valign="top" width="35%">
                     <div class="rowdesc">
-                        {help_icon title="IP Address" message="Type the IP address of the person you want to ban."}IP Address
+                        {help_icon title="IP Address" message="Type the IP address of the person you want to ban."}IP
+                        Address
                     </div>
                 </td>
                 <td>
@@ -75,7 +77,8 @@
                 </td>
                 <td>
                     <div align="left">
-                        <select id="listReason" name="listReason" TABINDEX=4 class="select" onChange="changeReason(this[this.selectedIndex].value);">
+                        <select id="listReason" name="listReason" TABINDEX=4 class="select"
+                            onChange="changeReason(this[this.selectedIndex].value);">
                             <option value="" selected> -- Select Reason -- </option>
                             <optgroup label="Hacking">
                                 <option value="Aimbot">Aimbot</option>
@@ -106,7 +109,8 @@
                             <option value="other">Other Reason</option>
                         </select>
                         <div id="dreason" style="display:none;">
-                            <textarea class="textbox" TABINDEX=4 cols="30" rows="5" id="txtReason" name="txtReason"></textarea>
+                            <textarea class="textbox" TABINDEX=4 cols="30" rows="5" id="txtReason"
+                                name="txtReason"></textarea>
                         </div>
                     </div>
                     <div id="reason.msg" class="badentry"></div>
@@ -168,7 +172,8 @@
             <tr>
                 <td valign="top" width="35%">
                     <div class="rowdesc">
-                        {help_icon title="Upload Demo" message="Click here to upload a demo with this ban submission."}Upload Demo
+                        {help_icon title="Upload Demo" message="Click here to upload a demo with this ban submission."}Upload
+                        Demo
                     </div>
                 </td>
                 <td>

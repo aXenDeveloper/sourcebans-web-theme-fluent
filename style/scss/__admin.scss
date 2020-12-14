@@ -80,6 +80,7 @@
                     border-radius: 5px;
                     font-family: inherit;
                     font-size: 14px;
+                    color: inherit;
                     text-align: left;
                     border: 0;
                     background-color: transparent;
@@ -95,15 +96,22 @@
         }
 
         &_content {
-            display: block;
+            width: 100%;
 
-            &:first-of-type {
-                display: block;
+            &_title {
+                padding: 20px;
+                background-color: var(--theme-area_background_light);
+
+                h2,
+                h3 {
+                    padding: 0;
+                    margin: 0;
+                    font-size: 24px;
+                    font-weight: bold;
+                    line-height: 1.2;
+                    letter-spacing: -0.02em;
+                }
             }
         }
     }
-}
-
-.tabcontent {
-    width: 100%;
 }

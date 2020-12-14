@@ -33,3 +33,15 @@
 
     @include input-focus();
 }
+
+.form {
+    margin-top: 10px;
+
+    &_ul {
+        @include reset-list(0, 0);
+
+        li:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+}

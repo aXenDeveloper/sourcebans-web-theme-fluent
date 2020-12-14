@@ -14,5 +14,5 @@
                 <a href="index.php?p=admin">Back</a>
             </li>
         </ul>
+        <script type="text/javascript" src="themes/{$theme}/scripts/tab.js"></script>
     </div>
-    <script type="text/javascript" src="themes/{$theme}/scripts/tab.js"></script>

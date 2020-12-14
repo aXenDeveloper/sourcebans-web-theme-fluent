@@ -5,6 +5,12 @@
     padding: 16px 16px 16px 44px;
     color: #fff;
 
+    h3 {
+        padding: 0;
+        margin: 0;
+        font-size: 18px;
+    }
+
     &::before {
         content: '\f129';
         font-family: 'Font Awesome 5 Free';
