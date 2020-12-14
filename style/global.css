@@ -1616,14 +1616,41 @@ hr {
   margin-right: 20px;
 }
 
-.admin_tab ul {
+@media screen and (max-width: 980px) {
+  .admin_tab {
+    width: 100%;
+  }
+}
+
+.admin_tab_mobile {
+  width: 100%;
+}
+
+@media screen and (max-width: 980px) {
+  .admin_tab {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.admin_tab_ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  max-height: 100%;
+  -webkit-transition: max-height 0.3s ease;
+  transition: max-height 0.3s ease;
 }
 
-.admin_tab ul li a,
-.admin_tab ul li button {
+@media screen and (max-width: 980px) {
+  .admin_tab_ul {
+    max-height: 0;
+    overflow: hidden;
+  }
+}
+
+.admin_tab_ul li a,
+.admin_tab_ul li button {
   display: block;
   width: 100%;
   padding: 8px 10px;
@@ -1638,8 +1665,8 @@ hr {
   cursor: pointer;
 }
 
-.admin_tab ul li a:hover,
-.admin_tab ul li button:hover {
+.admin_tab_ul li a:hover,
+.admin_tab_ul li button:hover {
   background-color: var(--layout_main--color);
   color: #fff;
 }

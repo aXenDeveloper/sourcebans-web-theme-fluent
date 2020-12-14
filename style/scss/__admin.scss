@@ -48,8 +48,28 @@
         width: 280px;
         margin-right: 20px;
 
-        ul {
+        @media screen and (max-width: 980px) {
+            width: 100%;
+        }
+
+        &_mobile {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 980px) {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+
+        &_ul {
             @include reset-list(0, 0);
+            max-height: 100%;
+            transition: max-height 0.3s ease;
+
+            @media screen and (max-width: 980px) {
+                max-height: 0;
+                overflow: hidden;
+            }
 
             li {
                 a,
