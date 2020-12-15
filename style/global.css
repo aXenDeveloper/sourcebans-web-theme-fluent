@@ -4,7 +4,7 @@
   --layout_main--color_0_3: rgba(var(--layout_main_code--color), 0.3);
   --container--width: 1630px;
   --header--height: 80px;
-  --theme-text_color: #353c41;
+  --theme-text_color: rgb(53, 60, 65);
   --theme-page_background: #edf0f4;
   --theme-text_light: rgb(76, 86, 101);
   --theme-header_code: 255, 255, 255;
@@ -26,7 +26,7 @@
   --box--radius: 4px;
   --box--boxShadow: 0px 2px 4px -1px var(--theme-area_background_dark_0_1);
   --box--backgroundColor: #fff;
-  --theme-link: rgb(26, 32, 44);
+  --theme-link: rgb(30, 36, 43);
   --theme-link_hover: var(--layout_main--color);
   --layout_button--background-hover: rgba(0, 0, 0, 0.08);
   --layout_button--border-radius: 4px;
@@ -247,6 +247,7 @@ a:hover {
 }
 
 .input {
+  display: block;
   border-radius: 4px;
   padding: 11px;
   color: inherit;
