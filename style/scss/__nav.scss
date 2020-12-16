@@ -23,7 +23,45 @@
                 z-index: 1;
                 overflow: hidden;
 
+                &::before {
+                    content: '\f0c9';
+                    font-family: 'font awesome 5 free';
+                    font-size: 14px;
+                    font-weight: 700;
+                    margin-right: 3px;
+                }
+
+                &[data-nav='home']::before {
+                    content: '\f015';
+                }
+
+                &[data-nav='servers']::before {
+                    content: '\f233';
+                }
+
+                &[data-nav='banlist']::before {
+                    content: '\f05e';
+                }
+
+                &[data-nav='commslist']::before {
+                    content: '\f539';
+                }
+
+                &[data-nav='submit']::before {
+                    content: '\f11e';
+                }
+
+                &[data-nav='protest']::before {
+                    content: '\f4fd';
+                }
+
+                &[data-nav='admin']::before {
+                    content: '\f023';
+                }
+
                 &:hover {
+                    text-decoration: none;
+
                     &::after {
                         transform: scaleX(1);
                         transition-timing-function: ease;
@@ -38,7 +76,7 @@
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    background: var(--layout_button--background-hover);
+                    background: var(--layout_main--color_0_15);
                     transform: scaleX(0);
                     height: 100%;
                     transition-property: transform;
@@ -94,6 +132,46 @@
                             display: block;
                             color: var(--theme-nav_text_color_0_7) !important;
                             padding: 12px 20px;
+
+                            &:hover {
+                                text-decoration: none;
+                            }
+
+                            &::before {
+                                content: '\f0c9';
+                                font-family: 'font awesome 5 free';
+                                font-size: 14px;
+                                font-weight: 700;
+                                margin-right: 3px;
+                            }
+
+                            &[data-nav='home']::before {
+                                content: '\f015';
+                            }
+
+                            &[data-nav='servers']::before {
+                                content: '\f233';
+                            }
+
+                            &[data-nav='banlist']::before {
+                                content: '\f05e';
+                            }
+
+                            &[data-nav='commslist']::before {
+                                content: '\f539';
+                            }
+
+                            &[data-nav='submit']::before {
+                                content: '\f11e';
+                            }
+
+                            &[data-nav='protest']::before {
+                                content: '\f4fd';
+                            }
+
+                            &[data-nav='admin']::before {
+                                content: '\f023';
+                            }
                         }
                     }
                 }

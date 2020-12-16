@@ -2,6 +2,7 @@
   --layout_main_code--color: 26, 122, 191;
   --layout_main--color: rgb(var(--layout_main_code--color));
   --layout_main--color_0_3: rgba(var(--layout_main_code--color), 0.3);
+  --layout_main--color_0_15: rgba(var(--layout_main_code--color), 0.15);
   --container--width: 1630px;
   --header--height: 80px;
   --theme-text_color: rgb(53, 60, 65);
@@ -23,13 +24,11 @@
   --theme-footer_text: rgb(53, 60, 65);
   --theme-footer_background: var(--theme-nav_background);
   --theme-nav-mobile: rgba(0, 0, 0, 0.4);
-  --box--radius: 4px;
-  --box--boxShadow: 0px 2px 4px -1px var(--theme-area_background_dark_0_1);
+  --border--radius: 5px;
+  --box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.08);
   --box--backgroundColor: #fff;
-  --theme-link: rgb(30, 36, 43);
-  --theme-link_hover: var(--layout_main--color);
+  --theme-link: var(--layout_main--color);
   --layout_button--background-hover: rgba(0, 0, 0, 0.08);
-  --layout_button--border-radius: 4px;
   --input--shadow: rgba(44, 95, 140, 0.08);
   --input--border: rgba(113, 128, 150, 0.4);
   --input--border-focusShadow: var(--layout_main--color_0_3) 0px 0px 0px 4px;
@@ -79,7 +78,8 @@ a {
 }
 
 a:hover {
-  color: var(--theme-link_hover);
+  -webkit-text-decoration: revert;
+          text-decoration: revert;
 }
 
 .button {
@@ -88,7 +88,7 @@ a:hover {
   font-weight: 400;
   text-align: center;
   padding: 10px 20px;
-  border-radius: var(--layout_button--border-radius);
+  border-radius: var(--border--radius);
   color: #fff !important;
   position: relative;
   z-index: 1;
@@ -99,6 +99,14 @@ a:hover {
 
 .button a {
   color: inherit;
+}
+
+.button a:hover {
+  text-decoration: none;
+}
+
+.button:hover {
+  text-decoration: none;
 }
 
 .button::after {
@@ -223,6 +231,14 @@ a:hover {
   padding: 5px;
 }
 
+.table table thead th:first-child {
+  border-top-left-radius: var(--border--radius);
+}
+
+.table table thead th:last-child {
+  border-top-right-radius: var(--border--radius);
+}
+
 .table table tbody > tr.collapse {
   cursor: pointer;
   -webkit-transition: background-color 0.2s ease;
@@ -247,8 +263,7 @@ a:hover {
 }
 
 .input {
-  display: block;
-  border-radius: 4px;
+  border-radius: var(--border--radius);
   padding: 11px;
   color: inherit;
   -webkit-box-shadow: var(--input--shadow) 0px 3px 4px -1px;
@@ -258,7 +273,7 @@ a:hover {
 }
 
 .input_checkbox:focus {
-  border-radius: 4px;
+  border-radius: var(--border--radius);
   -webkit-box-shadow: var(--input--border-focusShadow);
           box-shadow: var(--input--border-focusShadow);
   border: 1px solid var(--layout_main--color);
@@ -272,7 +287,7 @@ a:hover {
 }
 
 .input_textarea:focus {
-  border-radius: 4px;
+  border-radius: var(--border--radius);
   -webkit-box-shadow: var(--input--border-focusShadow);
           box-shadow: var(--input--border-focusShadow);
   border: 1px solid var(--layout_main--color);
@@ -284,11 +299,15 @@ a:hover {
 }
 
 .input:focus {
-  border-radius: 4px;
+  border-radius: var(--border--radius);
   -webkit-box-shadow: var(--input--border-focusShadow);
           box-shadow: var(--input--border-focusShadow);
   border: 1px solid var(--layout_main--color);
   outline: 0;
+}
+
+.input-block {
+  display: block;
 }
 
 .form {
@@ -362,9 +381,9 @@ a:hover {
 }
 
 .layout_box {
-  -webkit-box-shadow: var(--box--boxShadow);
-          box-shadow: var(--box--boxShadow);
-  border-radius: var(--box--radius);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+  border-radius: var(--border--radius);
   background-color: var(--box--backgroundColor);
 }
 
@@ -416,8 +435,8 @@ a:hover {
 }
 
 .layout_box-child {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(76, 86, 101, 0.2), var(--box--boxShadow);
-          box-shadow: 0px 0px 0px 1px rgba(76, 86, 101, 0.2), var(--box--boxShadow);
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(76, 86, 101, 0.2), var(--box-shadow);
+          box-shadow: 0px 0px 0px 1px rgba(76, 86, 101, 0.2), var(--box-shadow);
   border-radius: 4px;
 }
 
@@ -431,8 +450,8 @@ a:hover {
   -webkit-backdrop-filter: var(--backdrop-filter-value);
           backdrop-filter: var(--backdrop-filter-value);
   color: var(--backdrop-text_color);
-  -webkit-box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.53);
-          box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.53);
+  -webkit-box-shadow: 0 0 40px 0 rgba(56, 55, 93, 0.3);
+          box-shadow: 0 0 40px 0 rgba(56, 55, 93, 0.3);
   padding: 10px 0;
 }
 
@@ -581,8 +600,6 @@ a:hover {
 
 .footer {
   background-color: var(--theme-footer_background);
-  -webkit-box-shadow: var(--box--boxShadow);
-          box-shadow: var(--box--boxShadow);
 }
 
 .footer > .layout_container {
@@ -597,8 +614,8 @@ a:hover {
 .header {
   background-color: var(--theme-header);
   color: var(--theme-header_text);
-  -webkit-box-shadow: var(--box--boxShadow);
-          box-shadow: var(--box--boxShadow);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
   margin-top: 60px;
 }
 
@@ -655,6 +672,46 @@ a:hover {
   overflow: hidden;
 }
 
+.nav ul li a::before {
+  content: '\f0c9';
+  font-family: 'font awesome 5 free';
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 3px;
+}
+
+.nav ul li a[data-nav='home']::before {
+  content: '\f015';
+}
+
+.nav ul li a[data-nav='servers']::before {
+  content: '\f233';
+}
+
+.nav ul li a[data-nav='banlist']::before {
+  content: '\f05e';
+}
+
+.nav ul li a[data-nav='commslist']::before {
+  content: '\f539';
+}
+
+.nav ul li a[data-nav='submit']::before {
+  content: '\f11e';
+}
+
+.nav ul li a[data-nav='protest']::before {
+  content: '\f4fd';
+}
+
+.nav ul li a[data-nav='admin']::before {
+  content: '\f023';
+}
+
+.nav ul li a:hover {
+  text-decoration: none;
+}
+
 .nav ul li a:hover::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
@@ -670,7 +727,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--layout_button--background-hover);
+  background: var(--layout_main--color_0_15);
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
   height: 100%;
@@ -734,6 +791,46 @@ a:hover {
   display: block;
   color: var(--theme-nav_text_color_0_7) !important;
   padding: 12px 20px;
+}
+
+.nav_mobile_tab_nav ul li a:hover {
+  text-decoration: none;
+}
+
+.nav_mobile_tab_nav ul li a::before {
+  content: '\f0c9';
+  font-family: 'font awesome 5 free';
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 3px;
+}
+
+.nav_mobile_tab_nav ul li a[data-nav='home']::before {
+  content: '\f015';
+}
+
+.nav_mobile_tab_nav ul li a[data-nav='servers']::before {
+  content: '\f233';
+}
+
+.nav_mobile_tab_nav ul li a[data-nav='banlist']::before {
+  content: '\f05e';
+}
+
+.nav_mobile_tab_nav ul li a[data-nav='commslist']::before {
+  content: '\f539';
+}
+
+.nav_mobile_tab_nav ul li a[data-nav='submit']::before {
+  content: '\f11e';
+}
+
+.nav_mobile_tab_nav ul li a[data-nav='protest']::before {
+  content: '\f4fd';
+}
+
+.nav_mobile_tab_nav ul li a[data-nav='admin']::before {
+  content: '\f023';
 }
 
 .nav_mobile_tab_top {
@@ -1616,6 +1713,7 @@ hr {
 .admin_nav ul li a:hover {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: inherit;
+  text-decoration: none;
 }
 
 .admin_nav ul li a i {
@@ -1693,6 +1791,7 @@ hr {
 .admin_tab_ul li button:hover {
   background-color: var(--layout_main--color);
   color: #fff;
+  text-decoration: none;
 }
 
 .admin_tab_content {

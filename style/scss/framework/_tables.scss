@@ -24,6 +24,14 @@
             th {
                 padding: 5px;
             }
+
+            th:first-child {
+                border-top-left-radius: var(--border--radius);
+            }
+
+            th:last-child {
+                border-top-right-radius: var(--border--radius);
+            }
         }
 
         tbody {

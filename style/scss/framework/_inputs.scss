@@ -1,6 +1,6 @@
 @mixin input-focus {
     &:focus {
-        border-radius: 4px;
+        border-radius: var(--border--radius);
         box-shadow: var(--input--border-focusShadow);
         border: 1px solid var(--layout_main--color);
         outline: 0;
@@ -8,8 +8,7 @@
 }
 
 .input {
-    display: block;
-    border-radius: 4px;
+    border-radius: var(--border--radius);
     padding: 11px;
     color: inherit;
     box-shadow: var(--input--shadow) 0px 3px 4px -1px;
@@ -33,6 +32,10 @@
     }
 
     @include input-focus();
+
+    &-block {
+        display: block;
+    }
 }
 
 .form {

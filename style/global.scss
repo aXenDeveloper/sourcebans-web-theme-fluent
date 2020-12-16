@@ -2,6 +2,7 @@
     --layout_main_code--color: 26, 122, 191;
     --layout_main--color: rgb(var(--layout_main_code--color));
     --layout_main--color_0_3: rgba(var(--layout_main_code--color), 0.3);
+    --layout_main--color_0_15: rgba(var(--layout_main_code--color), 0.15);
 
     --container--width: 1630px;
     --header--height: 80px;
@@ -29,15 +30,13 @@
     --theme-footer_background: var(--theme-nav_background);
     --theme-nav-mobile: rgba(0, 0, 0, 0.4);
 
-    --box--radius: 4px;
-    --box--boxShadow: 0px 2px 4px -1px var(--theme-area_background_dark_0_1);
+    --border--radius: 5px;
+    --box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.08);
     --box--backgroundColor: #fff;
 
-    --theme-link: rgb(30, 36, 43);
-    --theme-link_hover: var(--layout_main--color);
+    --theme-link: var(--layout_main--color);
 
     --layout_button--background-hover: rgba(0, 0, 0, 0.08);
-    --layout_button--border-radius: 4px;
 
     --input--shadow: rgba(44, 95, 140, 0.08);
     --input--border: rgba(113, 128, 150, 0.4);
@@ -109,7 +108,7 @@ a {
     text-decoration: none;
 
     &:hover {
-        color: var(--theme-link_hover);
+        text-decoration: revert;
     }
 }
 

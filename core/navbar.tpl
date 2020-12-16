@@ -6,7 +6,8 @@
                     <button id="user_action_change_dark" aria-label="Dark mode"><i class="fas fa-moon"></i></button>
                 </li>
                 <li class="jscolor_li">
-                    <button data-jscolor="{mode:'HSV', onInput:'setColorThemeCookie(this)'}" aria-label="Color"></button>
+                    <button data-jscolor="{mode:'HSV', onInput:'setColorThemeCookie(this)'}"
+                        aria-label="Color"></button>
                 </li>
                 <li id="jscolor_reset" class="jscolor_li" style="display: none;">
                     <button aria-label="Reset color"><i class="fa fa-refresh"></i></button>
@@ -19,7 +20,8 @@
                         Welcome, <a href='index.php?p=account'><i class="fas fa-user"></i> {$username}</a>
                     </li>
                     <li>
-                        <a class="button button:important" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <a class="button button:important" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i>
+                            Logout</a>
                     </li>
                 {else}
                     <li>
@@ -28,7 +30,8 @@
                 {/if}
             </ul>
 
-            <button id="button_mobile_open" class="nav_mobile_open responsive_hide:desktop" aria-label="Mobile nav open">
+            <button id="button_mobile_open" class="nav_mobile_open responsive_hide:desktop"
+                aria-label="Mobile nav open">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -42,7 +45,8 @@
 
             <div class="nav_mobile_tab_top padding flex">
                 {if $login}
-                    <a class="button button:important button:full" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <a class="button button:important button:full" href='index.php?p=logout'><i
+                            class="fas fa-sign-out-alt"></i> Logout</a>
                 {else}
                     <a class="button button:success button:full" href='index.php?p=login'>Existing user? Sign In</a>
                 {/if}
@@ -51,7 +55,7 @@
                 <ul>
                     {foreach from=$navbar item=nav}
                         <li class="{$nav.state}">
-                            <a href="index.php?p={$nav.endpoint}" class="tip" title="{$nav.title}::{$nav.description}" target="_self">
+                            <a href="index.php?p={$nav.endpoint}" data-nav="{$nav.endpoint}">
                                 {$nav.title}
                             </a>
                         </li>
@@ -68,7 +72,7 @@
             <ul>
                 {foreach from=$navbar item=nav}
                     <li class="{$nav.state}">
-                        <a href="index.php?p={$nav.endpoint}" class="tip" title="{$nav.title}::{$nav.description}" target="_self">
+                        <a href="index.php?p={$nav.endpoint}" data-nav="{$nav.endpoint}">
                             {$nav.title}
                         </a>
                     </li>

@@ -6,16 +6,17 @@ const selectElements = {
     dark: document.querySelector('#user_action_change_dark')
 }
 
-const colorBackground = ".tee .layout_table table thead, .tee .layout_table table td.listtable_top";
-const colorBorder = ".tee nav ul li.active, .tee .layout_input:focus";
-const colorColor = ".tee .jscolor_li button.jscolor, .tee a:hover";
+const colorBackground = ".tee .layout_box_title, .tee .table table thead, .tee .table table td.listtable_top, .tee .admin_nav";
+const colorBorder = ".tee .nav ul li.active, .tee .input:focus";
+const colorColor = ".tee .jscolor_li button.jscolor, .tee a";
 
 const setColorTheme = picker => {
     selectElements.color.innerHTML = `
         ${colorBackground} { background-color: ${picker}; }
         ${colorBorder} { border-color: ${picker}; }
         ${colorColor} { color: ${picker}; }
-        .tee .layout_input:focus { box-shadow: ${picker}4d 0px 0px 0px 4px; }
+        .tee .input:focus { box-shadow: ${picker}4d 0px 0px 0px 4px; }
+        .tee .nav ul li a::after { background: ${picker}26; }
     `;
     selectElements.colorReset.style.display = 'flex';
     localStorage.setItem(localStorageName.color, picker);
