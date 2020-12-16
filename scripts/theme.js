@@ -16,7 +16,7 @@ const setColorTheme = picker => {
         ${colorBorder} { border-color: ${picker}; }
         ${colorColor} { color: ${picker}; }
         .tee .input:focus { box-shadow: ${picker}4d 0px 0px 0px 4px; }
-        .tee .nav ul li a::after { background: ${picker}26; }
+        .tee .nav ul li a::after, .tee .table table tbody tr.collapse:hover { background: ${picker}26; }
     `;
     selectElements.colorReset.style.display = 'flex';
     localStorage.setItem(localStorageName.color, picker);

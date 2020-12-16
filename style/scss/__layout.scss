@@ -55,7 +55,7 @@
         }
 
         &-child {
-            box-shadow: 0px 0px 0px 1px rgba(76, 86, 101, 0.2), var(--box-shadow);
+            box-shadow: var(--box-shadow--child);
             border-radius: 4px;
         }
     }

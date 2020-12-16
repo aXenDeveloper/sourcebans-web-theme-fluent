@@ -5,40 +5,27 @@
   --layout_main--color_0_15: rgba(var(--layout_main_code--color), 0.15);
   --container--width: 1630px;
   --header--height: 80px;
-  --theme-text_color: rgb(53, 60, 65);
-  --theme-page_background: #edf0f4;
-  --theme-text_light: rgb(76, 86, 101);
-  --theme-header_code: 255, 255, 255;
-  --theme-header: rgb(var(--theme-header_code));
-  --theme-header_text: #2d3748;
-  --theme-area_background_dark: rgb(29, 29, 29);
-  --theme-area_background_dark_0_1: rgba(29, 29, 29, 0.1);
-  --theme-area_background_light: rgb(247, 250, 252);
-  --theme-nav_background: rgb(255, 255, 255);
-  --theme-nav_text: 0, 0, 0;
-  --theme-nav_text_color: rgb(var(--theme-nav_text));
-  --theme-nav_text_color_0_7: rgba(var(--theme-nav_text), 0.7);
-  --theme-nav_text_color_0_1: rgba(var(--theme-nav_text), 0.1);
-  --theme-area_background_reset: rgb(255, 255, 255);
-  --theme-area_background_reset_0_9: rgba(255, 255, 255, 0.9);
-  --theme-footer_text: rgb(53, 60, 65);
-  --theme-footer_background: var(--theme-nav_background);
-  --theme-nav-mobile: rgba(0, 0, 0, 0.4);
+  --theme-background: #edf0f4;
+  --theme-text: #353c41;
+  --theme-text_light: #464646;
+  --theme-text_light-hover: #000;
+  --theme-link: var(--layout_main--color);
+  --theme-area_background_light: #f7fafc;
   --border--radius: 5px;
   --box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.08);
+  --box-shadow--child: 0 0 0 1px rgba(76, 86, 101, 0.2), 0 0 40px 0 rgba(94, 92, 154, 0.08);
   --box--backgroundColor: #fff;
-  --theme-link: var(--layout_main--color);
-  --layout_button--background-hover: rgba(0, 0, 0, 0.08);
+  --backdrop-filter-value: blur(15px);
+  --backdrop-background: rgba(255, 255, 255, 0.65);
+  --backdrop-text_color: #000;
   --input--shadow: rgba(44, 95, 140, 0.08);
   --input--border: rgba(113, 128, 150, 0.4);
   --input--border-focusShadow: var(--layout_main--color_0_3) 0px 0px 0px 4px;
-  --backdrop-filter-value: blur(15px);
-  --backdrop-background: rgba(var(--theme-header_code), 0.84);
-  --backdrop-text_color: rgb(0, 0, 0);
-  --button-success: rgb(38, 123, 60);
-  --button-important: rgb(202, 30, 30);
-  --button-light: rgb(232, 242, 250);
-  --button-light-text: rgb(14, 76, 121);
+  --button-success: #267b3c;
+  --button-important: #ca1e1e;
+  --button-light: #e8f2fa;
+  --button-light-text: #0e4c79;
+  --button--background-hover: rgba(0, 0, 0, 0.08);
   --table-unbanned-code: 44, 140, 105;
   --table-unbanned: rgba(var(--table-unbanned-code), 0.1);
   --table-unbanned-text: rgb(var(--table-unbanned-code));
@@ -48,6 +35,10 @@
   --table-permanent-code: 197, 48, 48;
   --table-permanent: rgba(var(--table-permanent-code), 0.1);
   --table-permanent-text: rgb(var(--table-permanent-code));
+  --message-info: #1f7bbb;
+  --message-error: #c53030;
+  --message-general: #70767d;
+  --message-succes: #2a884b;
   --message-info: #1f7bbb;
   --message-error: #c53030;
   --message-general: #70767d;
@@ -63,9 +54,9 @@ body {
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 13px;
   line-height: 1.5;
-  color: var(--theme-text_color);
+  color: var(--theme-text);
   height: 100%;
-  background-color: var(--theme-page_background);
+  background-color: var(--theme-background);
   margin: 0;
   cursor: inherit !important;
 }
@@ -117,7 +108,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--layout_button--background-hover);
+  background: var(--button--background-hover);
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
   height: 100%;
@@ -246,7 +237,7 @@ a:hover {
 }
 
 .table table tbody tr.collapse:hover {
-  background-color: var(--layout_button--background-hover);
+  background-color: var(--layout_main--color_0_15);
 }
 
 .table table tbody td {
@@ -268,7 +259,7 @@ a:hover {
   color: inherit;
   -webkit-box-shadow: var(--input--shadow) 0px 3px 4px -1px;
           box-shadow: var(--input--shadow) 0px 3px 4px -1px;
-  background-color: var(--theme-area_background_reset);
+  background-color: var(--box--backgroundColor);
   border: 1px solid var(--input--border);
 }
 
@@ -435,8 +426,8 @@ a:hover {
 }
 
 .layout_box-child {
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(76, 86, 101, 0.2), var(--box-shadow);
-          box-shadow: 0px 0px 0px 1px rgba(76, 86, 101, 0.2), var(--box-shadow);
+  -webkit-box-shadow: var(--box-shadow--child);
+          box-shadow: var(--box-shadow--child);
   border-radius: 4px;
 }
 
@@ -599,12 +590,11 @@ a:hover {
 }
 
 .footer {
-  background-color: var(--theme-footer_background);
+  background-color: var(--box--backgroundColor);
 }
 
 .footer > .layout_container {
   padding: 20px 15px;
-  color: var(--theme-footer_text);
 }
 
 .footer a {
@@ -612,8 +602,7 @@ a:hover {
 }
 
 .header {
-  background-color: var(--theme-header);
-  color: var(--theme-header_text);
+  background-color: var(--box--backgroundColor);
   -webkit-box-shadow: var(--box-shadow);
           box-shadow: var(--box-shadow);
   margin-top: 60px;
@@ -644,7 +633,7 @@ a:hover {
 
 .nav {
   width: 255px;
-  background-color: var(--theme-nav_background);
+  background-color: var(--box--backgroundColor);
 }
 
 .nav ul {
@@ -666,7 +655,7 @@ a:hover {
 .nav ul li a {
   display: block;
   padding: 15px 25px;
-  color: var(--theme-nav_text_color_0_7) !important;
+  color: var(--theme-text_light);
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -709,6 +698,7 @@ a:hover {
 }
 
 .nav ul li a:hover {
+  color: var(--theme-text_light-hover);
   text-decoration: none;
 }
 
@@ -765,7 +755,7 @@ a:hover {
   z-index: 1100;
   width: 340px;
   max-width: calc(100% - 50px);
-  background-color: var(--theme-nav_background);
+  background-color: var(--box--backgroundColor);
   -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   -webkit-transform: translateX(calc(100% + 45px));
@@ -789,8 +779,8 @@ a:hover {
 
 .nav_mobile_tab_nav ul li a {
   display: block;
-  color: var(--theme-nav_text_color_0_7) !important;
   padding: 12px 20px;
+  color: var(--theme-text_light);
 }
 
 .nav_mobile_tab_nav ul li a:hover {
@@ -834,11 +824,11 @@ a:hover {
 }
 
 .nav_mobile_tab_top {
-  background-color: var(--theme-nav_background);
+  background-color: var(--box--backgroundColor);
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  border-bottom: 1px solid var(--theme-nav_text_color_0_1);
+  border-bottom: 1px solid #ccc;
 }
 
 .nav_mobile_background {
@@ -849,7 +839,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--theme-nav-mobile);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .nav_mobile_open {
@@ -872,7 +862,7 @@ a:hover {
 }
 
 .nav_mobile_close {
-  background: var(--theme-nav_background);
+  background: var(--box--backgroundColor);
   width: 35px;
   height: 35px;
   border-radius: 40px;
@@ -889,22 +879,19 @@ a:hover {
 }
 
 [data-theme='dark']:root {
-  --theme-link: rgb(230, 230, 230);
-  --theme-text_light: rgb(182, 182, 182);
-  --layout_button--background-hover: rgba(255, 255, 255, 0.08);
-  --theme-footer_text: rgb(214, 214, 214);
-  --box--backgroundColor: #121318;
-  --theme-text_color: #e6e6e6;
-  --theme-page_background: #0f1015;
-  --theme-header_code: 9, 9, 12;
-  --theme-header_text: #b5b5b5;
-  --theme-nav-mobile: rgba(255, 255, 255, 0.4);
-  --theme-nav_background: rgb(18, 19, 24);
-  --theme-nav_text: rgb(255, 255, 255);
-  --backdrop-text_color: rgb(255, 255, 255);
-  --button-light: rgb(26, 28, 35);
-  --button-light-text: rgb(255, 255, 255);
-  --theme-area_background_light: rgb(24, 26, 33);
+  --theme-background: #0f1015;
+  --theme-text: #efefef;
+  --theme-text_light: #bdbdbd;
+  --theme-text_light-hover: #fff;
+  --theme-area_background_light: #171821;
+  --button--background-hover: rgba(255, 255, 255, 0.08);
+  --button-light: #22242f;
+  --button-light-text: #fff;
+  --box--backgroundColor: #13141b;
+  --box-shadow: none;
+  --box-shadow--child: 0 0 0 1px rgba(147, 161, 181, 0.2), 0 0 40px 0 transparent;
+  --backdrop-background: rgba(42, 44, 60, 0.65);
+  --backdrop-text_color: #fff;
 }
 
 [data-theme='dark'] .layout_topBar .layout_topBar_action li #user_action_change_dark i {

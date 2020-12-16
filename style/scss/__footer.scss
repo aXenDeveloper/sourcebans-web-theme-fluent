@@ -1,9 +1,8 @@
 .footer {
-    background-color: var(--theme-footer_background);
+    background-color: var(--box--backgroundColor);
 
     > .layout_container {
         padding: 20px 15px;
-        color: var(--theme-footer_text);
     }
 
     a {

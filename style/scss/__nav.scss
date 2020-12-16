@@ -1,6 +1,6 @@
 .nav {
     width: 255px;
-    background-color: var(--theme-nav_background);
+    background-color: var(--box--backgroundColor);
 
     ul {
         @include reset-list(0, 0);
@@ -18,7 +18,7 @@
             a {
                 display: block;
                 padding: 15px 25px;
-                color: var(--theme-nav_text_color_0_7) !important;
+                color: var(--theme-text_light);
                 position: relative;
                 z-index: 1;
                 overflow: hidden;
@@ -60,6 +60,7 @@
                 }
 
                 &:hover {
+                    color: var(--theme-text_light-hover);
                     text-decoration: none;
 
                     &::after {
@@ -111,7 +112,7 @@
             z-index: 1100;
             width: 340px;
             max-width: calc(100% - 50px);
-            background-color: var(--theme-nav_background);
+            background-color: var(--box--backgroundColor);
             box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
             transform: translateX(calc(100% + 45px));
             transition: transform 0.3s ease;
@@ -130,8 +131,8 @@
 
                         a {
                             display: block;
-                            color: var(--theme-nav_text_color_0_7) !important;
                             padding: 12px 20px;
+                            color: var(--theme-text_light);
 
                             &:hover {
                                 text-decoration: none;
@@ -178,10 +179,10 @@
             }
 
             &_top {
-                background-color: var(--theme-nav_background);
+                background-color: var(--box--backgroundColor);
                 position: sticky;
                 top: 0;
-                border-bottom: 1px solid var(--theme-nav_text_color_0_1);
+                border-bottom: 1px solid #ccc;
             }
         }
 
@@ -193,7 +194,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: var(--theme-nav-mobile);
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         &_open {
@@ -206,7 +207,7 @@
         }
 
         &_close {
-            background: var(--theme-nav_background);
+            background: var(--box--backgroundColor);
             width: 35px;
             height: 35px;
             border-radius: 40px;

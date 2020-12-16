@@ -6,66 +6,48 @@
 
     --container--width: 1630px;
     --header--height: 80px;
-    --theme-text_color: rgb(53, 60, 65);
-    --theme-page_background: #edf0f4;
-    --theme-text_light: rgb(76, 86, 101);
 
-    --theme-header_code: 255, 255, 255;
-    --theme-header: rgb(var(--theme-header_code));
-    --theme-header_text: #2d3748;
-
-    --theme-area_background_dark: rgb(29, 29, 29);
-    --theme-area_background_dark_0_1: rgba(29, 29, 29, 0.1);
-    --theme-area_background_light: rgb(247, 250, 252);
-    --theme-nav_background: rgb(255, 255, 255);
-    --theme-nav_text: 0, 0, 0;
-    --theme-nav_text_color: rgb(var(--theme-nav_text));
-    --theme-nav_text_color_0_7: rgba(var(--theme-nav_text), 0.7);
-    --theme-nav_text_color_0_1: rgba(var(--theme-nav_text), 0.1);
-
-    --theme-area_background_reset: rgb(255, 255, 255);
-    --theme-area_background_reset_0_9: rgba(255, 255, 255, 0.9);
-
-    --theme-footer_text: rgb(53, 60, 65);
-    --theme-footer_background: var(--theme-nav_background);
-    --theme-nav-mobile: rgba(0, 0, 0, 0.4);
+    --theme-background: #edf0f4;
+    --theme-text: #353c41;
+    --theme-text_light: #464646;
+    --theme-text_light-hover: #000;
+    --theme-link: var(--layout_main--color);
+    --theme-area_background_light: #f7fafc;
 
     --border--radius: 5px;
     --box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.08);
+    --box-shadow--child: 0 0 0 1px rgba(76, 86, 101, 0.2), 0 0 40px 0 rgba(94, 92, 154, 0.08);
     --box--backgroundColor: #fff;
 
-    --theme-link: var(--layout_main--color);
-
-    --layout_button--background-hover: rgba(0, 0, 0, 0.08);
+    --backdrop-filter-value: blur(15px);
+    --backdrop-background: rgba(255, 255, 255, 0.65);
+    --backdrop-text_color: #000;
 
     --input--shadow: rgba(44, 95, 140, 0.08);
     --input--border: rgba(113, 128, 150, 0.4);
     --input--border-focusShadow: var(--layout_main--color_0_3) 0px 0px 0px 4px;
 
-    --backdrop-filter-value: blur(15px);
-    --backdrop-background: rgba(var(--theme-header_code), 0.84);
-    --backdrop-text_color: rgb(0, 0, 0);
+    --button-success: #267b3c;
+    --button-important: #ca1e1e;
+    --button-light: #e8f2fa;
+    --button-light-text: #0e4c79;
+    --button--background-hover: rgba(0, 0, 0, 0.08);
 
-    //  ========== Button ==========
-    --button-success: rgb(38, 123, 60);
-    --button-important: rgb(202, 30, 30);
-    --button-light: rgb(232, 242, 250);
-    --button-light-text: rgb(14, 76, 121);
-
-    //  ========== Table ==========
     --table-unbanned-code: 44, 140, 105;
     --table-unbanned: rgba(var(--table-unbanned-code), 0.1);
     --table-unbanned-text: rgb(var(--table-unbanned-code));
-
     --table-banned-code: 221, 107, 32;
     --table-banned: rgba(var(--table-banned-code), 0.1);
     --table-banned-text: rgb(var(--table-banned-code));
-
     --table-permanent-code: 197, 48, 48;
     --table-permanent: rgba(var(--table-permanent-code), 0.1);
     --table-permanent-text: rgb(var(--table-permanent-code));
 
-    //  ========== Table ==========
+    --message-info: #1f7bbb;
+    --message-error: #c53030;
+    --message-general: #70767d;
+    --message-succes: #2a884b;
+
     --message-info: #1f7bbb;
     --message-error: #c53030;
     --message-general: #70767d;
@@ -95,9 +77,9 @@ body {
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     font-size: 13px;
     line-height: 1.5;
-    color: var(--theme-text_color);
+    color: var(--theme-text);
     height: 100%;
-    background-color: var(--theme-page_background);
+    background-color: var(--theme-background);
     margin: 0;
     cursor: inherit !important;
 }

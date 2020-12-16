@@ -1,26 +1,21 @@
 [data-theme='dark'] {
     &:root {
-        --theme-link: rgb(230, 230, 230);
-        --theme-text_light: rgb(182, 182, 182);
-        --layout_button--background-hover: rgba(255, 255, 255, 0.08);
-        --theme-footer_text: rgb(214, 214, 214);
-        --box--backgroundColor: #121318;
+        --theme-background: #0f1015;
+        --theme-text: #efefef;
+        --theme-text_light: #bdbdbd;
+        --theme-text_light-hover: #fff;
+        --theme-area_background_light: #171821;
+        --button--background-hover: rgba(255, 255, 255, 0.08);
 
-        --theme-text_color: #e6e6e6;
-        --theme-page_background: #0f1015;
-        --theme-header_code: 9, 9, 12;
-        --theme-header_text: #b5b5b5;
-        --theme-nav-mobile: rgba(255, 255, 255, 0.4);
+        --button-light: #22242f;
+        --button-light-text: #fff;
 
-        --theme-nav_background: rgb(18, 19, 24);
-        --theme-nav_text: rgb(255, 255, 255);
+        --box--backgroundColor: #13141b;
+        --box-shadow: none;
+        --box-shadow--child: 0 0 0 1px rgba(147, 161, 181, 0.2), 0 0 40px 0 transparent;
 
-        --backdrop-text_color: rgb(255, 255, 255);
-
-        --button-light: rgb(26, 28, 35);
-        --button-light-text: rgb(255, 255, 255);
-
-        --theme-area_background_light: rgb(24, 26, 33);
+        --backdrop-background: rgba(42, 44, 60, 0.65);
+        --backdrop-text_color: #fff;
     }
 
     .layout_topBar .layout_topBar_action li #user_action_change_dark i {
