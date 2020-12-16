@@ -1,55 +1,63 @@
-<form action="" method="post">
-    <div id="admin-page-content">
-        <div id="add-group">
-            <h3>Admin Server Access</h3>
-            Please select the servers and/or groups of servers you want this admin to have access to.<br /><br />
-            <table width="90%" border="0" cellspacing="0" cellpadding="4" align="center">
-                {if $row_count < 1}
-                    <tr>
-                        <td colspan="3" class=""><b><i>You need to add a server or a server group, before you can setup admin server permissions</i></b></td>
-                    </tr>
-                {else}
-                    <tr>
-                        <td colspan="3" class="tablerow4"><b><i>Server Groups</i></b></td>
-                    </tr>
-                    {foreach from="$group_list" item="group"}
-                        <tr>
-                            <td colspan="2" class="tablerow1">{$group.name}</td>
-                            <td align="center" class="tablerow1"><input type="checkbox" id="group_{$group.gid}" name="group[]" value="g{$group.gid}" onclick="" /></td>
-                        </tr>
-                    {/foreach}
-                    <tr>
-                        <td colspan="3" class="tablerow4"><b><i>Servers</i></b></td>
-                    </tr>
-                    {foreach from="$server_list" item="server"}
-                        <tr class="tablerow1">
-                            <td colspan="2" class="tablerow1" id="host_{$server.sid}">Please Wait...</td>
-                            <td align="center" class="tablerow1">
-                                <input type="checkbox" name="servers[]" id="server_{$server.sid}" value="s{$server.sid}" onclick=""/>
-                            </td>
-                        </tr>
-                    {/foreach}
+<div class="layout_box flex:11 admin_tab_content">
+    <div class="admin_tab_content_title">
+        <h2>Admin Server Access</h2>
+    </div>
+
+    <div class="padding">
+        <span>
+            Please select the servers and/or groups of servers you want this admin to have access to.
+        </span>
+        {if $row_count < 1}
+            <div class="message message:error margin-top:half">
+                You need to add a server or a server group, before you can setup
+                admin server permissions
+            </div>
+        {else}
+            <form action="" method="post">
+                {if $group_list}
+                    <h3>Server Groups</h3>
+                    <ul class="form_ul">
+                        {foreach from="$group_list" item="group"}
+                            <li>
+                                <input type="checkbox" id="group_{$group.gid}" name="group[]" value="g{$group.gid}" onclick="" />
+                                <label for="group_{$group.gid}">{$group.name}</label>
+                            </li>
+                        {/foreach}
+                    </ul>
                 {/if}
-                <tr><td>&nbsp;</td></tr>
-                <tr>
-                    <td align="center">
-                        {if $row_count > 0}
-                            {sb_button text="Save Changes" class="ok" id="editadminserver" submit=true}
-                            &nbsp;
-                        {/if}
-                        {sb_button text="Back" onclick="history.go(-1)" class="cancel" id="aback"}
-                    </td>
-                </tr>
-            </table>
-            <script>
-                {foreach from="$assigned_servers" item="asrv"}
+
+                {if $server_list}
+                    <h3>Servers</h3>
+                    <ul class="form_ul">
+                        {foreach from="$server_list" item="server"}
+                            <li>
+                                <input type="checkbox" name="servers[]" id="server_{$server.sid}" value="s{$server.sid}"
+                                    onclick="" />
+                                <label for="server_{$server.sid}" id="host_{$server.sid}">{$group.name}</label>
+                            </li>
+                        {/foreach}
+                    </ul>
+                {/if}
+
+                <div class="flex flex-ai:center flex-jc:space-between margin-top">
+                    {if $row_count > 0}
+                        {sb_button text="Save Changes" class="button button-success" id="editadminserver" submit=true}
+                    {/if}
+
+                    {sb_button text="Back" onclick="history.go(-1)" class="button button-light" id="aback"}
+                </div>
+            </form>
+        {/if}
+
+        <script>
+            {foreach from="$assigned_servers" item="asrv"}
                 if($('server_{$asrv.0}'))$('server_{$asrv.0}').checked = true;
                 if($('group_{$asrv[1]}'))$('group_{$asrv[1]}').checked = true;
-                {/foreach}
-                {foreach from="$server_list" item="server"}
+            {/foreach}
+            {foreach from="$server_list" item="server"}
                 xajax_ServerHostPlayers({$server.sid}, "id", "host_{$server.sid}");
-                {/foreach}
-            </script>
-        </div>
+            {/foreach}
+        </script>
     </div>
-</form>
+</div>
+</div>

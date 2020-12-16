@@ -10,7 +10,6 @@
                         <label for="loginUsername">Username</label>
                         <input id="loginUsername" class="input input-full margin-top:half" type="text" name="username" />
                         <div id="loginUsername.msg" class="message message:error margin-top:half" style="display: none;">
-                        </div>
                     </li>
                     <li>
                         <label for="loginPassword">Password</label>
