@@ -22,7 +22,7 @@
 
                     <input type="hidden" name="page" id="page" value="{$page}">
 
-                    <a class="button" onclick="ProcessComment();">Add</a>
+                    <a class="button button-primary" onclick="ProcessComment();">Add</a>
                     <a class="button button-light" onclick="history.go(-1)">Cancel</a>
                 </div>
             </div>

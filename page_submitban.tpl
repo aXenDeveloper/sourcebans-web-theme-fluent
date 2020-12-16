@@ -83,7 +83,7 @@
 
 
                             <li>
-                                <button type="submit" name="save" class="button"
+                                <button type="submit" name="save" class="button button-primary"
                                     onmouseover="ButtonOver(&quot;save&quot;)" onmouseout="ButtonOver(&quot;save&quot;)"
                                     id="save" value="Submit">Submit</button>
                             </li>

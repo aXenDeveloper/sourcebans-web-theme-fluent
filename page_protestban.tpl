@@ -55,7 +55,7 @@
                                     value="{$player_email}" class="input input-full margin-top:half" />
                             </li>
                             <li>
-                                <button type="submit" name="alogin" class="button"
+                                <button type="submit" name="alogin" class="button button-primary"
                                     onmouseover="ButtonOver(&quot;alogin&quot;)"
                                     onmouseout="ButtonOver(&quot;alogin&quot;)" id="alogin"
                                     value="Submit">Submit</button>

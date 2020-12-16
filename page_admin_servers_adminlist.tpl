@@ -1,48 +1,65 @@
-<h3>Admins on this server ({$admin_count})</h3>
-<table width="100%" cellpadding="1" cellspacing="1" class="listtable">
-    <tr >
-        <td width="50%" height='16' class="listtable_top"><strong>Admin Name</strong></td>
-        <td width="50%" height='16' class="listtable_top"><strong>Admin SteamID</strong></td>
-    </tr>
+<div class="admin_tab_content_title">
+    <h2>Admins on this server ({$admin_count})</h2>
+</div>
 
-    {foreach from=$admin_list item=admin}
-        {if $admin.user}
-            <tr class="opener tbl_out" onmouseout="this.className='tbl_out'" onmouseover="this.className='tbl_hover'">
-                <td class="listtable_1{if $admin.ingame}_unbanned{/if}" style="border-bottom: solid 1px #ccc" height="16">{$admin.user|escape:'html'}</td>
-                <td class="listtable_1{if $admin.ingame}_unbanned{/if}" style="border-bottom: solid 1px #ccc" height="16">{$admin.authid}</td>
-            </tr>
-            <tr align="left">
-                <td colspan="7" align="center">
-                    <div class="opener">
-                        {if $admin.ingame}
-                            <table width="80%" cellspacing="0" cellpadding="0" class="listtable">
-                                <tr>
-                                    <td height="16" align="left" class="listtable_top" colspan="5">
-                                        <b>Admin Details Ingame</b>
-                                    </td>
-                                </tr>
-                                <tr align="left">
-                                    <td width="30%" height="16" class="listtable_1">Name</td>
-                                    <td width="20%" height="16" class="listtable_1">Steam ID</td>
-                                    <td width="20%" height="16" class="listtable_1">IP</td>
-                                </tr>
-                                <tr align="left">
-                                    <td height="16" class="listtable_1">
-                                        {$admin.iname|escape:'html'}
-                                    </td>
-                                    <td height="16" class="listtable_1">
-                                        {$admin.authid}
-                                    </td>
-                                    <td height="16" class="listtable_1">
-                                        {$admin.iip}
-                                    </td>
-                                </tr>
-                            </table>
-                        {/if}
-                    </div>
-                </td>
-            </tr>
-        {/if}
-    {/foreach}
-</table>
-<script>InitAccordion('tr.opener', 'div.opener', 'mainwrapper');</script>
+<div class="padding">
+    <div class="table table_box">
+        <table>
+            <thead>
+                <tr>
+                    <th class="text:left">Admin Name</th>
+                    <th class="text:left">Admin SteamID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach from=$admin_list item=admin}
+                    <tr class="collapse">
+                        <td>
+                            {$admin.user|escape:'html'}
+                        </td>
+                        <td>
+                            {$admin.authid}
+                        </td>
+                    </tr>
+
+                    {if $admin.ingame}
+                        <tr class="table_hide">
+                            <td colspan="8">
+                                <div class="collapse_content">
+                                    <h3>Admin Details Ingame</h3>
+                                    <div class="table table_box">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="text:left">Name</th>
+                                                    <th class="text:left">Steam ID</th>
+                                                    <th class="text:left">IP</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        {$admin.iname|escape:'html'}
+                                                    </td>
+                                                    <td>
+                                                        {$admin.authid}
+                                                    </td>
+                                                    <td>
+                                                        {$admin.iip}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {/if}
+                {/foreach}
+            </tbody>
+        </table>
+
+        <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
+    </div>
+</div>
+</div>
