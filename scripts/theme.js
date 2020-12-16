@@ -6,7 +6,7 @@ const selectElements = {
     dark: document.querySelector('#user_action_change_dark')
 }
 
-const colorBackground = ".tee .layout_box_title, .tee .table table thead, .tee .table table td.listtable_top, .tee .admin_nav";
+const colorBackground = `.tee .layout_box_title, .tee .table table thead, .tee .table table td.listtable_top, .tee .admin_nav, .tee .button-primary`;
 const colorBorder = ".tee .nav ul li.active, .tee .input:focus";
 const colorColor = ".tee .jscolor_li button.jscolor, .tee a";
 

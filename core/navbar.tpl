@@ -16,16 +16,16 @@
 
             <ul class="layout_topBar_userBar responsive_show:desktop flex flex-ai:center">
                 {if $login}
-                    <li>
+                    <li class="margin-right">
                         Welcome, <a href='index.php?p=account'><i class="fas fa-user"></i> {$username}</a>
                     </li>
                     <li>
-                        <a class="button button:important" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i>
+                        <a class="button button-important" href='index.php?p=logout'><i class="fas fa-sign-out-alt"></i>
                             Logout</a>
                     </li>
                 {else}
                     <li>
-                        <a class="button button:success" href='index.php?p=login'>Existing user? Sign In</a>
+                        <a class="button button-success" href='index.php?p=login'>Existing user? Sign In</a>
                     </li>
                 {/if}
             </ul>
@@ -45,10 +45,10 @@
 
             <div class="nav_mobile_tab_top padding flex">
                 {if $login}
-                    <a class="button button:important button:full" href='index.php?p=logout'><i
+                    <a class="button button-important button:full" href='index.php?p=logout'><i
                             class="fas fa-sign-out-alt"></i> Logout</a>
                 {else}
-                    <a class="button button:success button:full" href='index.php?p=login'>Existing user? Sign In</a>
+                    <a class="button button-success button:full" href='index.php?p=login'>Existing user? Sign In</a>
                 {/if}
             </div>
             <nav class="nav_mobile_tab_nav">

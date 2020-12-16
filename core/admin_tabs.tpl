@@ -1,6 +1,6 @@
 <div class="flex flex-wrap:wrap">
     <div class="admin_tab layout_box padding">
-        <button id="admin_tab_mobile" class="button button:light admin_tab_mobile responsive_hide:desktop">
+        <button id="admin_tab_mobile" class="button button-light admin_tab_mobile responsive_hide:desktop">
             Navigation
         </button>
 

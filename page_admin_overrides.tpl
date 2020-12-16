@@ -83,10 +83,10 @@
                     </div>
 
                     <div class="flex flex-ai:center flex-jc:space-between margin-top:half">
-                        <button type="submit" name="oversave" class="button button:success"
+                        <button type="submit" name="oversave" class="button button-success"
                             onmouseover="ButtonOver(&quot;oversave&quot;)" onmouseout="ButtonOver(&quot;oversave&quot;)"
                             id="oversave">Save</button>
-                        <button onclick="history.go(-1)" name="oback" class="button button:light"
+                        <button onclick="history.go(-1)" name="oback" class="button button-light"
                             onmouseover="ButtonOver(&quot;oback&quot;)" onmouseout="ButtonOver(&quot;oback&quot;)"
                             id="oback">Back</button>
                     </div>

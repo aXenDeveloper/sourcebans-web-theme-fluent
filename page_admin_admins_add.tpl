@@ -49,10 +49,10 @@
                             <div class="flex">
                                 <input type="password" TABINDEX=4 class="input input-full margin-top:half margin-right:half"
                                     id="password" name="password" />
-                                <button id="password_generate" class="button button:light button-line margin-right:half">
+                                <button id="password_generate" class="button button-light button:line margin-right:half">
                                     <i class="fas fa-sync"></i> Generate random password
                                 </button>
-                                <button id="password_show" class="button button:light button-line">
+                                <button id="password_show" class="button button-light button:line">
                                     <i class="fas fa-eye"></i> Show password
                                 </button>
                             </div>
@@ -163,8 +163,8 @@
                     </ul>
 
                     <div class="flex flex-jc:space-between flex-ai:center margin-top">
-                        {sb_button text="Add Admin" onclick="ProcessAddAdmin();" class="button button:success" id="aadmin" submit=false}
-                        {sb_button text="Back" onclick="history.go(-1)" class="button button:light" id="aback"}
+                        {sb_button text="Add Admin" onclick="ProcessAddAdmin();" class="button button-success" id="aadmin" submit=false}
+                        {sb_button text="Back" onclick="history.go(-1)" class="button button-light" id="aback"}
                     </div>
                 </form>
                 {$server_script}

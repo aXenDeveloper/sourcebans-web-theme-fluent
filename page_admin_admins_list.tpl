@@ -45,29 +45,29 @@
                                             <div class="padding:half flex">
                                                 <ul class="ban_action">
                                                     {if $permission_editadmin}
-                                                        <li class="button button:light">
+                                                        <li class="button button-light">
                                                             <a href="index.php?p=admin&c=admins&o=editdetails&id={$admin.aid}">
                                                                 <i class="fas fa-clipboard-list"></i> Edit Details
                                                             </a>
                                                         </li>
-                                                        <li class="button button:light">
+                                                        <li class="button button-light">
                                                             <a href="index.php?p=admin&c=admins&o=editpermissions&id={$admin.aid}">
                                                                 <i class="fas fa-subscript"></i> Edit Permissions
                                                             </a>
                                                         </li>
-                                                        <li class="button button:light">
+                                                        <li class="button button-light">
                                                             <a href="index.php?p=admin&c=admins&o=editservers&id={$admin.aid}">
                                                                 <i class="fas fa-server"></i> Edit Server Access
                                                             </a>
                                                         </li>
-                                                        <li class="button button:light">
+                                                        <li class="button button-light">
                                                             <a href="index.php?p=admin&c=admins&o=editgroup&id={$admin.aid}">
                                                                 <i class="fas fa-users"></i> Edit Groups
                                                             </a>
                                                         </li>
                                                     {/if}
                                                     {if $permission_deleteadmin}
-                                                        <li class="button button:light">
+                                                        <li class="button button-light">
                                                             <a href="#" onclick="RemoveAdmin({$admin.aid}, '{$admin.user}');">
                                                                 <i class="fas fa-trash"></i> Delete Admin
                                                             </a>

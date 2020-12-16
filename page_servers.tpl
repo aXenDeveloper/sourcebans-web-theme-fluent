@@ -27,14 +27,16 @@
                             <td id="players_{$server.sid}" class="text:center">N/A</td>
                             <td id="map_{$server.sid}" class="text:center">N/A</td>
                             <td class="text:center responsive_show:desktop">
-                                <a class="button button:success" href="steam://connect/{$server.ip}:{$server.port}"><i class="fa fa-sign-in"></i> Connect</a>
+                                <a class="button button-success" href="steam://connect/{$server.ip}:{$server.port}"><i
+                                        class="fa fa-sign-in"></i> Connect</a>
                             </td>
                         </tr>
                         {if $IN_SERVERS_PAGE}
                             <tr id="server_{$server.sid}:desc" class="table_hide">
                                 <td colspan="8">
                                     <div class="collapse_content" id="sinfo_{$server.sid}">
-                                        <table id="playerlist_{$server.sid}" class="table" name="playerlist_{$server.sid}"></table>
+                                        <table id="playerlist_{$server.sid}" class="table" name="playerlist_{$server.sid}">
+                                        </table>
                                     </div>
                                 </td>
                             </tr>

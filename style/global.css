@@ -78,6 +78,7 @@ a:hover {
   font-size: 14px;
   font-weight: 400;
   text-align: center;
+  font-family: inherit;
   padding: 10px 20px;
   border-radius: var(--border--radius);
   color: #fff !important;
@@ -131,24 +132,24 @@ a:hover {
           transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 
-.button\:success {
+.button-success {
   background-color: var(--button-success);
 }
 
-.button\:important {
+.button-important {
   background-color: var(--button-important);
 }
 
-.button\:primary {
+.button-primary {
   background-color: var(--layout_main--color);
 }
 
-.button\:light {
+.button-light {
   background-color: var(--button-light);
   color: var(--button-light-text) !important;
 }
 
-.button-line {
+.button\:line {
   display: inline-block;
 }
 
@@ -647,11 +648,6 @@ a:hover {
   font-weight: bold;
 }
 
-.nav ul li.active a {
-  -webkit-transform: translateX(-5px);
-          transform: translateX(-5px);
-}
-
 .nav ul li a {
   display: block;
   padding: 15px 25px;
@@ -890,7 +886,7 @@ a:hover {
   --box--backgroundColor: #13141b;
   --box-shadow: none;
   --box-shadow--child: 0 0 0 1px rgba(147, 161, 181, 0.2), 0 0 40px 0 transparent;
-  --backdrop-background: rgba(42, 44, 60, 0.65);
+  --backdrop-background: rgba(19, 20, 27, 0.65);
   --backdrop-text_color: #fff;
 }
 
@@ -1804,6 +1800,10 @@ hr {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.list-margin\:right li:not(:last-child) {
+  margin-right: 10px;
 }
 
 .flex {

@@ -113,6 +113,10 @@ a {
     &-reset {
         @include reset-list(0, 0);
     }
+
+    &-margin\:right li:not(:last-child) {
+        margin-right: 10px;
+    }
 }
 
 .flex {

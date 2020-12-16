@@ -22,8 +22,8 @@
 
                     <input type="hidden" name="page" id="page" value="{$page}">
 
-                    <a class="button button:primary" onclick="ProcessComment();">Add</a>
-                    <a class="button button:light" onclick="history.go(-1)">Cancel</a>
+                    <a class="button" onclick="ProcessComment();">Add</a>
+                    <a class="button button-light" onclick="history.go(-1)">Cancel</a>
                 </div>
             </div>
         </div>
@@ -100,29 +100,29 @@
                                     <div class="collapse_content">
                                         <div class="padding flex flex-jc:start">
                                             <ul class="ban_action">
-                                                <li class="button button:primary">{$ban.demo_link}</li>
+                                                <li class="button button-primary">{$ban.demo_link}</li>
                                                 {if $view_bans}
                                                     {if $ban.unbanned && $ban.reban_link != false}
-                                                        <li class="button button:important">{$ban.reban_link}</li>
+                                                        <li class="button button-important">{$ban.reban_link}</li>
                                                     {/if}
-                                                    <li class="button button:important">{$ban.blockcomm_link}</li>
-                                                    <li class="button button:success">{$ban.addcomment}</li>
+                                                    <li class="button button-important">{$ban.blockcomm_link}</li>
+                                                    <li class="button button-success">{$ban.addcomment}</li>
                                                     {if $ban.type == 0}
                                                         {if $groupban}
-                                                            <li class="button button:important">{$ban.groups_link}</li>
+                                                            <li class="button button-important">{$ban.groups_link}</li>
                                                         {/if}
                                                         {if $friendsban}
-                                                            <li class="button button:important">{$ban.friend_ban_link}</li>
+                                                            <li class="button button-important">{$ban.friend_ban_link}</li>
                                                         {/if}
                                                     {/if}
                                                     {if ($ban.view_edit && !$ban.unbanned)}
-                                                        <li class="button button:light">{$ban.edit_link}</li>
+                                                        <li class="button button-light">{$ban.edit_link}</li>
                                                     {/if}
                                                     {if ($ban.unbanned == false && $ban.view_unban)}
-                                                        <li class="button button:light">{$ban.unban_link}</li>
+                                                        <li class="button button-light">{$ban.unban_link}</li>
                                                     {/if}
                                                     {if $ban.view_delete}
-                                                        <li class="button button:light">{$ban.delete_link}</li>
+                                                        <li class="button button-light">{$ban.delete_link}</li>
                                                     {/if}
                                                 {/if}
                                             </ul>
@@ -306,7 +306,7 @@
             {if $general_unban || $can_delete}
                 <div>
                     <button onclick="TickSelectAll();return false;" title="Select All" name="tickswitchlink" id="tickswitchlink"
-                        class="button button-line button:light margin-right:half">Select All</button>
+                        class="button button:line button-light margin-right:half">Select All</button>
 
                     <select name="bulk_action" id="bulk_action" onchange="BulkEdit(this,'{$admin_postkey}');" class="input">
                         <option value="-1">Action</option>

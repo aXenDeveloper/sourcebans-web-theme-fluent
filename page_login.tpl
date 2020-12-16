@@ -9,23 +9,27 @@
                     <li>
                         <label for="loginUsername">Username</label>
                         <input id="loginUsername" class="input input-full margin-top:half" type="text" name="username" />
-                        <div id="loginUsername.msg" class="message message:error margin-top:half" style="display: none;"></div>
+                        <div id="loginUsername.msg" class="message message:error margin-top:half" style="display: none;">
+                        </div>
                     </li>
                     <li>
                         <label for="loginPassword">Password</label>
-                        <input id="loginPassword" class="input input-full margin-top:half" type="password" name="password" />
-                        <div id="loginPassword.msg" class="message message:error margin-top:half" style="display: none;"></div>
+                        <input id="loginPassword" class="input input-full margin-top:half" type="password"
+                            name="password" />
+                        <div id="loginPassword.msg" class="message message:error margin-top:half" style="display: none;">
+                        </div>
                     </li>
                     <li class="flex flex-jc:space-between flex-ai:center">
                         <div class="flex flex-jc:space-between flex-ai:center">
                             <span class="input_checkbox">
                                 <label>
-                                    <input id="loginRememberMe" type="checkbox" name="remember" value="checked" /> Remember me
+                                    <input id="loginRememberMe" type="checkbox" name="remember" value="checked" /> Remember
+                                    me
                                     <span></span>
                                 </label>
                             </span>
                         </div>
-    
+
                         -{if $steamlogin_show == 1}-
                             <a href="index.php?p=lostpassword">Lost your password?</a>
                         -{/if}-
@@ -33,7 +37,8 @@
                 -{/if}-
                 -{if $steamlogin_show == 1}-
                     <li>
-                        <button onclick="DoLogin('');" name="alogin" class="button button:success button:full" id="alogin">Login</button>
+                        <button onclick="DoLogin('');" name="alogin" class="button button-success button:full"
+                            id="alogin">Login</button>
                     </li>
                 -{/if}-
                 <li class="text:center">

@@ -23,7 +23,8 @@
                     <input id="email" class="input input-full margin-top:half" type="text" name="email" />
                 </li>
                 <li>
-                    <button onclick="xajax_LostPassword($('email').value);" name="reset_password" class="button button:success button:full" id="alogin">Recover Password</button>
+                    <button onclick="xajax_LostPassword($('email').value);" name="reset_password"
+                        class="button button-success button:full" id="alogin">Recover Password</button>
                 </li>
         </div>
     </div>

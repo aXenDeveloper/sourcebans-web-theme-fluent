@@ -3,6 +3,7 @@
     font-size: 14px;
     font-weight: 400;
     text-align: center;
+    font-family: inherit;
     padding: 10px 20px;
     border-radius: var(--border--radius);
     color: #fff !important;
@@ -46,24 +47,24 @@
         transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
     }
 
-    &\:success {
+    &-success {
         background-color: var(--button-success);
     }
 
-    &\:important {
+    &-important {
         background-color: var(--button-important);
     }
 
-    &\:primary {
+    &-primary {
         background-color: var(--layout_main--color);
     }
 
-    &\:light {
+    &-light {
         background-color: var(--button-light);
         color: var(--button-light-text) !important;
     }
 
-    &-line {
+    &\:line {
         display: inline-block;
     }
 
