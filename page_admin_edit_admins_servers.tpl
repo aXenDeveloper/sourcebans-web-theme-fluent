@@ -4,9 +4,10 @@
     </div>
 
     <div class="padding">
-        <span>
+        <div>
             Please select the servers and/or groups of servers you want this admin to have access to.
-        </span>
+        </div>
+
         {if $row_count < 1}
             <div class="message message:error margin-top:half">
                 You need to add a server or a server group, before you can setup
@@ -16,27 +17,31 @@
             <form action="" method="post">
                 {if $group_list}
                     <h3>Server Groups</h3>
-                    <ul class="form_ul">
-                        {foreach from="$group_list" item="group"}
-                            <li>
-                                <input type="checkbox" id="group_{$group.gid}" name="group[]" value="g{$group.gid}" onclick="" />
-                                <label for="group_{$group.gid}">{$group.name}</label>
-                            </li>
-                        {/foreach}
-                    </ul>
+
+                    {foreach from="$group_list" item="group"}
+                        <div class="margin-bottom:half">
+                            <input type="checkbox" id="group_{$group.gid}" class="form-check" name="group[]" value="g{$group.gid}"
+                                onclick="" />
+                            <label for="group_{$group.gid}" class="form-label:left">
+                                {$group.name}
+                            </label>
+                        </div>
+                    {/foreach}
                 {/if}
 
                 {if $server_list}
                     <h3>Servers</h3>
-                    <ul class="form_ul">
-                        {foreach from="$server_list" item="server"}
-                            <li>
-                                <input type="checkbox" name="servers[]" id="server_{$server.sid}" value="s{$server.sid}"
-                                    onclick="" />
-                                <label for="server_{$server.sid}" id="host_{$server.sid}">{$group.name}</label>
-                            </li>
-                        {/foreach}
-                    </ul>
+
+                    {foreach from="$server_list" item="server"}
+                        <div class="margin-bottom:half">
+                            <input type="checkbox" class="form-check" name="servers[]" id="server_{$server.sid}"
+                                value="s{$server.sid}" onclick="" />
+                            <label for="server_{$server.sid}" id="host_{$server.sid}" class="form-label:left">
+                                {$group.name}
+                            </label>
+                        </div>
+                    {/foreach}
+
                 {/if}
 
                 <div class="flex flex-ai:center flex-jc:space-between margin-top">

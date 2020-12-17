@@ -3,49 +3,55 @@
         <div class="layout_box_title">
             <h2>Admin Login</h2>
         </div>
-        <div class="padding">
-            <ul class="layout_box_small_ul">
-                -{if $steamlogin_show == 1}-
-                    <li>
-                        <label for="loginUsername">Username</label>
-                        <input id="loginUsername" class="input input-full margin-top:half" type="text" name="username" />
-                        <div id="loginUsername.msg" class="message message:error margin-top:half" style="display: none;">
-                    </li>
-                    <li>
-                        <label for="loginPassword">Password</label>
-                        <input id="loginPassword" class="input input-full margin-top:half" type="password"
-                            name="password" />
-                        <div id="loginPassword.msg" class="message message:error margin-top:half" style="display: none;">
-                        </div>
-                    </li>
-                    <li class="flex flex-jc:space-between flex-ai:center">
-                        <div class="flex flex-jc:space-between flex-ai:center">
-                            <span class="input_checkbox">
-                                <label>
-                                    <input id="loginRememberMe" type="checkbox" name="remember" value="checked" /> Remember
-                                    me
-                                    <span></span>
-                                </label>
-                            </span>
-                        </div>
 
-                        -{if $steamlogin_show == 1}-
-                            <a href="index.php?p=lostpassword">Lost your password?</a>
-                        -{/if}-
-                    </li>
-                -{/if}-
-                -{if $steamlogin_show == 1}-
-                    <li>
-                        <button onclick="DoLogin('');" name="alogin" class="button button-success button:full"
-                            id="alogin">Login</button>
-                    </li>
-                -{/if}-
-                <li class="text:center">
-                    <a href="index.php?p=login&o=steam">
-                        <img src="images/steamlogin.png" alt="Login Steam">
-                    </a>
-                </li>
-            </ul>
+        <div class="padding">
+            -{if $steamlogin_show == 1}-
+                <div class="margin-bottom:half">
+                    <label for="loginUsername" class="form-label form-label:bottom">
+                        Username
+                    </label>
+                    <input id="loginUsername" class="form-input form-full" type="text" name="username" />
+                    <div id="loginUsername.msg" class="message message:error margin-top:half" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="margin-bottom:half">
+                    <label for="loginPassword" class="form-label form-label:bottom">
+                        Password
+                    </label>
+                    <input id="loginPassword" class="form-input form-full" type="password" name="password" />
+                    <div id="loginPassword.msg" class="message message:error margin-top:half" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="flex flex-jc:space-between flex-ai:center margin-top">
+                    <div class="flex flex-jc:space-between flex-ai:center">
+                        <span class="input_checkbox">
+                            <input id="loginRememberMe" type="checkbox" name="remember" value="checked"
+                                class="form-check" />
+                            <label for="loginRememberMe" class="form-label form-label:left">Remember me</label>
+                        </span>
+                    </div>
+
+                    -{if $steamlogin_show == 1}-
+                        <a href="index.php?p=lostpassword">
+                            Lost your password?
+                        </a>
+                    -{/if}-
+                </div>
+            -{/if}-
+
+            -{if $steamlogin_show == 1}-
+                <div class="flex margin-top">
+                    -{sb_button text="Login" onclick=$redir class="button button-success flex:11" id="alogin" submit=false}-
+                </div>
+            -{/if}-
+
+            <div class="margin-top text:center">
+                <a href="index.php?p=login&o=steam">
+                    <img src="images/steamlogin.png" alt="Login Steam">
+                </a>
+            </div>
         </div>
     </div>
 </div>

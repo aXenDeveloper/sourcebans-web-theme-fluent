@@ -32,64 +32,63 @@
             <p class="text:italic">Blanking out an overrides' name will delete it.</p>
 
             <form action="" method="post">
-                <div class="table padding">
-                    <div class="table_box">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Name</th>
-                                    <th>Flags</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {foreach from=$overrides_list item=override}
-                                    <tr>
-                                        <td>
-                                            <select class="input input-full" name="override_type[]">
-                                                <option{if $override.type == "command"} selected="selected" {/if}
-                                                    value="command">Command</option>
-                                                    <option{if $override.type == "group"} selected="selected" {/if}
-                                                        value="group">Group</option>
-                                            </select>
-                                            <input type="hidden" name="override_id[]" value="{$override.id}" />
-                                        </td>
-                                        <td>
-                                            <input name="override_name[]" value="{$override.name|htmlspecialchars}"
-                                                class="input input-full" />
-                                        </td>
-                                        <td>
-                                            <input name="override_flags[]" value="{$override.flags|htmlspecialchars}"
-                                                class="input input-full" />
-                                        </td>
-                                    </tr>
-                                {/foreach}
+                <div class="table table_box">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Name</th>
+                                <th>Flags</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {foreach from=$overrides_list item=override}
                                 <tr>
                                     <td>
-                                        <select class="input input-full" name="new_override_type">
-                                            <option value="command">Command</option>
-                                            <option value="group">Group</option>
+                                        <select class="form-select form-full" name="override_type[]">
+                                            <option{if $override.type == "command"} selected="selected" {/if} value="command">
+                                                Command</option>
+                                                <option{if $override.type == "group"} selected="selected" {/if} value="group">
+                                                    Group</option>
                                         </select>
+                                        <input type="hidden" name="override_id[]" value="{$override.id}" />
                                     </td>
                                     <td>
-                                        <input class="input input-full" name="new_override_name" />
+                                        <input name="override_name[]" value="{$override.name|htmlspecialchars}"
+                                            class="form-input form-full" />
                                     </td>
                                     <td>
-                                        <input class="input input-full" name="new_override_flags" />
+                                        <input name="override_flags[]" value="{$override.flags|htmlspecialchars}"
+                                            class="form-input form-full" />
                                     </td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            {/foreach}
+                            <tr>
+                                <td>
+                                    <select class="form-select form-full" name="new_override_type">
+                                        <option value="command">Command</option>
+                                        <option value="group">Group</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input class="form-input form-full" name="new_override_name" />
+                                </td>
+                                <td>
+                                    <input class="form-input form-full" name="new_override_flags" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    <div class="flex flex-ai:center flex-jc:space-between margin-top:half">
-                        <button type="submit" name="oversave" class="button button-success"
-                            onmouseover="ButtonOver(&quot;oversave&quot;)" onmouseout="ButtonOver(&quot;oversave&quot;)"
-                            id="oversave">Save</button>
-                        <button onclick="history.go(-1)" name="oback" class="button button-light"
-                            onmouseover="ButtonOver(&quot;oback&quot;)" onmouseout="ButtonOver(&quot;oback&quot;)"
-                            id="oback">Back</button>
-                    </div>
+                <div class="flex flex-ai:center flex-jc:space-between margin-top">
+                    <button type="submit" name="oversave" class="button button-success"
+                        onmouseover="ButtonOver(&quot;oversave&quot;)" onmouseout="ButtonOver(&quot;oversave&quot;)"
+                        id="oversave">Save</button>
+                    <button onclick="history.go(-1)" name="oback" class="button button-light"
+                        onmouseover="ButtonOver(&quot;oback&quot;)" onmouseout="ButtonOver(&quot;oback&quot;)"
+                        id="oback">Back</button>
+                </div>
             </form>
         </div>
     {/if}

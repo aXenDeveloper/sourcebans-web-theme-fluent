@@ -26,6 +26,7 @@
     --input--shadow: rgba(44, 95, 140, 0.08);
     --input--border: rgba(113, 128, 150, 0.4);
     --input--border-focusShadow: var(--layout_main--color_0_3) 0px 0px 0px 4px;
+    --input--desc: #6c757d;
 
     --button-success: #267b3c;
     --button-important: #ca1e1e;
@@ -72,10 +73,14 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 10px;
+}
+
 body {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    font-size: 13px;
+    font-size: 1.3rem;
     line-height: 1.5;
     color: var(--theme-text);
     height: 100%;

@@ -6,7 +6,7 @@
             </div>
 
             <div class="padding">
-                <textarea class="input input_textarea" id="commenttext" name="commenttext">{$commenttext}</textarea>
+                <textarea class="form-text" id="commenttext" name="commenttext">{$commenttext}</textarea>
 
                 <div id="commenttext.msg" class="message message:error" style="display:none;"></div>
 
@@ -50,7 +50,7 @@
                             {if $view_bans}
                                 <th class="text:left">
                                     <input type="checkbox" title="Select All" name="tickswitch" id="tickswitch"
-                                        onclick="TickSelectAll()" class="input-checkbox" />
+                                        onclick="TickSelectAll()" class="form-check" />
                                 </th>
                             {/if}
                             <th>MOD/Country</th>
@@ -68,7 +68,7 @@
                                 {if $view_bans}
                                     <td>
                                         <input type="checkbox" name="chkb_{$smarty.foreach.banlist.index}"
-                                            id="chkb_{$smarty.foreach.banlist.index}" class="input-checkbox" value="{$ban.ban_id}">
+                                            id="chkb_{$smarty.foreach.banlist.index}" class="form-check" value="{$ban.ban_id}">
                                     </td>
                                 {/if}
                                 <td class="text:center">{$ban.mod_icon}</td>
@@ -308,7 +308,7 @@
                     <button onclick="TickSelectAll();return false;" title="Select All" name="tickswitchlink" id="tickswitchlink"
                         class="button button:line button-light margin-right:half">Select All</button>
 
-                    <select name="bulk_action" id="bulk_action" onchange="BulkEdit(this,'{$admin_postkey}');" class="input">
+                    <select name="bulk_action" id="bulk_action" onchange="BulkEdit(this,'{$admin_postkey}');" class="form-select">
                         <option value="-1">Action</option>
                         {if $general_unban}
                             <option value="U">Unban</option>
@@ -337,7 +337,7 @@
 
     <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
     <script>
-        document.querySelectorAll('.input-checkbox').forEach(e => e.addEventListener('click', el => el.stopPropagation()));
+        document.querySelectorAll('.form-check').forEach(e => e.addEventListener('click', el => el.stopPropagation()));
     </script>
 
     {literal}

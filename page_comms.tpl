@@ -6,7 +6,7 @@
             </div>
 
             <div class="padding">
-                <textarea class="input input_textarea" id="commenttext" name="commenttext">{$commenttext}</textarea>
+                <textarea class="form-text" id="commenttext" name="commenttext">{$commenttext}</textarea>
 
                 <div id="commenttext.msg" class="message message:error" style="display:none;"></div>
 
