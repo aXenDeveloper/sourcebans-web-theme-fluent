@@ -284,10 +284,10 @@ a {
 
 .ban_list_comments {
     flex: 1;
-    margin-left: 10px;
+    min-width: 300px;
 
     ul {
-        @include reset-list(0, 20px);
+        @include reset-list(0, 10px);
 
         li:not(:last-child) {
             margin-bottom: 20px;
@@ -297,7 +297,7 @@ a {
 
 .ban {
     &_action {
-        @include reset-list(0 15px 0 0, 10px);
+        @include reset-list(0 15px 0 0, 0);
         width: 200px;
 
         li:not(:last-child) {

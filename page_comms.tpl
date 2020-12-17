@@ -37,7 +37,7 @@
                 title="{$hidetext} inactive">{$hidetext} inactive</a> | <i>Total Blocks: {$total_bans}</i>
         </span>
         <div class="pagination">
-            {$ban_nav}
+            <span>{$ban_nav}</span>
         </div>
     </div>
 
@@ -204,7 +204,7 @@
                                             </ul>
 
                                             {if $view_comments}
-                                                <div class="ban_list_comments">
+                                                <div class="ban_list_comments margin-left">
                                                     <div class="layout_box_title">
                                                         <h2>Comments</h2>
                                                     </div>

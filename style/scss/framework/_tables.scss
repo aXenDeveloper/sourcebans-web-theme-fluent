@@ -1,17 +1,12 @@
 .table {
-    @media (max-width: 980px) {
-        &_box {
-            overflow-x: auto;
-        }
+    &_box {
+        overflow-x: auto;
     }
 
     table {
         width: 100%;
         border-spacing: 0;
-
-        @media (max-width: 980px) {
-            white-space: nowrap;
-        }
+        white-space: nowrap;
 
         thead,
         td.listtable_top {
