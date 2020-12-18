@@ -37,17 +37,17 @@
                                 {/if}
                             </td>
                             <td class="flex flex-jc:center flex-ai:center">
-                                <a href="index.php?p=admin&c=bans&o=email&type=p&id={$protest.pid}"
-                                    class="button button-primary{if $permission_editban} margin-right:half{/if}">
-                                    Contact
-                                </a>
-
                                 {if $permission_editban}
-                                    <button class="button button-important"
+                                    <button class="button button-light margin-right:half"
                                         onclick="RemoveProtest('{$protest.pid}', '{if $protest.authid!=""}{$protest.authid}{else}{$protest.ip}{/if}', '1');">
-                                        Remove
+                                        Archive
                                     </button>
                                 {/if}
+
+                                <a href="index.php?p=admin&c=bans&o=email&type=p&id={$protest.pid}"
+                                    class="button button-primary">
+                                    Contact
+                                </a>
                             </td>
                         </tr>
 
@@ -197,7 +197,6 @@
                 </tbody>
             </table>
         </div>
-        <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
         <script>
             document.querySelectorAll('.button').forEach(e => e.addEventListener('click', el => el.stopPropagation()));
         </script>

@@ -1889,6 +1889,55 @@ hr {
   background-color: var(--box--backgroundColor);
 }
 
+#admin-page-content > .tabcontent > .admin_tab_content_title {
+  border-radius: var(--border--radius) var(--border--radius) 0 0;
+}
+
+#tabsWrapper #tabs ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0;
+  padding: 10px 10px 0 10px;
+  list-style: none;
+  background-color: var(--layout_main--color);
+  border-radius: var(--border--radius) var(--border--radius) 0 0;
+  color: var(--theme-text);
+}
+
+#tabsWrapper #tabs ul li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  height: 100%;
+}
+
+#tabsWrapper #tabs ul li.active a {
+  background-color: var(--theme-area_background_light);
+  font-weight: bold;
+  color: inherit;
+}
+
+#tabsWrapper #tabs ul li:not(.active) a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+#tabsWrapper #tabs ul li a {
+  display: block;
+  width: 100%;
+  color: #fff;
+  text-decoration: none;
+  line-height: 3;
+  font-size: 14px;
+  border-radius: var(--border--radius) var(--border--radius) 0 0;
+}
+
 .list-reset {
   margin: 0;
   padding: 0;

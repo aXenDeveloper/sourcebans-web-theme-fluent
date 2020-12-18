@@ -1,173 +1,233 @@
-{if NOT $permissions_submissions}
+{if NOT $permission_protests}
     Access Denied!
 {else}
-    <h3 style="margin-top:0px;">Ban Submissions Archive (<span id="subcountarchiv">{$submission_count_archiv}</span>)</h3>
-    Click a player's nickname to view information about their submission<br /><br />
-    <div id="banlist-nav">
-        {$asubmission_nav}
+    <div class="admin_tab_content_title">
+        <h2>Ban Submissions Archive (<span id="subcountarchiv">{$submission_count_archiv}</span>)</h2>
     </div>
-    <table width="100%" cellpadding="0" cellspacing="0">
-        <tr  class="tbl_out">
-            <td width="40%" height='16' class="listtable_top"><strong>Nickname</strong></td>
-            <td width="20%" height='16' class="listtable_top"><strong>SteamID</strong></td>
-            <td width="25%" height='16' class="listtable_top"><strong>Action</strong></td>
-        </tr>
-        {foreach from="$submission_list_archiv" item="sub"}
-            <tr id="asid_{$sub.subid}" class="opener4 tbl_out" {if $sub.hostname == ""}onclick="xajax_ServerHostPlayers('{$sub.server}', 'id', 'suba{$sub.subid}');"{/if} onmouseout="this.className='tbl_out'" onmouseover="this.className='tbl_hover'">
-                <td style="border-bottom: solid 1px #ccc" height='16'>{$sub.name}</td>
-                <td style="border-bottom: solid 1px #ccc" height='16'>{if $sub.SteamId!=""}{$sub.SteamId}{else}{$sub.sip}{/if}</td>
-                <td style="border-bottom: solid 1px #ccc" height='16'>
-                    {if $sub.archiv != "2" and $sub.archiv != "3"}
-                        <a href="#" onclick="xajax_SetupBan({$sub.subid});">Ban</a> -
-                        {if $permissions_editsub}
-                            <a href="#" onclick="RemoveSubmission({$sub.subid}, '{$sub.name|stripslashes}', '2');">Restore</a> -
-                        {/if}
-                    {/if}
-                    {if $permissions_editsub}
-                        <a href="#" onclick="RemoveSubmission({$sub.subid}, '{$sub.name|stripslashes}', '0');">Delete</a> -
-                    {/if}
-                    <a href="index.php?p=admin&c=bans&o=email&type=s&id={$sub.subid}">Contact</a>
-                </td>
-            </tr>
-            <tr id="asid_{$sub.subid}a">
-                <td colspan="3">
-                    <div class="opener4" width="100%" align="center">
-                        <table width="90%" cellspacing="0" cellpadding="0" class="listtable">
-                            <tr>
-                                <td height="16" align="left" class="listtable_top" colspan="3">
-                                    <b>Ban Details</b>
-                                </td>
-                            </tr>
-                            <tr align="left">
-                                <td height="16" align="left" class="listtable_1" colspan="2">
-                                    <b>Archived because {$sub.archive}</b>
-                                </td>
-                                <td width="30%" rowspan="11" class="listtable_2">
-                                    <div class="ban-edit">
-                                        <ul>
-                                            <li>{$sub.demo}</li>
-                                            <li>{$sub.subaddcomment}</li>
+
+    <div class="padding">
+        <div class="margin-bottom">
+            Click a player's nickname to view information about their submission.
+        </div>
+
+        <div class="pagination">
+            <span>{$asubmission_nav}</span>
+        </div>
+
+        <div class="table table_box">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="text:left">Nickname</th>
+                        <th class="text:left">Steam ID</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach from="$submission_list_archiv" item="sub"}
+                        <tr class="collapse">
+                            <td>
+                                {$sub.name}
+                            </td>
+                            <td>
+                                {if $sub.SteamId!=""}
+                                    {$sub.SteamId}
+                                {else}
+                                    {$sub.sip}
+                                {/if}
+                            </td>
+                            <td class="flex flex-jc:center flex-ai:center">
+                                {if $sub.archiv != "2" and $sub.archiv != "3"}
+                                    <button class="button button-important margin-right:half"
+                                        onclick="xajax_SetupBan({$sub.subid});">
+                                        Ban
+                                    </button>
+                                    {if $permissions_editsub}
+                                        <button class="button button-success margin-right:half"
+                                            onclick="RemoveSubmission({$sub.subid}, '{$sub.name|stripslashes}', '2');">
+                                            Restore
+                                        </button>
+                                    {/if}
+                                {/if}
+
+                                {if $permissions_editsub}
+                                    <button class="button button-light margin-right:half"
+                                        onclick="RemoveSubmission({$sub.subid}, '{$sub.name|stripslashes}', '0');">
+                                        Delete
+                                    </button>
+                                {/if}
+
+                                <a href="index.php?p=admin&c=bans&o=email&type=s&id={$sub.subid}" class="button button-primary">
+                                    Contact
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr class="table_hide">
+                            <td colspan="3">
+                                <div class="collapse_content">
+                                    <div class="padding flex flex-jc:start">
+                                        <ul class="ban_action">
+                                            <li class="button button-success">
+                                                {$sub.subaddcomment}
+                                            </li>
+                                            <li class="button button-light">
+                                                {$sub.demo}
+                                            </li>
+                                        </ul>
+
+                                        <ul class="ban_list_detal">
+                                            <li>
+                                                <span>Archived because</span>
+                                                <span>
+                                                    {$sub.archive}
+                                                </span>
+                                            </li>
+
+                                            <li>
+                                                <span>Player</span>
+                                                <span>
+                                                    {$sub.name}
+                                                </span>
+                                            </li>
+
+                                            <li>
+                                                <span>Submitted</span>
+                                                <span>
+                                                    {$sub.submitted}
+                                                </span>
+                                            </li>
+
+                                            <li>
+                                                <span>Steam ID</span>
+                                                {if $sub.SteamId == ""}
+                                                    <span class="text:italic">No steamid present</span>
+                                                {else}
+                                                    <span>{$sub.SteamId}</span>
+                                                {/if}
+                                            </li>
+
+                                            <li>
+                                                <span>IP address</span>
+                                                {if $sub.sip == ""}
+                                                    <span class="text:italic">No IP address present</span>
+                                                {else}
+                                                    <span>{$sub.sip}</span>
+                                                {/if}
+                                            </li>
+
+                                            <li>
+                                                <span>Server</span>
+                                                <span>{$sub.admin}</span>
+
+                                                <div id="suba{$sub.subid}">
+                                                    {if $sub.hostname == ""}
+                                                        <span class="text:italic">Retrieving Hostname</span>
+                                                    {else}
+                                                        <span>{$sub.hostname}</span>
+                                                    {/if}
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <span>MOD</span>
+                                                <span>{$sub.mod}</span>
+                                            </li>
+
+                                            <li>
+                                                <span>Submitter Name</span>
+                                                {if $sub.subname == ""}
+                                                    <span class="text:italic">No name present</span>
+                                                {else}
+                                                    <span>{$sub.subname}</span>
+                                                {/if}
+                                            </li>
+
+                                            <li>
+                                                <span>Submitter IP</span>
+                                                <span>{$sub.ip}</span>
+                                            </li>
+
+                                            <li>
+                                                <span>Archived by</span>
+                                                {if empty($sub.archivedby)}
+                                                    <span class="text:italic">Admin deleted</span>
+                                                {else}
+                                                    <span>{$sub.archivedby}</span>
+                                                {/if}
+                                            </li>
                                         </ul>
                                     </div>
-                                </td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Player</td>
-                                <td height="16" class="listtable_1">{$sub.name}</td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Submitted</td>
-                                <td height="16" class="listtable_1">{$sub.submitted}</td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">SteamID</td>
-                                <td height="16" class="listtable_1">
-                                    {if $sub.SteamId == ""}
-                                        <i><font color="#677882">no steamid present</font></i>
-                                    {else}
-                                        {$sub.SteamId}
-                                    {/if}
-                                </td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">IP</td>
-                                <td height="16" class="listtable_1">
-                                    {if $sub.sip == ""}
-                                        <i><font color="#677882">no ip address present</font></i>
-                                    {else}
-                                        {$sub.sip}
-                                    {/if}
-                                </td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Reason</td>
-                                <td height="" class="listtable_1">{$sub.reason}</td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Server</td>
-                                <td height="" class="listtable_1" id="suba{$sub.subid}">{if $sub.hostname == ""}<i>Retrieving Hostname</i>{else}{$sub.hostname}{/if}</td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">MOD</td>
-                                <td height="" class="listtable_1">{$sub.mod}</td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Submitter Name</td>
-                                <td height="" class="listtable_1">
-                                    {if $sub.subname == ""}
-                                        <i><font color="#677882">no name present</font></i>
-                                    {else}
-                                        {$sub.subname}
-                                    {/if}
-                                </td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Submitter IP</td>
-                                <td height="" class="listtable_1">{$sub.ip}</td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Archived by</td>
-                                <td height="" class="listtable_1">
-                                    {if !empty($sub.archivedby)}
-                                        {$sub.archivedby}
-                                    {else}
-                                        <i><font color="#677882">Admin deleted.</font></i>
-                                    {/if}
-                                </td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Comments</td>
-                                <td height="60" class="listtable_1" colspan="3">
-                                    {if $sub.commentdata != "None"}
-                                        <table width="100%" border="0">
-                                            {foreach from=$sub.commentdata item=commenta}
-                                                {if $commenta.morecom}
-                                                    <tr>
-                                                        <td colspan="3">
-                                                            <hr />
-                                                        </td>
-                                                    </tr>
-                                                {/if}
-                                                <tr>
-                                                    <td>
-                                                        {if !empty($commenta.comname)}
-                                                            <b>{$commenta.comname|escape:'html'}</b>
-                                                        {else}
-                                                            <i><font color="#677882">Admin deleted</font></i>
-                                                        {/if}
-                                                    </td><td align="right"><b>{$commenta.added}</b>
-                                                    </td>
-                                                    {if $commenta.editcomlink != ""}
-                                                        <td align="right">
-                                                            {$commenta.editcomlink} {$commenta.delcomlink}
-                                                        </td>
-                                                    {/if}
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" style="word-break: break-all;word-wrap: break-word;">
-                                                        {$commenta.commenttxt}
-                                                    </td>
-                                                </tr>
-                                                {if !empty($commenta.edittime)}
-                                                    <tr>
-                                                        <td colspan="3">
-                                                            <span style="font-size:6pt;color:grey;">last edit {$commenta.edittime} by {if !empty($commenta.editname)}{$commenta.editname}{else}<i><font color="#677882">Admin deleted</font></i>{/if}</span>
-                                                        </td>
-                                                    </tr>
-                                                {/if}
-                                            {/foreach}
-                                        </table>
-                                    {/if}
-                                    {if $sub.commentdata == "None"}
-                                        {$sub.commentdata}
-                                    {/if}
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </td>
-            </tr>
-        {/foreach}
-    </table>
-    <script>InitAccordion('tr.opener4', 'div.opener4', 'mainwrapper');</script>
+
+                                    <div class="ban_list_comments margin-bottom">
+                                        <div class="layout_box_title">
+                                            <h2>Reason</h2>
+                                        </div>
+
+                                        <div class="layout_box-child padding margin">
+                                            <div class="ban_list_comments_header">
+                                                <span class="text:bold">{$sub.name}</span>
+                                            </div>
+
+                                            <div class="margin-top flex flex-fd:column">
+                                                {$sub.reason}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="ban_list_comments">
+                                        <div class="layout_box_title">
+                                            <h2>Comments</h2>
+                                        </div>
+
+                                        {if $sub.commentdata != "None"}
+                                            <ul>
+                                                {foreach from=$sub.commentdata item=commenta}
+                                                    <li>
+                                                        <div class="layout_box-child padding">
+                                                            <div class="ban_list_comments_header">
+                                                                {if !empty($commenta.comname)}
+                                                                    <span class="text:bold">{$commenta.comname|escape:'html'}</span>
+                                                                {else}
+                                                                    <span class="text:italic">Admin deleted</span>
+                                                                {/if}
+                                                                <span>{$commenta.added}</span>
+                                                                {if $commenta.editcomlink != ""}
+                                                                    {$commenta.editcomlink} {$commenta.delcomlink}
+                                                                {/if}
+                                                            </div>
+
+                                                            <div class="margin-top flex flex-fd:column">
+                                                                {$commenta.commenttxt}
+
+                                                                {if !empty($commenta.edittime)}
+                                                                    <span class="margin-top:half text:italic">
+                                                                        <i class="fas fa-pencil-alt"></i> Last edit
+                                                                        {$commenta.edittime} by {$commenta.editname}
+                                                                    </span>
+                                                                {/if}
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                {/foreach}
+                                            </ul>
+                                        {else}
+                                            <div class="padding">
+                                                {$sub.commentdata}
+                                            </div>
+                                        {/if}
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
+        <script>
+            document.querySelectorAll('.button').forEach(e => e.addEventListener('click', el => el.stopPropagation()));
+        </script>
+    </div>
 {/if}
