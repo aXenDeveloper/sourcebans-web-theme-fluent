@@ -117,3 +117,20 @@
         }
     }
 }
+
+.theme_list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    li {
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+}

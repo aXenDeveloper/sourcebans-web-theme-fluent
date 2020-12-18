@@ -1,49 +1,54 @@
-<h3 align="left">Themes</h3>
-<div id="current-theme-holder">
-    <h4 class="largetitle">Selected Theme: <span id="theme.name">{$theme_name}</span></h4>
-    <div id="current-theme-screenshot">
-        {$theme_screenshot}
+<div class="admin_tab_content_title">
+    <h2>Themes</h2>
+</div>
+
+<div class="padding">
+    <div class="margin-bottom">
+        <span class="text:bold">Selected Theme:</span> <span id="theme.name">{$theme_name}</span>
     </div>
-    <div id="current-theme-details">
-        <table width="98%" cellspacing="0" cellpadding="3" align="left">
-            <tr>
-                <td><b>Theme Author:</b></td>
-            </tr>
-            <tr>
-                <td><div id="theme.auth">{$theme_author}</div></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td><b>Theme Version:</b></td>
-            </tr>
-            <tr>
-                <td><div id="theme.vers">{$theme_version}</div></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td><b>Theme Link:</b></td>
-            </tr>
-            <tr>
-                <td><div id="theme.link"><a href="{$theme_link}" target="_new">{$theme_link}</a></div></td>
-            </tr>
-            <tr>
-                <td align="right"><div id="theme.apply"></div></td>
-            </tr>
-        </table>
+
+    <div class="flex m:flex-fd:column" id="current-theme-details">
+        <div id="current-theme-screenshot" class="text:center">
+            {$theme_screenshot}
+        </div>
+
+        <ul class="theme_list">
+            <li>
+                <h3>Theme Author:</h3>
+                <span id="theme.auth">{$theme_author}</span>
+            </li>
+            <li>
+                <h3>Theme Version:</h3>
+                <span id="theme.vers">{$theme_version}</span>
+            </li>
+            <li>
+                <h3>Theme Link:</h3>
+                <span id="theme.link">
+                    <a href="{$theme_link}" target="_new">{$theme_link}</a>
+                </span>
+            </li>
+        </ul>
     </div>
 </div>
 
-<br />
-<h4 class="largetitle">Available Themes</h4>
-Click a theme below to see details about it.<br /><br />
-<div id="theme-list">
-    <ul>
+<div class="admin_tab_content_title">
+    <h2>Available Themes</h2>
+</div>
+
+<div class="padding">
+    <div>
+        Click a theme below to see details about it.
+    </div>
+
+    <ul class="margin-top">
         {foreach from=$theme_list item=theme}
-            <li><a href="javascript:void(0);" onclick="javascript:xajax_SelTheme('{$theme.dir}');"><b>{$theme.name}</b></a></li>
+            <li><a href="javascript:void(0);" onclick="javascript:xajax_SelTheme('{$theme.dir}');"><b>{$theme.name}</b></a>
+            </li>
         {/foreach}
     </ul>
+
+    <button class="button button-success" onclick="javascript:xajax_ApplyTheme('star')" name="btnapply" class="ok btn"
+        id="btnapply">
+        Apply Theme
+    </button>
 </div>
