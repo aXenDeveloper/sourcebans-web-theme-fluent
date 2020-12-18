@@ -9,8 +9,8 @@
         <div class="padding">
             <div id="msg-green" class="message message:succes margin-bottom:half" style="display: none;">
                 <h3>Admin Added</h3>
-                <p>The new admin has been successfully added to the system.</p>
-                <span class="text:italic">Redirecting back to admins page</span>
+                <div>The new admin has been successfully added to the system.</div>
+                <div class="text:italic">Redirecting back to admins page</div>
             </div>
 
             <div id="add-group">
