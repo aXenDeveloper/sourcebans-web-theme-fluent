@@ -1,230 +1,289 @@
 {if NOT $permission_listgroups}
     Access Denied!
 {else}
-    <h3>Groups</h3>
-    Click on a group to view its permissions. <br /><br />
+    <div class="admin_tab_content_title">
+        <h2>Groups</h2>
+    </div>
 
-    <!-- Web Admin Groups -->
-    <table width="100%" cellpadding="0" cellspacing="0">
-        <tr>
-            <td colspan="4">
-                <table width="100%" cellpadding="0" cellspacing="0" class="front-module-header" class="listtable">
+    <div class="padding">
+        <div>
+            Click on a group to view its permissions.
+        </div>
+
+        <h3>Web Admin Groups ({$web_group_count})</h3>
+
+        <div class="table table_box">
+            <table>
+                <thead>
                     <tr>
-                        <td align="left">Web Admin Groups</td>
-                        <td align="right">Total: {$web_group_count}</td>
+                        <th class="text:left">Group Name</th>
+                        <th class="text:left">Admins in group</th>
+                        <th>Action</th>
                     </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td width="40%" height='16' class="listtable_top"><strong>Group Name</strong></td>
-            <td width="25%" height='16' class="listtable_top"><strong>Admins in group</strong></td>
-            <td width="30%" height='16' class="listtable_top"><strong>Action</strong></td>
-        </tr>
-        {foreach from="$web_group_list" item="group" name="web_group"}
-            <tr id="gid_{$group.gid}" class="opener tbl_out" onmouseout="this.className='tbl_out'" onmouseover="this.className='tbl_hover'">
-                <td class="listtable_1" height='16'>{$group.name}</td>
-                <td class="listtable_1" height='16'>{$web_admins[$smarty.foreach.web_group.index]}</td>
-                <td class="listtable_1" height='16'>
-                    {if $permission_editgroup}
-                        <a href="index.php?p=admin&c=groups&o=edit&type=web&id={$group.gid}">Edit</a>
-                    {/if}
-                    {if $permission_deletegroup}
-                        - <a href="#" onclick="RemoveGroup({$group.gid}, '{$group.name}', 'web');">Delete</a>
-                    {/if}
-                </td>
-            </tr>
-            <tr>
-                <td colspan="7" align="center">
-                    <div class="opener">
-                        <table width="80%" cellspacing="0" cellpadding="0" class="listtable">
-                            <tr>
-                                <td height="16" align="left" class="listtable_top" colspan="3">
-                                    <b>Group Details</b>
-                                </td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Permissions</td>
-                                <td height="16" class="listtable_1">
-                                    <span style='font-size:10px;color:#1b75d1;'>Web Permissions</span>
-                                    <br/>
-                                    {if $group.permissions}
-                                        {foreach from=$group.permissions item=permission}
-                                            &bull; {$permission} <br/>
-                                        {/foreach}
-                                    {else}
-                                        <i>None</i>
-                                    {/if}
-                                </td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Members</td>
-                                <td height="16" class="listtable_1">
-                                    <table width="100%" cellspacing="0" cellpadding="0" class="listtable">
-                                        {foreach from=$web_admins_list[$smarty.foreach.web_group.index] item="web_admin"}
-                                            <tr>
-                                                <td width="60%" height="16" class="listtable_1">{$web_admin.user}</td>
-                                                {if $permission_editadmin}
-                                                    <td width="20%" height="16" class="listtable_1"><a href="index.php?p=admin&c=admins&o=editgroup&id={$web_admin.aid}" title="Edit Groups">Edit</a></td>
-                                                    <td width="20%" height="16" class="listtable_1"><a href="index.php?p=admin&c=admins&o=editgroup&id={$web_admin.aid}&wg=" title="Remove From Group">Remove</a></td>
+                </thead>
+                <tbody>
+                    {foreach from="$web_group_list" item="group" name="web_group"}
+                        <tr class="collapse">
+                            <td style="width: 350px;">
+                                {$group.name}
+                            </td>
+
+                            <td>
+                                {$web_admins[$smarty.foreach.web_group.index]}
+                            </td>
+
+                            <td class="flex flex-jc:center flex-ai:center">
+                                {if $permission_editgroup}
+                                    <a class="button button-light margin-right:half"
+                                        href="index.php?p=admin&c=groups&o=edit&type=web&id={$group.gid}">
+                                        Edit
+                                    </a>
+                                {/if}
+
+                                {if $permission_deletegroup}
+                                    <button class="button button-light"
+                                        onclick="RemoveGroup({$group.gid}, '{$group.name}', 'web');">
+                                        Delete
+                                    </button>
+                                {/if}
+                            </td>
+                        <tr class="table_hide">
+                            <td colspan="8">
+                                <div class="collapse_content">
+                                    <div class="padding:half flex m:flex-fd:column">
+                                        <div class="flex:11">
+                                            <h4>Permissions</h4>
+
+                                            <ul>
+                                                {if $group.permissions}
+                                                    {foreach from=$group.permissions item=permission}
+                                                        <li>{$permission}</li>
+                                                    {/foreach}
+                                                {else}
+                                                    <li class="text:italic">None</li>
                                                 {/if}
-                                            </tr>
-                                        {/foreach}
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </td>
-            </tr>
-        {/foreach}
-    </table>
-    <br /><br />
+                                            </ul>
+                                        </div>
 
-    <!-- Server Admin Groups -->
-    <table width="100%" cellpadding="0" cellspacing="0">
-        <tr>
-            <td colspan="4">
-                <table width="100%" cellpadding="0" cellspacing="0" class="front-module-header" class="listtable">
+                                        <div class="flex:11">
+                                            <h4>Members</h4>
+
+                                            <div class="table table_box">
+                                                <table>
+                                                    <tbody>
+                                                        {foreach from=$web_admins_list[$smarty.foreach.web_group.index] item="web_admin"}
+                                                            <tr>
+                                                                <td>
+                                                                    {$web_admin.user}
+                                                                </td>
+                                                                {if $permission_editadmin}
+                                                                    <td class="flex flex-jc:center flex-ai:center">
+                                                                        <a class="button button-light margin-right:half"
+                                                                            href="index.php?p=admin&c=admins&o=editgroup&id={$web_admin.aid}"
+                                                                            title="Edit Groups">
+                                                                            Edit
+                                                                        </a>
+
+                                                                        <a class="button button-light"
+                                                                            href="index.php?p=admin&c=admins&o=editgroup&id={$web_admin.aid}&wg="
+                                                                            title="Remove From Group">
+                                                                            Remove
+                                                                        </a>
+                                                                    </td>
+                                                                {/if}
+                                                            </tr>
+                                                        {/foreach}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Server Admin Groups ({$server_admin_group_count})</h3>
+
+        <div class="table table_box">
+            <table>
+                <thead>
                     <tr>
-                        <td align="left">Server Admin Groups</td>
-                        <td align="right">Total: {$server_admin_group_count}</td>
+                        <th class="text:left">Group Name</th>
+                        <th class="text:left">Admins in group</th>
+                        <th>Action</th>
                     </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td width="40%" height='16' class="listtable_top"><strong>Group Name</strong></td>
-            <td width="25%" height='16' class="listtable_top"><strong>Admins in group</strong></td>
-            <td width="30%" height='16' class="listtable_top"><strong>Action</strong></td>
-        </tr>
-        {foreach from="$server_group_list" item="group" name="server_admin_group"}
-            <tr id="gid_{$group.id}" class="opener tbl_out" onmouseout="this.className='tbl_out'" onmouseover="this.setProperty('class', 'tbl_hover')">
-                <td class="listtable_1" height='16'>{$group.name}</td>
-                <td class="listtable_1" height='16'>{$server_admins[$smarty.foreach.server_admin_group.index]}</td>
-                <td class="listtable_1" height='16'>
-                    {if $permission_editgroup}
-                        <a href="index.php?p=admin&c=groups&o=edit&type=srv&id={$group.id}">Edit</a>
-                    {/if}
-                    {if $permission_deletegroup}
-                        - <a href="#" onclick="RemoveGroup({$group.id}, '{$group.name}', 'srv');">Delete</a>
-                    {/if}
-                </td>
-            </tr>
-            <tr>
-                <td colspan="7" align="center">
-                    <div class="opener">
-                        <table width="80%" cellspacing="0" cellpadding="0" class="listtable">
-                            <tr>
-                                <td height="16" align="left" class="listtable_top" colspan="3">
-                                    <b>Group Details</b>
-                                </td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Permissions</td>
-                                <td height="16" class="listtable_1">
-                                    <span style='font-size:10px;color:#1b75d1;'>Server Permissions</span>
-                                    <br/>
-                                    {if $group.permissions}
-                                        {foreach from=$group.permissions item=permission}
-                                            &bull; {$permission} <br/>
-                                        {/foreach}
-                                    {else}-
-                                        <i>None</i>
-                                    {/if}
-                                </td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Members</td>
-                                <td height="16" class="listtable_1">
-                                    <table width="100%" cellspacing="0" cellpadding="0" class="listtable">
-                                        {foreach from=$server_admins_list[$smarty.foreach.server_admin_group.index] item="server_admin"}
-                                            <tr>
-                                                <td width="60%" height="16" class="listtable_1">{$server_admin.user}</td>
-                                                {if $permission_editadmin}
-                                                    <td width="20%" height="16" class="listtable_1"><a href="index.php?p=admin&c=admins&o=editgroup&id={$server_admin.aid}" title="Edit Groups">Edit</a></td>
-                                                    <td width="20%" height="16" class="listtable_1"><a href="index.php?p=admin&c=admins&o=editgroup&id={$server_admin.aid}&sg=" title="Remove From Group">Remove</a></td>
+                </thead>
+                <tbody>
+                    {foreach from="$server_group_list" item="group" name="server_admin_group"}
+                        <tr class="collapse">
+                            <td style="width: 350px;">
+                                {$group.name}
+                            </td>
+
+                            <td>
+                                {$server_admins[$smarty.foreach.server_admin_group.index]}
+                            </td>
+
+                            <td class="flex flex-jc:center flex-ai:center">
+                                {if $permission_editgroup}
+                                    <a class="button button-light margin-right:half"
+                                        href="index.php?p=admin&c=groups&o=edit&type=srv&id={$group.id}">
+                                        Edit
+                                    </a>
+                                {/if}
+
+                                {if $permission_deletegroup}
+                                    <button class="button button-light" onclick="RemoveGroup({$group.id}, '{$group.name}', 'srv');">
+                                        Delete
+                                    </button>
+                                {/if}
+                            </td>
+                        <tr class="table_hide">
+                            <td colspan="8">
+                                <div class="collapse_content">
+                                    <div class="padding:half flex m:flex-fd:column">
+                                        <div class="flex:11">
+                                            <h4>Permissions</h4>
+
+                                            <ul>
+                                                {if $group.permissions}
+                                                    {foreach from=$group.permissions item=permission}
+                                                        <li>{$permission}</li>
+                                                    {/foreach}
+                                                {else}
+                                                    <li class="text:italic">None</li>
                                                 {/if}
-                                            </tr>
-                                        {/foreach}
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Overrides</td>
-                                <td height="16" class="listtable_1">
-                                    <table width="100%" cellspacing="0" cellpadding="0" class="listtable">
-                                        <tr>
-                                            <td class="listtable_top">Type</td>
-                                            <td class="listtable_top">Name</td>
-                                            <td class="listtable_top">Access</td>
-                                        </tr>
-                                        {foreach from=$server_overrides_list[$smarty.foreach.server_admin_group.index] item="override"}
-                                            <tr>
-                                                <td width="60%" height="16" class="listtable_1">{$override.type}</td>
-                                                <td width="60%" height="16" class="listtable_1">{$override.name|htmlspecialchars}</td>
-                                                <td width="60%" height="16" class="listtable_1">{$override.access}</td>
-                                            </tr>
-                                        {/foreach}
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </td>
-            </tr>
-        {/foreach}
-    </table>
-    <br /><br />
+                                            </ul>
+                                        </div>
 
+                                        <div class="flex:11">
+                                            <h4>Members</h4>
 
-    <!-- Server Groups -->
-    <table width="100%" cellpadding="0" cellspacing="0">
-        <tr>
-            <td colspan="4">
-                <table width="100%" cellpadding="0" cellspacing="0" class="front-module-header">
+                                            <div class="table table_box">
+                                                <table>
+                                                    <tbody>
+                                                        {foreach from=$server_admins_list[$smarty.foreach.server_admin_group.index] item="server_admin"}
+                                                            <tr>
+                                                                <td>
+                                                                    {$server_admin.user}
+                                                                </td>
+                                                                {if $permission_editadmin}
+                                                                    <td class="flex flex-jc:center flex-ai:center">
+                                                                        <a class="button button-light margin-right:half"
+                                                                            href="index.php?p=admin&c=admins&o=editgroup&id={$server_admin.aid}"
+                                                                            title="Edit Groups">
+                                                                            Edit
+                                                                        </a>
+
+                                                                        <a class="button button-light"
+                                                                            href="index.php?p=admin&c=admins&o=editgroup&id={$server_admin.aid}&sg="
+                                                                            title="Remove From Group">
+                                                                            Remove
+                                                                        </a>
+                                                                    </td>
+                                                                {/if}
+                                                            </tr>
+                                                        {/foreach}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {if $server_overrides_list[$smarty.foreach.server_admin_group.index]}
+                                        <div class="table table_box padding:half">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text:left">Type</th>
+                                                        <th class="text:left">Name</th>
+                                                        <th class="text:left">Access</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {foreach from=$server_overrides_list[$smarty.foreach.server_admin_group.index] item="override"}
+                                                        <tr>
+                                                            <td>{$override.type}</td>
+                                                            <td>{$override.name|htmlspecialchars}</td>
+                                                            <td>{$override.access}</td>
+                                                        </tr>
+                                                    {/foreach}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {/if}
+                                </div>
+                            </td>
+                        </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Server Groups ({$server_group_count})</h3>
+
+        <div class="table table_box">
+            <table>
+                <thead>
                     <tr>
-                        <td align="left">Server Groups</td>
-                        <td align="right">Total: {$server_group_count}</td>
+                        <th class="text:left">Group Name</th>
+                        <th class="text:left">Admins in group</th>
+                        <th>Action</th>
                     </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td width="37%" height='16' class="listtable_top"><strong>Group Name</strong></td>
-            <td width="25%" height='16' class="listtable_top"><strong>Servers in group</strong></td>
-            <td width="30%" height='16' class="listtable_top"><strong>Action</strong></td>
-        </tr>
-        {foreach from="$server_list" item="group" name="server_group"}
-            <tr id="gid_{$group.gid}" class="opener tbl_out" onmouseout="this.className='tbl_out'" onmouseover="this.setProperty('class', 'tbl_hover')">
-                <td class="listtable_1" height='16'>{$group.name}</td>
-                <td class="listtable_1" height='16'>{$server_counts[$smarty.foreach.server_group.index]}</td>
-                <td class="listtable_1" height='16'>
-                    {if $permission_editgroup}
-                        <a href="index.php?p=admin&c=groups&o=edit&type=server&id={$group.gid}">Edit</a>
-                    {/if}
-                    {if $permission_deletegroup}
-                        - <a href="#" onclick="RemoveGroup({$group.gid}, '{$group.name}', 'server');">Delete</a>
-                    {/if}
-                </td>
-            </tr>
-            <tr>
-                <td colspan="7" align="center">
-                    <div class="opener">
-                        <table width="80%" cellspacing="0" cellpadding="0" class="listtable">
-                            <tr>
-                                <td height="16" align="left" class="listtable_top" colspan="3"><b>Servers in this group</b></td>
-                            </tr>
-                            <tr align="left">
-                                <td width="20%" height="16" class="listtable_1">Server Names</td>
-                                <td height="16" class="listtable_1" id="servers_{$group.gid}">
-                                    Please Wait!
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </td>
-            </tr>
-        {/foreach}
-    </table>
+                </thead>
+                <tbody>
+                    {foreach from="$server_list" item="group" name="server_group"}
+                        <tr class="collapse">
+                            <td style="width: 350px;">
+                                {$group.name}
+                            </td>
+
+                            <td>
+                                {$server_counts[$smarty.foreach.server_group.index]}
+                            </td>
+
+                            <td class="flex flex-jc:center flex-ai:center">
+                                {if $permission_editgroup}
+                                    <a class="button button-light margin-right:half"
+                                        href="index.php?p=admin&c=groups&o=edit&type=server&id={$group.gid}">
+                                        Edit
+                                    </a>
+                                {/if}
+
+                                {if $permission_deletegroup}
+                                    <button class="button button-light"
+                                        onclick="RemoveGroup({$group.gid}, '{$group.name}', 'server');">
+                                        Delete
+                                    </button>
+                                {/if}
+                            </td>
+                        <tr class="table_hide">
+                            <td colspan="8">
+                                <div class="collapse_content">
+                                    <div class="padding">
+                                        <h3>Servers in this group</h3>
+
+                                        <ul>
+                                            <li id="servers_{$group.gid}">Please Wait!</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>
+
+        <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
+        <script>
+            document.querySelectorAll('.button').forEach(e => e.addEventListener('click', el => el.stopPropagation()));
+        </script>
+    </div>
 {/if}

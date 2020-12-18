@@ -202,6 +202,7 @@ a:hover {
 
 .table_box {
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .table table {
@@ -1936,6 +1937,10 @@ hr {
   line-height: 3;
   font-size: 14px;
   border-radius: var(--border--radius) var(--border--radius) 0 0;
+}
+
+.test {
+  height: 100% !important;
 }
 
 .list-reset {

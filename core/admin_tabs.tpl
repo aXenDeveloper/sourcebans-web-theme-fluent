@@ -1,4 +1,4 @@
-<div class="flex flex-wrap:wrap">
+<div class="flex m:flex-fd:column">
     <div class="admin_tab layout_box padding">
         <button id="admin_tab_mobile" class="button button-light admin_tab_mobile responsive_hide:desktop">
             Navigation
@@ -7,7 +7,9 @@
         <ul id="admin-page-menu" class="admin_tab_ul">
             {foreach from=$tabs item=tab}
                 <li>
-                    <button onclick="openTab(this, '{$tab.name}');">{$tab.name}</button>
+                    <button onclick="openTab(this, '{$tab.name}');">
+                        {$tab.name}
+                    </button>
                 </li>
             {/foreach}
             <li>
