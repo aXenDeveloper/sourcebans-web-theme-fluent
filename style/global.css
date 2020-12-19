@@ -79,7 +79,8 @@ a:hover {
           text-decoration: revert;
 }
 
-.button {
+.button,
+.ok {
   display: block;
   font-size: 14px;
   font-weight: 400;
@@ -95,19 +96,23 @@ a:hover {
   border: 0;
 }
 
-.button a {
+.button a,
+.ok a {
   color: inherit;
 }
 
-.button a:hover {
+.button a:hover,
+.ok a:hover {
   text-decoration: none;
 }
 
-.button:hover {
+.button:hover,
+.ok:hover {
   text-decoration: none;
 }
 
-.button::after {
+.button::after,
+.ok::after {
   content: '';
   position: absolute;
   z-index: -1;
@@ -131,35 +136,42 @@ a:hover {
           transform-origin: left;
 }
 
-.button:hover::after {
+.button:hover::after,
+.ok:hover::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
           transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 
-.button-success {
+.button-success,
+.ok-success {
   background-color: var(--button-success);
 }
 
-.button-important {
+.button-important,
+.ok-important {
   background-color: var(--button-important);
 }
 
-.button-primary {
+.button-primary,
+.ok-primary {
   background-color: var(--layout_main--color);
 }
 
-.button-light {
+.button-light,
+.ok-light {
   background-color: var(--button-light);
   color: var(--button-light-text) !important;
 }
 
-.button\:line {
+.button\:line,
+.ok\:line {
   display: inline-block;
 }
 
-.button\:full {
+.button\:full,
+.ok\:full {
   width: 100%;
 }
 
@@ -1108,11 +1120,6 @@ h2.warning {
   border: 1px solid #887a2c;
 }
 
-h2.ok {
-  background: #75b46d none repeat scroll 0%;
-  border: 1px solid #46983b;
-}
-
 .icon-ok {
   background-image: url(../images/ok.png);
   float: left;
@@ -1247,16 +1254,6 @@ div.dialog-control {
 .game:hover {
   background-color: #a0d468;
   border-color: #a0d468;
-}
-
-.ok {
-  background-color: #729e42;
-  border-color: #729e42;
-}
-
-.ok:hover {
-  background-color: #558126;
-  border-color: #558126;
 }
 
 .save {
@@ -1990,6 +1987,10 @@ hr {
 
 .test {
   height: 100% !important;
+}
+
+.ok {
+  background-color: var(--button-success);
 }
 
 .list-reset {

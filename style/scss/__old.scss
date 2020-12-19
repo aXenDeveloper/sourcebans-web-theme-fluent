@@ -81,11 +81,6 @@ h2.warning {
     border: 1px solid #887a2c;
 }
 
-h2.ok {
-    background: #75b46d none repeat scroll 0%;
-    border: 1px solid #46983b;
-}
-
 .icon-ok {
     background-image: url(../images/ok.png);
     float: left;
@@ -211,14 +206,6 @@ div.dialog-control {
 .game:hover {
     background-color: #a0d468;
     border-color: #a0d468;
-}
-.ok {
-    background-color: #729e42;
-    border-color: #729e42;
-}
-.ok:hover {
-    background-color: #558126;
-    border-color: #558126;
 }
 .save {
     background-color: #7d4071;

@@ -47,8 +47,5 @@
         {/foreach}
     </ul>
 
-    <button class="button button-success" onclick="javascript:xajax_ApplyTheme('star')" name="btnapply" class="ok btn"
-        id="btnapply">
-        Apply Theme
-    </button>
+    <div id="theme.apply"></div>
 </div>
