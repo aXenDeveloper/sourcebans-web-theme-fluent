@@ -68,3 +68,4 @@
         </table>
     </div>
 </div>
+<script type="text/javascript" src="themes/sourcebans-web-theme-fluent/scripts/collapse.js"></script>
