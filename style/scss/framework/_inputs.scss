@@ -1,6 +1,6 @@
-@mixin input-focus {
+@mixin input-focus($border) {
     &:focus {
-        border-radius: var(--border--radius);
+        border-radius: $border;
         box-shadow: var(--input--border-focusShadow);
         border-color: var(--layout_main--color);
         outline: 0;
@@ -48,7 +48,7 @@
             cursor: default;
         }
 
-        @include input-focus();
+        @include input-focus(var(--border--radius));
     }
 
     &-check {
@@ -65,7 +65,7 @@
         transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
             border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-        @include input-focus();
+        @include input-focus(var(--border--radius));
 
         &:checked {
             background-color: var(--layout_main--color);
@@ -104,7 +104,7 @@
             display: none;
         }
 
-        @include input-focus();
+        @include input-focus(var(--border--radius));
     }
 
     &-text {
@@ -120,7 +120,7 @@
         transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
             border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-        @include input-focus();
+        @include input-focus(var(--border--radius));
     }
 
     &-file {
@@ -131,6 +131,32 @@
         border: 1px solid var(--input--border);
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-        @include input-focus();
+        @include input-focus(var(--border--radius));
+    }
+
+    &-radio {
+        border-radius: 50%;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-top: 0.2rem;
+        vertical-align: top;
+        background-color: var(--box--backgroundColor);
+        border: 1px solid var(--input--border);
+        appearance: none;
+        color-adjust: exact;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+            border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+        &:checked {
+            background-color: var(--layout_main--color);
+            border-color: var(--layout_main--color);
+
+            &[type='radio'] {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+            }
+        }
+
+        @include input-focus(50%);
     }
 }

@@ -426,6 +426,42 @@ a:hover {
   outline: 0;
 }
 
+.form-radio {
+  border-radius: 50%;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-top: 0.2rem;
+  vertical-align: top;
+  background-color: var(--box--backgroundColor);
+  border: 1px solid var(--input--border);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  color-adjust: exact;
+  cursor: pointer;
+  -webkit-transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.form-radio:checked {
+  background-color: var(--layout_main--color);
+  border-color: var(--layout_main--color);
+}
+
+.form-radio:checked[type='radio'] {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+.form-radio:focus {
+  border-radius: 50%;
+  -webkit-box-shadow: var(--input--border-focusShadow);
+          box-shadow: var(--input--border-focusShadow);
+  border-color: var(--layout_main--color);
+  outline: 0;
+}
+
 .message {
   position: relative;
   margin-bottom: 10px;

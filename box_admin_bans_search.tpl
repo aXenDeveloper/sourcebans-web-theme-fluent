@@ -1,68 +1,181 @@
-<div align="center">
-    <table width="50%" cellpadding="0" class="listtable" cellspacing="0">
-        <tr class="sea_open">
-            <td width="2%" height="16" class="listtable_top" colspan="3" style="text-align: center;"><b>Advanced Search</b> (Click)</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="panel">
-                    <table width="100%" cellpadding="0" class="listtable" cellspacing="0">
-                        <tr>
-                            <td class="listtable_1" width="8%" align="center"><input id="name" name="search_type" type="radio" value="name"></td>
-                            <td class="listtable_1" width="26%">Nickname</td>
-                            <td class="listtable_1" width="66%"><input class="textbox" type="text" id="nick" value="" onmouseup="$('name').checked = true" style="width: 87%;"></td>
-                        </tr>
-                        <tr>
-                            <td align="center" class="listtable_1"><input id="steam_" type="radio" name="search_type" value="radiobutton"></td>
-                            <td class="listtable_1">Steam ID</td>
-                            <td class="listtable_1">
-                                <input class="textbox" type="text" id="steamid" value="" onmouseup="$('steam_').checked = true" style="width: 50%; margin-right: 12px;"><select class="select" id="steam_match" onmouseup="$('steam_').checked = true" style="width: 33%;">
-                                    <option value="0" selected>Exact Match</option>
-                                    <option value="1">Partial Match</option>
-                                </select>
-                            </td>
-                        </tr>
-                        {if !$hideplayerips}
-                            <tr>
-                                <td align="center" class="listtable_1"><input id="ip_" type="radio" name="search_type" value="radiobutton"></td>
-                                <td class="listtable_1">IP</td>
-                                <td class="listtable_1"><input class="textbox" type="text" id="ip" value="" onmouseup="$('ip_').checked = true" style="width: 87%;"></td>
-                            </tr>
-                        {/if}
-                        <tr>
-                            <td align="center" class="listtable_1"><input id="reason_" type="radio" name="search_type" value="radiobutton"></td>
-                            <td class="listtable_1">Reason</td>
-                            <td class="listtable_1"><input class="textbox" type="text" id="ban_reason" value="" onmouseup="$('reason_').checked = true" style="width: 87%;"></td>
-                        </tr>
-                        <tr>
-                            <td align="center" class="listtable_1"><input id="date" type="radio" name="search_type" value="radiobutton"></td>
-                            <td class="listtable_1">Date</td>
-                            <td class="listtable_1">
-                                <input class="textbox" type="text" id="day" value="DD" onmouseup="$('date').checked = true" maxlength="2" style="width: 22%;">
-                                <input class="textbox" type="text" id="month" value="MM" onmouseup="$('date').checked = true" maxlength="2" style="width: 22%;">
-                                <input class="textbox" type="text" id="year" value="YY" onmouseup="$('date').checked = true" maxlength="4" style="width: 24%;">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center" class="listtable_1"><input id="length_" type="radio" name="search_type" value="radiobutton"></td>
-                            <td class="listtable_1">Length</td>
-                            <td class="listtable_1">
-                                <table border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td>
-                                            <select class="select" id="length_type" onmouseup="$('length_').checked = true" style="width: 60px; margin-right: 12px;">
+<div class="layout_box margin-bottom">
+    <div class="table padding">
+        <div class="table_box">
+            <table>
+                <tbody>
+                    <tr class="collapse">
+                        <td class="text:center">
+                            <span class="text:bold">Advanced Search</span> (Click)
+                        </td>
+                    </tr>
+
+                    <tr class="table_hide">
+                        <td colspan="1">
+                            <div class="collapse_content">
+                                <div class="padding">
+                                    <div class="flex m:flex-fd:column">
+                                        <div class="flex:11 margin-right">
+                                            <div class="margin-bottom:half">
+                                                <input id="name" name="search_type" class="form-radio" type="radio"
+                                                    value="name" />
+
+                                                <label for="name" class="form-label form-label:bottom">
+                                                    Nickname
+                                                </label>
+
+                                                <input class="form-input form-full" type="text" id="nick" value=""
+                                                    onmouseup="$('name').checked = true" />
+                                            </div>
+
+                                            <div class="margin-bottom:half">
+                                                <input id="steam_" type="radio" name="search_type" class="form-radio"
+                                                    value="radiobutton" />
+
+                                                <label for="steam_"
+                                                    class="form-label form-label:bottom form-label:right">
+                                                    Steam ID
+                                                </label>
+
+                                                <div class="flex">
+                                                    <input class="form-input form-full margin-right" type="text"
+                                                        id="steamid" value="" onmouseup="$('steam_').checked = true" />
+
+                                                    <select class="form-select form-full" id="steam_match"
+                                                        onmouseup="$('steam_').checked = true">
+                                                        <option value="0" selected>Exact Match</option>
+                                                        <option value="1">Partial Match</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            {if !$hideplayerips}
+                                                <div class="margin-bottom:half">
+                                                    <input id="ip_" type="radio" class="form-radio" name="search_type"
+                                                        value="radiobutton" />
+
+                                                    <label for="ip" class="form-label form-label:bottom">
+                                                        IP
+                                                    </label>
+
+                                                    <input class="form-input form-full" type="text" id="ip" value=""
+                                                        onmouseup="$('ip_').checked = true" />
+                                                </div>
+                                            {/if}
+
+                                            <div class="margin-bottom:half">
+                                                <input id="reason_" type="radio" name="search_type" class="form-radio"
+                                                    value="radiobutton" />
+
+                                                <label for="ban_reason" class="form-label form-label:bottom">
+                                                    Reason
+                                                </label>
+
+                                                <input class="form-input form-full" type="text" id="ban_reason" value=""
+                                                    onmouseup="$('reason_').checked = true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="flex:11">
+                                            <div class="margin-bottom:half">
+                                                <input id="date" type="radio" name="search_type" class="form-radio"
+                                                    value="radiobutton" />
+
+                                                <label for="date" class="form-label form-label:bottom form-label:right">
+                                                    Date
+                                                </label>
+
+                                                <div class="flex">
+                                                    <input class="form-input form-full margin-right" type="text"
+                                                        id="day" value="DD" onmouseup="$('date').checked = true"
+                                                        maxlength="2" />
+                                                    <input class="form-input form-full margin-right" type="text"
+                                                        id="month" value="MM" onmouseup="$('date').checked = true"
+                                                        maxlength="2" />
+                                                    <input class="form-input form-full" type="text" id="year" value="YY"
+                                                        onmouseup="$('date').checked = true" maxlength="4" />
+                                                </div>
+                                            </div>
+
+                                            <div class="margin-bottom:half">
+                                                <input id="ban_type_" type="radio" name="search_type" class="form-radio"
+                                                    value="radiobutton" />
+
+                                                <label for="ban_type"
+                                                    class="form-label form-label:bottom form-label:right">
+                                                    Type
+                                                </label>
+
+                                                <select class="form-select form-full" id="ban_type"
+                                                    onmouseup="$('ban_type_').checked = true">
+                                                    <option value="0" selected>Steam ID</option>
+                                                    <option value="1">IP Address</option>
+                                                </select>
+                                            </div>
+
+                                            {if !$hideadminname}
+                                                <div class="margin-bottom:half">
+                                                    <input id="admin" name="search_type" type="radio" class="form-radio"
+                                                        value="radiobutton" />
+
+                                                    <label for="ban_admin"
+                                                        class="form-label form-label:bottom form-label:right">
+                                                        Admin
+                                                    </label>
+
+                                                    <select class="form-select form-full" id="ban_admin"
+                                                        onmouseup="$('admin').checked = true">
+                                                        {foreach from="$admin_list" item="admin}
+                                                            <option label="{$admin.user}" value="{$admin.aid}">{$admin.user}
+                                                            </option>
+                                                        {/foreach}
+                                                    </select>
+                                                </div>
+                                            {/if}
+
+                                            <div class="margin-bottom:half">
+                                                <input id="where_banned" name="search_type" class="form-radio"
+                                                    type="radio" value="radiobutton" />
+
+                                                <label for="server"
+                                                    class="form-label form-label:bottom form-label:right">
+                                                    Server
+                                                </label>
+
+                                                <select class="form-select form-full" id="server"
+                                                    onmouseup="$('where_banned').checked = true">
+                                                    <option label="Web Ban" value="0">Web Ban</option>
+                                                    {foreach from="$server_list" item="server}
+                                                        <option value="{$server.sid}" id="ss{$server.sid}">Retrieving
+                                                            Hostname...
+                                                            ({$server.ip}:{$server.port})</option>
+                                                    {/foreach}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="margin-bottom:half">
+                                        <input id="length_" type="radio" name="search_type" class="form-radio"
+                                            value="radiobutton" />
+
+                                        <label for="other_length" class="form-label form-label:bottom form-label:right">
+                                            Length
+                                        </label>
+
+                                        <div class="flex">
+                                            <select class="form-select form-full margin-right" id="length_type"
+                                                onmouseup="$('length_').checked = true">
                                                 <option value="e" title="equal to">=</option>
                                                 <option value="h" title="greater">&gt;</option>
                                                 <option value="l" title="smaller">&lt;</option>
                                                 <option value="eh" title="equal to or greater">&gt;=</option>
                                                 <option value="el" title="equal to or smaller">&lt;=</option>
                                             </select>
-                                        </td>
-                                        <td>
-                                            <input type="text" id="other_length" name="other_length" onmouseup="$('length_').checked = true" style="border: 1px solid #000000; font-size: 12px; background-color: rgb(215, 215, 215);width: 190px;display:none;">
-                                        </td>
-                                        <td>
-                                            <select class="select" id="length" onmouseup="$('length_').checked = true" onchange="switch_length(this);" onmouseover="if(this.options[this.selectedIndex].value=='other')$('length').setStyle('width', '210px');if(this.options[this.selectedIndex].value=='other')this.focus();" onblur="if(this.options[this.selectedIndex].value=='other')$('length').setStyle('width', '20px');" style="width: 127%;">
+
+                                            <select class="form-select form-full margin-right" id="length"
+                                                onmouseup="$('length_').checked = true" onchange="switch_length(this);"
+                                                onmouseover="if(this.options[this.selectedIndex].value=='other')$('length').setStyle('width', '210px');if(this.options[this.selectedIndex].value=='other')this.focus();"
+                                                onblur="if(this.options[this.selectedIndex].value=='other')$('length').setStyle('width', '20px');">
                                                 <option value="0">Permanent</option>
                                                 <optgroup label="minutes">
                                                     <option value="1">1 minute</option>
@@ -102,63 +215,37 @@
                                                 </optgroup>
                                                 <option value="other">Other length in minutes</option>
                                             </select>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center" class="listtable_1"><input id="ban_type_" type="radio" name="search_type" value="radiobutton"></td>
-                            <td class="listtable_1">Type</td>
-                            <td class="listtable_1">
-                                <select class="select" id="ban_type" onmouseup="$('ban_type_').checked = true" style="width: 95%;">
-                                    <option value="0" selected>Steam ID</option>
-                                    <option value="1">IP Address</option>
-                                </select>
-                            </td>
-                        </tr>
-                        {if !$hideadminname}
-                            <tr>
-                                <td class="listtable_1" align="center"><input id="admin" name="search_type" type="radio" value="radiobutton"></td>
-                                <td class="listtable_1">Admin</td>
-                                <td class="listtable_1">
-                                    <select class="select" id="ban_admin" onmouseup="$('admin').checked = true" style="width: 95%;">
-                                        {foreach from="$admin_list" item="admin}
-                                            <option label="{$admin.user}" value="{$admin.aid}">{$admin.user}</option>
-                                        {/foreach}
-                                    </select>
-                                </td>
-                            </tr>
-                        {/if}
-                        <tr>
-                            <td class="listtable_1" align="center"><input id="where_banned" name="search_type" type="radio" value="radiobutton"></td>
-                            <td class="listtable_1">Server</td>
-                            <td class="listtable_1">
-                                <select class="select" id="server" onmouseup="$('where_banned').checked = true" style="width: 95%;">
-                                    <option label="Web Ban" value="0">Web Ban</option>
-                                    {foreach from="$server_list" item="server}
-                                        <option value="{$server.sid}" id="ss{$server.sid}">Retrieving Hostname... ({$server.ip}:{$server.port})</option>
-                                    {/foreach}
-                                </select>
-                            </td>
-                        </tr>
-                        {if $is_admin}
-                            <tr>
-                                <td align="center" class="listtable_1"><input id="comment_" type="radio" name="search_type" value="radiobutton"></td>
-                                <td class="listtable_1">Comment</td>
-                                <td class="listtable_1"><input class="textbox" type="text" id="ban_comment" value="" onmouseup="$('comment_').checked = true" style="width: 87%;"></td>
-                            </tr>
-                        {/if}
-                        <tr>
-                            <td colspan="4">{sb_button text="Search" onclick="search_bans();" class="ok searchbtn" id="searchbtn" submit=false}</td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-        </tr>
-    </table>
+
+                                            <input type="text" id="other_length" name="other_length"
+                                                class="form-input form-full" onmouseup="$('length_').checked = true"
+                                                style="display: none;" />
+                                        </div>
+                                    </div>
+
+                                    {if $is_admin}
+                                        <div class="margin-bottom:half">
+                                            <input id="comment_" type="radio" name="search_type" class="form-radio"
+                                                value="radiobutton" />
+
+                                            <label for="ban_comment" class="form-label form-label:bottom form-label:right">
+                                                Comment
+                                            </label>
+
+                                            <input class="form-input form-full" type="text" id="ban_comment" value=""
+                                                onmouseup="$('comment_').checked = true" />
+                                        </div>
+                                    {/if}
+
+                                    <div class="flex">
+                                        {sb_button text="Search" onclick="search_bans();" class="button button-primary flex:11" id="searchbtn" submit=false}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 {$server_script}
-<script>
-    InitAccordion('tr.sea_open', 'div.panel', 'mainwrapper');
-</script>
