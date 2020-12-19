@@ -22,6 +22,7 @@
   --input--border: rgba(113, 128, 150, 0.4);
   --input--border-focusShadow: var(--layout_main--color_0_3) 0px 0px 0px 4px;
   --input--desc: #6c757d;
+  --input-disabled: #e6e6e6;
   --button-success: #267b3c;
   --button-important: #ca1e1e;
   --button-light: #e8f2fa;
@@ -293,7 +294,8 @@ a:hover {
 }
 
 .form-input:disabled {
-  background-color: #e6e6e6;
+  background-color: var(--input-disabled);
+  cursor: default;
 }
 
 .form-input:focus {
@@ -340,8 +342,13 @@ a:hover {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
 }
 
-.form-check + .form-label {
+.form-check:not(:disabled) + .form-label {
   cursor: pointer;
+}
+
+.form-check:disabled {
+  background-color: var(--input-disabled);
+  cursor: default;
 }
 
 .form-select {
@@ -972,6 +979,7 @@ a:hover {
   --backdrop-background: rgba(19, 20, 27, 0.65);
   --backdrop-text_color: #fff;
   --input--desc: #98a3ad;
+  --input-disabled: #3e4050;
 }
 
 [data-theme='dark'] .layout_topBar .layout_topBar_action li #user_action_change_dark i {

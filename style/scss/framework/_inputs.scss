@@ -44,7 +44,8 @@
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
         &:disabled {
-            background-color: #e6e6e6;
+            background-color: var(--input-disabled);
+            cursor: default;
         }
 
         @include input-focus();
@@ -75,8 +76,13 @@
             }
         }
 
-        & + .form-label {
+        &:not(:disabled) + .form-label {
             cursor: pointer;
+        }
+
+        &:disabled {
+            background-color: var(--input-disabled);
+            cursor: default;
         }
     }
 
