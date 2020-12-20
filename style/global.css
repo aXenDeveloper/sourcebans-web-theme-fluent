@@ -542,6 +542,7 @@ a:hover {
   padding: 16px;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+  color: #fff;
 }
 
 .layout_box_title h2,
@@ -2067,6 +2068,7 @@ hr {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  width: 100%;
 }
 
 /* ================ Responsive ================ */

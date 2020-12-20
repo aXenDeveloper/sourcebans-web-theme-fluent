@@ -1,123 +1,142 @@
-<div class="front-module-intro">
-    <table width="100%" cellpadding="1">
-        <tr>
-            <td>
-                {$dashboard_text}
-            </td>
-        </tr>
-    </table>
+<div class="message message:error margin-top:half margin-bottom:half">
+    The website is in alpha mode. Please watch your head.
 </div>
 
+{if $dashboard_text}
+    <div class="layout_box padding margin-bottom">
+        {$dashboard_text}
+    </div>
+{/if}
 
-<div id="front-servers">
+<div class="margin-bottom">
     {include file='page_servers.tpl'}
 </div>
 
-<div class="front-module" style="width:100%">
-    <table width="100%" cellpadding="1" class="listtable">
-        <tr>
-            <td colspan="4">
-                <table width="100%" cellpadding="0" cellspacing="0" class="front-module-header">
-                    <tr>
-                        <td align="left">
-                            Latest Added Bans
+<div class="layout_box margin-bottom">
+    <div class="layout_box_title flex flex-jc:space-between flex-ai:center">
+        <h2>Latest Added Bans</h2>
+        <span>Total bans: {$total_bans}</span>
+    </div>
+
+    <div class="padding table table_box">
+        <table>
+            <thead>
+                <tr>
+                    <th>MOD</th>
+                    <th class="text:left">Name</th>
+                    <th class="text:left">Date/Time</th>
+                    <th>Length</th>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach from=$players_banned item=player}
+                    <tr class="collapse" onclick="{$player.link_url}">
+                        <td class="text:center">
+                            <img src="images/games/{$player.icon}" alt="{$player.icon}" title="MOD" />
                         </td>
-                        <td align="right">
-                            Total bans: {$total_bans}
+                        <td>
+                            {if empty($player.short_name)}
+                                <span class="text:italic">No nickname present</span>
+                            {else}
+                                <span>{$player.short_name|escape:'html'}</span>
+                            {/if}
                         </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr height="16">
-            <td width="16" class="listtable_top">MOD</td>
-            <td width="24%" class="listtable_top" align="center"><strong>Date/Time</strong></td>
-            <td class="listtable_top"><strong>Name</strong></td>
-            <td width="14%" class="listtable_top"><strong>Length</strong></td>
-        </tr>
-        {foreach from=$players_banned item=player}
-            <tr onclick="{$player.link_url}" onmouseout="this.className='tbl_out'" onmouseover="this.className='tbl_hover'" style="cursor:pointer;" height="16">
-                <td class="listtable_1" align="center"><img src="images/games/{$player.icon}" width="16" alt="MOD" title="MOD" /></td>
-                <td class="listtable_1" align="center">{$player.created}</td>
-                <td class="listtable_1">
-                    {if empty($player.short_name)}
-                        <i><font color="#677882">no nickname present</font></i>
-                    {else}
-                        {$player.short_name|escape:'html'}
-                    {/if}
-                </td>
-                <td class="listtable_1{if $player.unbanned}_unbanned{elseif $player.perm}_permanent{elseif $player.temp}_banned{/if}">{$player.length}{if $player.unbanned} ({$player.ub_reason}){/if}</td>
-            </tr>
-        {/foreach}
-    </table>
-</div>
-<br /><br /><br />
-<div class="front-module" style="float:right;width:49%">
-    <table width="100%" cellpadding="1" class="listtable">
-        <tr>
-            <td colspan="3">
-                <table width="100%" cellpadding="0" cellspacing="0" class="front-module-header">
-                    <tr>
-                        <td align="left">
-                            Latest Players Blocked
+                        <td>
+                            {$player.created}
                         </td>
-                        <td align="right">
-                            Total Stopped: {$total_blocked}
+                        <td
+                            class="listtable_1{if $player.unbanned}_unbanned{elseif $player.perm}_permanent{elseif $player.temp}_banned{/if}">
+                            {$player.length}{if $player.unbanned} ({$player.ub_reason}){/if}
                         </td>
                     </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td width="16px" height="16" class="listtable_top">&nbsp;</td>
-            <td height="25%" class="listtable_top" align="center"><b>Date/Time</b></td>
-            <td height="16" class="listtable_top"><b>Name</b></td>
-        </tr>
-        {foreach from=$players_blocked item=player}
-            <tr{if $dashboard_lognopopup} onclick="{$player.link_url}"{else} onclick="{$player.popup}"{/if} onmouseout="this.className='tbl_out'" onmouseover="this.className='tbl_hover'" style="cursor: pointer;" id="{$player.server}" title="Querying Server Data...">
-                <td width="16" height="16" align="center" class="listtable_1"><i class="fas fa-ban fa-lg"></i></td>
-                <td width="25%" height="16" class="listtable_1">{$player.date}</td>
-                <td height="16" class="listtable_1">{$player.short_name|escape:'html'}</td>
-            </tr>
-        {/foreach}
-    </table>
+                {/foreach}
+            </tbody>
+        </table>
+    </div>
 </div>
 
-<div class="front-module" style="float:left;width:49%">
-    <table width="100%" cellpadding="1" class="listtable">
-        <tr>
-            <td colspan="4">
-                <table width="100%" cellpadding="0" cellspacing="0" class="front-module-header">
+<div class="flex flex-ai:start flex-jc:space-bwtween m:flex-fd:column">
+    <div class="layout_box flex:11 margin-right margin-bottom">
+        <div class="layout_box_title flex flex-jc:space-between flex-ai:center">
+            <h2>Latest Players Blocked</h2>
+            <span>Total Stopped: {$total_blocked}</span>
+        </div>
+
+        <div class="padding table table_box">
+            <table>
+                <thead>
                     <tr>
-                        <td align="left">
-                            Latest Comm Blocks
-                        </td>
-                        <td align="right">
-                            Total blocks: {$total_comms}
-                        </td>
+                        <th>Type</th>
+                        <th class="text:left">Name</th>
+                        <th class="text:left">Date/Time</th>
+                        <th>Length</th>
                     </tr>
-                </table>
-            </td>
-        </tr>
-        <tr height="16">
-            <td width="16" class="listtable_top">Type</td>
-            <td width="24%" class="listtable_top" align="center"><strong>Date/Time</strong></td>
-            <td class="listtable_top"><strong>Name</strong></td>
-            <td width="23%" class="listtable_top"><strong>Length</strong></td>
-        </tr>
-        {foreach from=$players_commed item=player}
-            <tr onclick="{$player.link_url}" onmouseout="this.className='tbl_out'" onmouseover="this.className='tbl_hover'" style="cursor:pointer;" height="16">
-                <td class="listtable_1" align="center"><i class="{$player.type}"></i></td>
-                <td class="listtable_1">{$player.created}</td>
-                <td class="listtable_1">
-                    {if empty($player.short_name)}
-                        <i><font color="#677882">no nickname present</font></i>
-                    {else}
-                        {$player.short_name|escape:'html'}
-                    {/if}
-                </td>
-                <td class="listtable_1{if $player.unbanned}_unbanned{elseif $player.perm}_permanent{elseif $player.temp}_banned{/if}">{$player.length}{if $player.unbanned} ({$player.ub_reason}){/if}</td>
-            </tr>
-        {/foreach}
-    </table>
+                </thead>
+                <tbody>
+                    {foreach from=$players_commed item=player}
+                        <tr class="collapse" onclick="{$player.link_url}">
+                            <td class="text:center">
+                                <i class="{$player.type}"></i>
+                            </td>
+                            <td>
+                                {if empty($player.short_name)}
+                                    <span class="text:italic">No nickname present</span>
+                                {else}
+                                    <span>{$player.short_name|escape:'html'}</span>
+                                {/if}
+                            </td>
+                            <td>
+                                {$player.created}
+                            </td>
+                            <td
+                                class="listtable_1{if $player.unbanned}_unbanned{elseif $player.perm}_permanent{elseif $player.temp}_banned{/if}">
+                                {$player.length}{if $player.unbanned} ({$player.ub_reason}){/if}
+                            </td>
+                        </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="layout_box flex:11 margin-bottom">
+        <div class="layout_box_title flex flex-jc:space-between flex-ai:center">
+            <h2>Latest Players Blocked</h2>
+            <span>Total Stopped: {$total_blocked}</span>
+        </div>
+
+        <div class="padding table table_box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th class="text:left">Name</th>
+                        <th class="text:left">Date/Time</th>
+                        <th>Length</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach from=$players_blocked item=player}
+                        <tr class="collapse" {if $dashboard_lognopopup} onclick="{$player.link_url}"
+                            {else}onclick="{$player.popup}" 
+                            {/if}>
+                            <td class="text:center">
+                                <i class="fas fa-ban fa-lg"></i>
+                            </td>
+                            <td>
+                                <span>{$player.short_name|escape:'html'}</span>
+                            </td>
+                            <td>
+                                {$player.date}
+                            </td>
+                            <td
+                                class="listtable_1{if $player.unbanned}_unbanned{elseif $player.perm}_permanent{elseif $player.temp}_banned{/if}">
+                                {$player.length}{if $player.unbanned} ({$player.ub_reason}){/if}
+                            </td>
+                        </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
