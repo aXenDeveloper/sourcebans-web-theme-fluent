@@ -13,9 +13,11 @@
 	        </div>
 	    </div>
 	</footer>
+
 	<script type="text/javascript" src="themes/sourcebans-web-theme-fluent/scripts/nav.js"></script>
 	<script type="text/javascript" src="themes/sourcebans-web-theme-fluent/scripts/jscolor.js"></script>
 	<script type="text/javascript" src="themes/sourcebans-web-theme-fluent/scripts/theme.js"></script>
+
 	<script>
 	    {$query}
 
