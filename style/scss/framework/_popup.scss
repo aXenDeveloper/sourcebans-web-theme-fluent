@@ -34,12 +34,14 @@
         border-top-left-radius: var(--border--radius);
         border-top-right-radius: var(--border--radius);
         font-size: 18px;
+        border-bottom: 1px solid var(--line-hr);
     }
 
     &_footer {
         background-color: var(--theme-area_background_light);
         border-bottom-left-radius: var(--border--radius);
         border-bottom-right-radius: var(--border--radius);
+        border-top: 1px solid var(--line-hr);
     }
 
     &_icon {

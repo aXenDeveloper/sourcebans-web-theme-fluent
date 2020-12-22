@@ -23,6 +23,7 @@
   --input--border-focusShadow: var(--layout_main--color_0_3) 0px 0px 0px 4px;
   --input--desc: #6c757d;
   --input-disabled: #e6e6e6;
+  --line-hr: rgba(0, 0, 0, 0.1);
   --button-success: #267b3c;
   --button-important: #ca1e1e;
   --button-light: #e8f2fa;
@@ -563,12 +564,14 @@ a:hover {
   border-top-left-radius: var(--border--radius);
   border-top-right-radius: var(--border--radius);
   font-size: 18px;
+  border-bottom: 1px solid var(--line-hr);
 }
 
 .popup_footer {
   background-color: var(--theme-area_background_light);
   border-bottom-left-radius: var(--border--radius);
   border-bottom-right-radius: var(--border--radius);
+  border-top: 1px solid var(--line-hr);
 }
 
 .popup_icon {
@@ -1015,7 +1018,7 @@ a:hover {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--line-hr);
 }
 
 .nav_mobile_background {
@@ -1081,6 +1084,7 @@ a:hover {
   --backdrop-text_color: #fff;
   --input--desc: #98a3ad;
   --input-disabled: #3e4050;
+  --line-hr: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme='dark'] .layout_topBar .layout_topBar_action li #user_action_change_dark i {
@@ -1946,6 +1950,7 @@ hr {
 .admin_tab_content_title {
   padding: 20px;
   background-color: var(--theme-area_background_light);
+  border-bottom: 1px solid var(--line-hr);
 }
 
 .admin_tab_content_title h2,
