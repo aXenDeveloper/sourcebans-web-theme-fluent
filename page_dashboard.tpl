@@ -2,6 +2,11 @@
     The website is in alpha mode. Please watch your head.
 </div>
 
+<div class="message message:info margin-top:half margin-bottom:half">
+    <div>If the page is displayed incorrectly, refresh it using the "CTRL + F5" button.</div>
+    <div>We're working on fixing this error.</div>
+</div>
+
 {if $dashboard_text}
     <div class="layout_box padding margin-bottom">
         {$dashboard_text}
