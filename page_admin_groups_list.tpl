@@ -1,5 +1,16 @@
 {if NOT $permission_listgroups}
-    Access Denied!
+    <section class="error padding">
+        <i class="fas fa-exclamation-circle"></i>
+        <div class="error_title">Oops, there's a problem (╯°□°）╯︵ ┻━┻</div>
+
+        <div class="error_content">
+            Access Denied!
+        </div>
+
+        <div class="error_code">
+            Error code: <span class="text:bold">403 Forbidden</span>
+        </div>
+    </section>
 {else}
     <div class="admin_tab_content_title">
         <h2>Groups</h2>

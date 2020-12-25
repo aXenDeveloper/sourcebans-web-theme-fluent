@@ -578,6 +578,42 @@ a:hover {
   font-size: 36px;
 }
 
+.error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.error > i {
+  font-size: 64px;
+  margin-bottom: 10px;
+}
+
+.error_title {
+  color: var(--theme-text_light);
+  font-size: 16px;
+}
+
+.error_content {
+  font-size: 24px;
+  font-weight: 500;
+  max-width: 800px;
+}
+
+.error_code {
+  color: var(--theme-text_light);
+}
+
 .layout_container {
   max-width: var(--container--width);
   padding: 0 15px;
@@ -1817,14 +1853,6 @@ hr {
   font-weight: bold;
 }
 
-.tabcontent {
-  display: none;
-}
-
-.tabcontent:first-of-type {
-  display: block;
-}
-
 .admin_nav {
   background-color: var(--layout_main--color);
   border-radius: 4px;
@@ -2051,16 +2079,6 @@ hr {
   background-color: var(--button-success);
 }
 
-.list-reset {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.list-margin\:right li:not(:last-child) {
-  margin-right: 10px;
-}
-
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2193,13 +2211,18 @@ hr {
   font-weight: bold;
 }
 
-.inputbox {
-  border: 1px solid #000000;
-  width: 105px;
-  font-size: 14px;
-  background-color: #d7d7d7;
-  width: 200px;
-  padding-left: 2px;
+/* ================ Pagination ================ */
+.pagination {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  line-height: 26px;
+  font-size: 12px;
+}
+
+.pagination a {
+  padding: 0 10px;
+  border-radius: 4px;
 }
 
 /* ================ Login - Page ================ */
@@ -2208,6 +2231,17 @@ hr {
   overflow: hidden;
   -webkit-transition: max-height 0.3s ease;
   transition: max-height 0.3s ease;
+}
+
+.ban_action {
+  margin: 0 15px 0 0;
+  padding: 0;
+  list-style: none;
+  width: 200px;
+}
+
+.ban_action li:not(:last-child) {
+  margin-bottom: 10px;
 }
 
 .ban_list_detal {
@@ -2258,17 +2292,6 @@ hr {
   margin-bottom: 20px;
 }
 
-.ban_action {
-  margin: 0 15px 0 0;
-  padding: 0;
-  list-style: none;
-  width: 200px;
-}
-
-.ban_action li:not(:last-child) {
-  margin-bottom: 10px;
-}
-
 .ban_list_comments_header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2283,16 +2306,11 @@ hr {
   margin-right: 10px;
 }
 
-.pagination {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  line-height: 26px;
-  font-size: 12px;
+.tabcontent {
+  display: none;
 }
 
-.pagination a {
-  padding: 0 10px;
-  border-radius: 4px;
+.tabcontent:first-of-type {
+  display: block;
 }
 /*# sourceMappingURL=global.css.map */

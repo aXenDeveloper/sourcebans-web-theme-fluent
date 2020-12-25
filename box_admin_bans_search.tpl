@@ -11,7 +11,7 @@
 
                     <tr class="table_hide">
                         <td colspan="1">
-                            <div class="collapse_content">
+                            <div class="collapse_content flex flex-jc:center">
                                 <div class="padding">
                                     <div class="flex m:flex-fd:column">
                                         <div class="flex:11 margin-right">

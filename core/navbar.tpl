@@ -6,7 +6,7 @@
                     <button id="user_action_change_dark" aria-label="Dark mode"><i class="fas fa-moon"></i></button>
                 </li>
                 <li class="jscolor_li">
-                    <button data-jscolor="mode:'HSV', onInput:'setColorThemeCookie(this)'" aria-label="Color"></button>
+                    <button data-jscolor aria-label="Color"></button>
                 </li>
                 <li id="jscolor_reset" class="jscolor_li" style="display: none;">
                     <button aria-label="Reset color"><i class="fa fa-refresh"></i></button>
