@@ -158,27 +158,31 @@
                                                         </span>
                                                     {/if}
                                                 </li>
-                                                <li>
-                                                    <span><i class="fab fa-steam-symbol"></i> Steam Community</span>
+                                                {if $ban.type == 0}
+                                                    <li>
+                                                        <span><i class="fab fa-steam-symbol"></i> Steam Community</span>
 
-                                                    {if empty($ban.steamid)}
-                                                        <span class="text:italic">No Steam Community ID present</span>
-                                                    {else}
-                                                        <span>
-                                                            <a href="http://steamcommunity.com/profiles/{$ban.communityid}"
-                                                                target="_blank" rel="noopener">{$ban.communityid}</a>
-                                                        </span>
-                                                    {/if}
-                                                </li>
-                                                <li>
-                                                    <span><i class="fas fa-network-wired"></i> IP address</span>
+                                                        {if empty($ban.steamid)}
+                                                            <span class="text:italic">No Steam Community ID present</span>
+                                                        {else}
+                                                            <span>
+                                                                <a href="http://steamcommunity.com/profiles/{$ban.communityid}"
+                                                                    target="_blank" rel="noopener">{$ban.communityid}</a>
+                                                            </span>
+                                                        {/if}
+                                                    </li>
+                                                {/if}
+                                                {if !$hideplayerips}
+                                                    <li>
+                                                        <span><i class="fas fa-network-wired"></i> IP address</span>
 
-                                                    {if $ban.ip == "none"}
-                                                        <span class="text:italic">No IP address present</span>
-                                                    {else}
-                                                        <span>{$ban.ip}</span>
-                                                    {/if}
-                                                </li>
+                                                        {if $ban.ip == "none"}
+                                                            <span class="text:italic">No IP address present</span>
+                                                        {else}
+                                                            <span>{$ban.ip}</span>
+                                                        {/if}
+                                                    </li>
+                                                {/if}
                                                 <li>
                                                     <span><i class="fas fa-play"></i> Invoked on</span>
                                                     <span>{$ban.ban_date}</span>
