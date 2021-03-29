@@ -80,6 +80,12 @@ a:hover {
           text-decoration: revert;
 }
 
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .button,
 .ok {
   display: block;
