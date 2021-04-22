@@ -209,8 +209,9 @@ a {
 }
 
 .layout_body {
-    margin: 20px 0;
+    margin: 20px auto;
     padding: 0 15px;
+    max-width: var(--container--width);
 }
 
 /* ================ JSColor ================ */
