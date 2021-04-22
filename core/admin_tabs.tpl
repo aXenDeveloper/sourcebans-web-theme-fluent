@@ -4,17 +4,12 @@
             Navigation
         </button>
 
-        <ul id="admin-page-menu" class="admin_tab_ul">
+        <div id="admin-page-menu" class="admin_tab_ul">
             {foreach from=$tabs item=tab}
-                <li>
-                    <button onclick="openTab(this, '{$tab.name}');">
-                        {$tab.name}
-                    </button>
-                </li>
+                <button onclick="openTab(this, '{$tab.name}');">{$tab.name}</button>
             {/foreach}
-            <li>
-                <a href="index.php?p=admin">Back</a>
-            </li>
-        </ul>
+            <a href="index.php?p=admin">Back</a>
+        </div>
+
         <script type="text/javascript" src="themes/{$theme}/scripts/tab.js"></script>
     </div>

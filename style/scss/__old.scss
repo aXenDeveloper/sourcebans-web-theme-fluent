@@ -685,22 +685,3 @@ div.contextmenu .separator {
 hr {
     border: 1px solid #ddd;
 }
-
-#admin-page-menu > a {
-    display: block;
-    height: 20px;
-    text-decoration: none;
-    padding: 9px 0px 3px 8px;
-    background-color: #4f463e;
-    color: #fff;
-    cursor: pointer;
-}
-
-#admin-page-menu > a:hover {
-    color: #fff;
-    background-color: #3d3631;
-}
-
-#admin-page-menu > .active {
-    font-weight: bold;
-}

@@ -63,7 +63,6 @@
         }
 
         &_ul {
-            @include reset-list(0, 0);
             max-height: 100%;
             transition: max-height 0.3s ease;
 
@@ -72,27 +71,25 @@
                 overflow: hidden;
             }
 
-            li {
-                a,
-                button {
-                    display: block;
-                    width: 100%;
-                    padding: 8px 10px;
-                    border-radius: 5px;
-                    font-family: inherit;
-                    font-size: 14px;
-                    color: inherit;
-                    text-align: left;
-                    border: 0;
-                    background-color: transparent;
-                    transition: none;
-                    cursor: pointer;
+            a,
+            button {
+                display: block;
+                width: 100%;
+                padding: 8px 10px;
+                border-radius: 5px;
+                font-family: inherit;
+                font-size: 14px;
+                color: inherit;
+                text-align: left;
+                border: 0;
+                background-color: transparent;
+                transition: none;
+                cursor: pointer;
 
-                    &:hover {
-                        background-color: var(--layout_main--color);
-                        color: #fff;
-                        text-decoration: none;
-                    }
+                &:hover {
+                    background-color: var(--layout_main--color);
+                    color: #fff;
+                    text-decoration: none;
                 }
             }
         }
