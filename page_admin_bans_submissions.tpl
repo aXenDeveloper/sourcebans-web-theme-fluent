@@ -36,7 +36,8 @@
                 </thead>
                 <tbody>
                     {foreach from="$submission_list" item="sub"}
-                        <tr class="collapse">
+                        <tr class="collapse" {if $sub.hostname == ""}
+                            onclick="xajax_ServerHostPlayers('{$sub.server}', 'id', 'sub{$sub.subid}');" {/if}>
                             <td>
                                 {$sub.name}
                             </td>
