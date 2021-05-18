@@ -1,4 +1,5 @@
 <form action="" method="post">
+    <input type="hidden" name="settingsGroup" value="mainsettings" />
     <div class="admin_tab_content_title">
         <h2>Main Settings</h2>
     </div>
