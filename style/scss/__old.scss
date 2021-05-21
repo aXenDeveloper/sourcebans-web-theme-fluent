@@ -5,24 +5,16 @@
 /** ================ Permissions ================ **/
 
 .tablerow1 {
-    background-color: #eaebeb;
-    padding: 6px;
 }
 
 .tablerow2 {
-    background-color: rgb(236, 213, 216);
-    border-color: #eaebeb;
-    border-style: solid;
-    border-width: 1px;
-    padding: 6px;
 }
 
 .tablerow4 {
-    background-color: #736b63;
-    border-style: solid;
-    border-width: 1px;
-    padding: 6px;
+    background-color: var(--layout_main--color);
+    font-weight: bold;
     color: #fff;
+    padding: 5px;
 }
 
 /* =============== FORMS ==================== */

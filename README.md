@@ -18,6 +18,8 @@ Fluent Design Theme Edition is a combination of Fluent Design styles Microsoft, 
 git clone https://github.com/aXenDeveloper/sourcebans-web-theme-fluent
 ```
 
+Make sure the folder name is **sourcebans-web-theme-fluent**!!!
+
 3. Go to (Website): AdminCP -> Web Panel -> **Themes**,
 4. Select theme **SourceBans++ Fluent Design Theme Edition**
 

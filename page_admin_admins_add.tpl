@@ -14,7 +14,7 @@
         </section>
     {else}
         <div class="admin_tab_content_title">
-            <h2>Admin Details</h2>
+
         </div>
 
         <div class="padding">
@@ -190,6 +190,15 @@
                         </select>
                         <div id="web.msg" class="message message:error margin-top:half" style="display: none;"></div>
                     </div>
+
+                    <table width="90%" border="0" style="border-collapse:collapse;" id="group.details" cellpadding="3">
+                        <tr>
+                            <td colspan="2" id="serverperm" valign="top" style="height:5px;overflow:hidden;"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" id="webperm" valign="top" style="height:5px;overflow:hidden;"></td>
+                        </tr>
+                    </table>
 
                     <div class="flex flex-jc:space-between flex-ai:center margin-top">
                         {sb_button text="Add Admin" onclick="ProcessAddAdmin();" class="button button-success" id="aadmin" submit=false}
