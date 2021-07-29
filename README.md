@@ -1,4 +1,4 @@
-![Header Github](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshot.jpg)
+![Header Github](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/sourcebans-web-theme-fluent/screenshot.jpg)
 
 # (Sourcebans++) Theme Fluent for SourceBans++
 
@@ -11,15 +11,13 @@ Fluent Design Theme Edition is a combination of Fluent Design styles Microsoft, 
 
 ## Install 🧰
 
-1. Go to (Files): Sourcebans -> **themes**,
-2. Download all files from repository or clone:
+1. Download all files from repository or clone:
 
 ```
 git clone https://github.com/aXenDeveloper/sourcebans-web-theme-fluent
 ```
 
-Make sure the folder name is **sourcebans-web-theme-fluent**!!!
-
+2. Move **sourcebans-web-theme-fluent** folder to Your Sourcebans -> **themes**,
 3. Go to (Website): AdminCP -> Web Panel -> **Themes**,
 4. Select theme **SourceBans++ Fluent Design Theme Edition**
 
@@ -29,12 +27,12 @@ Reupload all files from repository.
 
 ## Graphics 📷
 
-![1](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/images/demo/1.png)
-![2](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/images/demo/2.png)
-![3](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/images/demo/3.png)
-![4](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/images/demo/4.png)
-![5](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/images/demo/5.png)
-![6](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/images/demo/6.png)
-![7](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/images/demo/7.png)
-![8](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/images/demo/8.png)
-![9](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/images/demo/9.png)
+![1](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/1.png)
+![2](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/2.png)
+![3](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/3.png)
+![4](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/4.png)
+![5](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/5.png)
+![6](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/6.png)
+![7](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/7.png)
+![8](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/8.png)
+![9](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/9.png)
