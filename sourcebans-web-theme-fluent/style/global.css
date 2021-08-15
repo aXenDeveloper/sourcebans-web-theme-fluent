@@ -2070,6 +2070,7 @@ hr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-content: space-evenly;
 }
 
 .flex-jc\:center {
