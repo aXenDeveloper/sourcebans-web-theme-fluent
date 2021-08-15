@@ -19,7 +19,7 @@
             <h3>RCON Console</h3>
             <div align="center" width="90%">
                 <div id="rcon" style="overflow:auto;
-                    color: green;
+        			color: green;
         			background-color:#efefef;
         			border: 1px solid #999;
         			padding: 3px;
