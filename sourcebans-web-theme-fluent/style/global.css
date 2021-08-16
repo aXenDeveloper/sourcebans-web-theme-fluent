@@ -2237,6 +2237,10 @@ hr {
       -ms-flex-align: center;
           align-items: center;
   padding: 5px 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
+  overflow: hidden;
 }
 
 .ban_list_detal li > span {
@@ -2244,7 +2248,26 @@ hr {
 }
 
 .ban_list_detal li > span:first-child {
-  width: 200px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+}
+
+.ban_list_detal li > span:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+}
+
+.ban_list_detal li > span:last-child > span {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 99%;
+          flex: 0 1 99%;
 }
 
 .ban_list_comments {
