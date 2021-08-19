@@ -1,32 +1,25 @@
 ![Header Github](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/sourcebans-web-theme-fluent/screenshot.jpg)
 
-# (Sourcebans++) Theme Fluent for SourceBans++
-
+# (SourceBans++) Theme Fluent for SourceBans++
 Fluent Design Theme Edition is a combination of Fluent Design styles Microsoft, iOS Design, Android Design and Google Design. We have also introduced many interesting features that are unique in standard themes.
 
 ## Requirements 🏷️
-
-- [Sourcebans++ 1.7.+](https://github.com/sbpp/sourcebans-pp/)
-- PHP 7.2+
+- [SourceBans++ 1.7.+](https://github.com/sbpp/sourcebans-pp/);
+- PHP 7.2+;
 
 ## Install 🧰
-
 1. Download all files from repository or clone:
-
 ```
 git clone https://github.com/aXenDeveloper/sourcebans-web-theme-fluent
 ```
-
-2. Move **sourcebans-web-theme-fluent** folder to Your Sourcebans -> **themes**,
-3. Go to (Website): AdminCP -> Web Panel -> **Themes**,
-4. Select theme **SourceBans++ Fluent Design Theme Edition**
+2. Move **sourcebans-web-theme-fluent** folder to Your Sourcebans -> **themes**;
+3. Go to (Website): AdminCP -> Web Panel -> **Themes**;
+4. Select theme **SourceBans++ Fluent Design Theme Edition**;
 
 ## Update 🛠️
-
 Reupload all files from repository.
 
-## Graphics 📷
-
+## Screenshots 📷
 ![1](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/1.png)
 ![2](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/2.png)
 ![3](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/3.png)
