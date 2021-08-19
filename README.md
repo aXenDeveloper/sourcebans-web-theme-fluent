@@ -19,7 +19,7 @@ git clone https://github.com/aXenDeveloper/sourcebans-web-theme-fluent
 ## Update 🛠️
 Reupload all files from repository.
 
-## Previews 📷
+## Screenshots 📷
 ![1](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/1.png)
 ![2](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/2.png)
 ![3](https://raw.githubusercontent.com/aXenDeveloper/sourcebans-web-theme-fluent/master/screenshots/3.png)
