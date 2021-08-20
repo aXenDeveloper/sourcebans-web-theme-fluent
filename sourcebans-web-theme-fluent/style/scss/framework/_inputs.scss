@@ -121,6 +121,11 @@
             border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
         @include input-focus(var(--border--radius));
+
+        &\:rcron {
+            overflow: auto;
+            height: 250px;
+        }
     }
 
     &-file {
