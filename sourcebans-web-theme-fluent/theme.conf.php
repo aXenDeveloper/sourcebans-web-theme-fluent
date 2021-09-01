@@ -20,7 +20,7 @@ SourceBans TF2 Theme v1.0
 Copyright © 2014 IceMan
 Page: <https://forums.alliedmods.net/showthread.php?t=252533>
 
-*************************************************************************/
+ *************************************************************************/
 
 // Set the name of this theme here
 define('theme_name', "SourceBans++ Fluent Design Theme Edition");
@@ -29,7 +29,7 @@ define('theme_name', "SourceBans++ Fluent Design Theme Edition");
 define('theme_author', "aXenDev");
 
 // Set the version of the theme here
-define('theme_version', "1.0.0-dev");
+define('theme_version', "1.0.5-dev");
 
 // Set the link of the theme here
 define('theme_link', "https://axendev.net/");
@@ -37,4 +37,3 @@ define('theme_link', "https://axendev.net/");
 // Set the screenshot filename for your theme (must be inside your theme folder)
 // Must be:  250px wide  X 170px High
 define('theme_screenshot', "screenshot.jpg");
-?>
