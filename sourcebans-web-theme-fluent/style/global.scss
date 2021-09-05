@@ -326,6 +326,10 @@ a {
             &_header {
                 display: flex;
 
+                & + div {
+                    overflow: auto;
+                }
+
                 span:first-child {
                     margin-right: auto;
                 }

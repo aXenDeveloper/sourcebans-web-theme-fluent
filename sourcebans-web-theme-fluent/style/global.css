@@ -2304,6 +2304,10 @@ hr {
   display: flex;
 }
 
+.ban_list_comments_header + div {
+  overflow: auto;
+}
+
 .ban_list_comments_header span:first-child {
   margin-right: auto;
 }
