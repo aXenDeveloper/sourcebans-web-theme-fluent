@@ -1,278 +1,278 @@
 {if $comment}
-    <div class="flex flex-jc:center flex-ai:center">
-        <div class="layout_box layout_box_medium">
-            <div class="layout_box_title">
-                <h2>{$commenttype} Comment</h2>
-            </div>
+  <div class="flex flex-jc:center flex-ai:center">
+    <div class="layout_box layout_box_medium">
+      <div class="layout_box_title">
+        <h2>{$commenttype} Comment</h2>
+      </div>
 
-            <div class="padding">
-                <textarea class="form-text" id="commenttext" name="commenttext">{$commenttext}</textarea>
+      <div class="padding">
+        <textarea class="form-text" id="commenttext" name="commenttext">{$commenttext}</textarea>
 
-                <div id="commenttext.msg" class="message message:error" style="display:none;"></div>
+        <div id="commenttext.msg" class="message message:error" style="display:none;"></div>
 
-                <div class="margin-top:half flex flex-jc:space-between flex-ai:center">
-                    <input type="hidden" name="bid" id="bid" value="{$comment}">
-                    <input type="hidden" name="ctype" id="ctype" value="{$ctype}">
+        <div class="margin-top:half flex flex-jc:space-between flex-ai:center">
+          <input type="hidden" name="bid" id="bid" value="{$comment}">
+          <input type="hidden" name="ctype" id="ctype" value="{$ctype}">
 
-                    {if $cid != ""}
-                        <input type="hidden" name="cid" id="cid" value="{$cid}">
-                    {else}
-                        <input type="hidden" name="cid" id="cid" value="-1">
-                    {/if}
+          {if $cid != ""}
+            <input type="hidden" name="cid" id="cid" value="{$cid}">
+          {else}
+            <input type="hidden" name="cid" id="cid" value="-1">
+          {/if}
 
-                    <input type="hidden" name="page" id="page" value="{$page}">
+          <input type="hidden" name="page" id="page" value="{$page}">
 
-                    <a class="button button-primary" onclick="ProcessComment();">Add</a>
-                    <a class="button button-light" onclick="history.go(-1)">Cancel</a>
-                </div>
-            </div>
+          <a class="button button-primary" onclick="ProcessComment();">Add</a>
+          <a class="button button-light" onclick="history.go(-1)">Cancel</a>
         </div>
+      </div>
     </div>
+  </div>
 {else}
-    {php} require (TEMPLATES_PATH . "/admin.comms.search.php");{/php}
+  {php} require (TEMPLATES_PATH . "/admin.comms.search.php");{/php}
 
-    <div class="layout_box margin-bottom padding:half flex flex-jc:space-between flex-ai:center m:flex-fd:column">
-        <span>
-            <a href="index.php?p=commslist&hideinactive={if $hidetext == 'Hide'}true{else}false{/if}{$searchlink|htmlspecialchars}"
-                title="{$hidetext} inactive">{$hidetext} inactive</a> | <i>Total Blocks: {$total_bans}</i>
-        </span>
-        <div class="pagination">
-            <span>{$ban_nav}</span>
-        </div>
+  <div class="layout_box margin-bottom padding:half flex flex-jc:space-between flex-ai:center m:flex-fd:column">
+    <span>
+      <a href="index.php?p=commslist&hideinactive={if $hidetext == 'Hide'}true{else}false{/if}{$searchlink|htmlspecialchars}"
+        title="{$hidetext} inactive">{$hidetext} inactive</a> | <i>Total Blocks: {$total_bans}</i>
+    </span>
+    <div class="pagination">
+      <span>{$ban_nav}</span>
     </div>
+  </div>
 
-    <div class="layout_box">
-        <div class="table padding">
-            <div class="table_box">
-                <table class="table_box">
-                    <thead>
-                        <tr>
-                            <th>MOD/Type</th>
-                            <th class="text:left">Player</th>
-                            <th class="text:left">Date</th>
-                            {if !$hideadminname}
-                                <th class="text:left">Admin</th>
+  <div class="layout_box">
+    <div class="table padding">
+      <div class="table_box">
+        <table class="table_box">
+          <thead>
+            <tr>
+              <th>MOD/Type</th>
+              <th class="text:left">Player</th>
+              <th class="text:left">Date</th>
+              {if !$hideadminname}
+                <th class="text:left">Admin</th>
+              {/if}
+              <th>Length</th>
+            </tr>
+          </thead>
+          <tbody>
+            {foreach from=$ban_list item=ban name=banlist}
+              <tr class="collapse">
+                <td class="text:center">{$ban.mod_icon}</td>
+                <td>
+                  {if empty($ban.player)}
+                    <span class="text:italic">No nickname present</span>
+                  {else}
+                    <span>
+                      {$ban.player|escape:'html'|stripslashes}
+                    </span>
+                  {/if}
+                </td>
+                <td>{$ban.ban_date}</td>
+
+                {if !$hideadminname}
+                  <td>
+                    {if !empty($ban.admin)}
+                      <span>
+                        {$ban.admin|escape:'html'}
+                      </span>
+                    {else}
+                      <span class="text:italic">Admin deleted</span>
+                    {/if}
+                  </td>
+                {/if}
+
+                <td class="{$ban.class}">{$ban.banlength}</td>
+              </tr>
+
+              <tr class="table_hide">
+                <td colspan="8">
+                  <div class="collapse_content">
+                    <div class="padding flex flex-jc:start">
+                      <ul class="ban_action">
+                        {if ($ban.unbanned == false && $ban.view_unban)}
+                          <li class="button button-success">{$ban.unban_link}</li>
+                        {/if}
+                        {if $ban.unbanned && $ban.reban_link != false}
+                          <li class="button button-important">{$ban.reban_link}</li>
+                        {/if}
+                        <li class="button button-success">{$ban.addcomment}</li>
+                        {if ($ban.view_edit && !$ban.unbanned)}
+                          <li class="button button-light">{$ban.edit_link}</li>
+                        {/if}
+                        {if $ban.view_delete}
+                          <li class="button button-light">{$ban.delete_link}</li>
+                        {/if}
+                      </ul>
+
+                      <ul class="ban_list_detal">
+                        <li>
+                          <span><i class="fas fa-user"></i> Player</span>
+
+                          {if empty($ban.player)}
+                            <span class="text:italic">No nickname present</span>
+                          {else}
+                            <span>{$ban.player|escape:'html'|stripslashes}</span>
+                          {/if}
+                        </li>
+                        <li>
+                          <span>Steam ID</span>
+
+                          {if empty($ban.steamid)}
+                            <span class="text:italic">No Steam ID present</span>
+                          {else}
+                            <span>{$ban.steamid}</span>
+                          {/if}
+                        </li>
+                        <li>
+                          <span>Steam3 ID</span>
+
+                          {if empty($ban.steamid)}
+                            <span class="text:italic">No Steam3 ID present</span>
+                          {else}
+                            <a href="http://steamcommunity.com/profiles/{$ban.steamid3}" target="_blank"
+                              rel="noopener">{$ban.steamid3}</a>
+                          {/if}
+                        </li>
+                        <li>
+                          <span>Steam Community</span>
+
+                          {if empty($ban.steamid)}
+                            <span class="text:italic">No Steam Community ID present</span>
+                          {else}
+                            <a href="http://steamcommunity.com/profiles/{$ban.communityid}" target="_blank"
+                              rel="noopener">{$ban.communityid}</a>
+                          {/if}
+                        </li>
+                        <li>
+                          <span>Invoked on</span>
+                          <span>{$ban.ban_date}</span>
+                        </li>
+                        <li>
+                          <span>Block length</span>
+                          <span>{$ban.banlength}</span>
+                        </li>
+                        {if $ban.unbanned}
+                          <li>
+                            <span>Unblock reason</span>
+
+                            {if empty($ban.removedby)}
+                              <span class="text:italic">No reason present</span>
+                            {else}
+                              <span>{$ban.ureason}</span>
                             {/if}
-                            <th>Length</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {foreach from=$ban_list item=ban name=banlist}
-                            <tr class="collapse">
-                                <td class="text:center">{$ban.mod_icon}</td>
-                                <td>
-                                    {if empty($ban.player)}
-                                        <span class="text:italic">No nickname present</span>
-                                    {else}
-                                        <span>
-                                            {$ban.player|escape:'html'|stripslashes}
-                                        </span>
-                                    {/if}
-                                </td>
-                                <td>{$ban.ban_date}</td>
+                          </li>
+                          <li>
+                            <span>Unblocked by Admin</span>
 
-                                {if !$hideadminname}
-                                    <td>
-                                        {if !empty($ban.admin)}
-                                            <span>
-                                                {$ban.admin|escape:'html'}
-                                            </span>
-                                        {else}
-                                            <span class="text:italic">Admin deleted</span>
-                                        {/if}
-                                    </td>
-                                {/if}
+                            {if empty($ban.removedby)}
+                              <span class="text:italic">Admin deleted</span>
+                            {else}
+                              <span>{$ban.removedby|escape:'html'}</span>
+                            {/if}
+                          </li>
+                        {/if}
+                        <li>
+                          <span>Expires on</span>
 
-                                <td class="{$ban.class}">{$ban.banlength}</td>
-                            </tr>
+                          {if $ban.expires == "never"}
+                            <span class="text:italic">Not applicable</span>
+                          {else}
+                            <span>{$ban.expires}</span>
+                          {/if}
+                        </li>
+                        <li>
+                          <span>Reason</span>
+                          <span>{$ban.reason|escape:'html'}</span>
+                        </li>
+                        {if !$hideadminname}
+                          <li>
+                            <span>Blocked by Admin</span>
 
-                            <tr class="table_hide">
-                                <td colspan="8">
-                                    <div class="collapse_content">
-                                        <div class="padding flex flex-jc:start">
-                                            <ul class="ban_action">
-                                                {if ($ban.unbanned == false && $ban.view_unban)}
-                                                    <li class="button button-success">{$ban.unban_link}</li>
-                                                {/if}
-                                                {if $ban.unbanned && $ban.reban_link != false}
-                                                    <li class="button button-important">{$ban.reban_link}</li>
-                                                {/if}
-                                                <li class="button button-success">{$ban.addcomment}</li>
-                                                {if ($ban.view_edit && !$ban.unbanned)}
-                                                    <li class="button button-light">{$ban.edit_link}</li>
-                                                {/if}
-                                                {if $ban.view_delete}
-                                                    <li class="button button-light">{$ban.delete_link}</li>
-                                                {/if}
-                                            </ul>
+                            {if empty($ban.admin)}
+                              <span class="text:italic">Admin deleted</span>
+                            {else}
+                              <span>{$ban.admin|escape:'html'}</span>
+                            {/if}
+                          </li>
+                        {/if}
+                        <li>
+                          <span>Total Blocks</span>
+                          <span>{$ban.prevoff_link}</span>
+                        </li>
+                      </ul>
 
-                                            <ul class="ban_list_detal">
-                                                <li>
-                                                    <span><i class="fas fa-user"></i> Player</span>
-
-                                                    {if empty($ban.player)}
-                                                        <span class="text:italic">No nickname present</span>
-                                                    {else}
-                                                        <span>{$ban.player|escape:'html'|stripslashes}</span>
-                                                    {/if}
-                                                </li>
-                                                <li>
-                                                    <span>Steam ID</span>
-
-                                                    {if empty($ban.steamid)}
-                                                        <span class="text:italic">No Steam ID present</span>
-                                                    {else}
-                                                        <span>{$ban.steamid}</span>
-                                                    {/if}
-                                                </li>
-                                                <li>
-                                                    <span>Steam3 ID</span>
-
-                                                    {if empty($ban.steamid)}
-                                                        <span class="text:italic">No Steam3 ID present</span>
-                                                    {else}
-                                                        <a href="http://steamcommunity.com/profiles/{$ban.steamid3}" target="_blank"
-                                                            rel="noopener">{$ban.steamid3}</a>
-                                                    {/if}
-                                                </li>
-                                                <li>
-                                                    <span>Steam Community</span>
-
-                                                    {if empty($ban.steamid)}
-                                                        <span class="text:italic">No Steam Community ID present</span>
-                                                    {else}
-                                                        <a href="http://steamcommunity.com/profiles/{$ban.communityid}"
-                                                            target="_blank" rel="noopener">{$ban.communityid}</a>
-                                                    {/if}
-                                                </li>
-                                                <li>
-                                                    <span>Invoked on</span>
-                                                    <span>{$ban.ban_date}</span>
-                                                </li>
-                                                <li>
-                                                    <span>Block length</span>
-                                                    <span>{$ban.banlength}</span>
-                                                </li>
-                                                {if $ban.unbanned}
-                                                    <li>
-                                                        <span>Unblock reason</span>
-
-                                                        {if empty($ban.removedby)}
-                                                            <span class="text:italic">No reason present</span>
-                                                        {else}
-                                                            <span>{$ban.ureason}</span>
-                                                        {/if}
-                                                    </li>
-                                                    <li>
-                                                        <span>Unblocked by Admin</span>
-
-                                                        {if empty($ban.removedby)}
-                                                            <span class="text:italic">Admin deleted</span>
-                                                        {else}
-                                                            <span>{$ban.removedby|escape:'html'}</span>
-                                                        {/if}
-                                                    </li>
-                                                {/if}
-                                                <li>
-                                                    <span>Expires on</span>
-
-                                                    {if $ban.expires == "never"}
-                                                        <span class="text:italic">Not applicable</span>
-                                                    {else}
-                                                        <span>{$ban.expires}</span>
-                                                    {/if}
-                                                </li>
-                                                <li>
-                                                    <span>Reason</span>
-                                                    <span>{$ban.reason|escape:'html'}</span>
-                                                </li>
-                                                {if !$hideadminname}
-                                                    <li>
-                                                        <span>Blocked by Admin</span>
-
-                                                        {if empty($ban.admin)}
-                                                            <span class="text:italic">Admin deleted</span>
-                                                        {else}
-                                                            <span>{$ban.admin|escape:'html'}</span>
-                                                        {/if}
-                                                    </li>
-                                                {/if}
-                                                <li>
-                                                    <span>Total Blocks</span>
-                                                    <span>{$ban.prevoff_link}</span>
-                                                </li>
-                                            </ul>
-
-                                            {if $view_comments}
-                                                <div class="ban_list_comments margin-left">
-                                                    <div class="layout_box_title">
-                                                        <h2>Comments</h2>
-                                                    </div>
-                                                    {if $ban.commentdata != "None"}
-                                                        <ul>
-                                                            {foreach from=$ban.commentdata item=commenta}
-                                                                <li>
-                                                                    <div class="layout_box-child padding">
-                                                                        <div class="ban_list_comments_header">
-                                                                            {if !empty($commenta.comname)}
-                                                                                <span class="text:bold">{$commenta.comname|escape:'html'}</span>
-                                                                            {else}
-                                                                                <span class="text:italic">Admin deleted</span>
-                                                                            {/if}
-                                                                            <span>{$commenta.added}</span>
-                                                                            {if $commenta.editcomlink != ""}
-                                                                                {$commenta.editcomlink} {$commenta.delcomlink}
-                                                                            {/if}
-                                                                        </div>
-
-                                                                        <div class="margin-top flex flex-fd:column">
-                                                                            {$commenta.commenttxt}
-
-                                                                            {if !empty($commenta.edittime)}
-                                                                                <span class="margin-top:half text:italic">
-                                                                                    <i class="fas fa-pencil-alt"></i> Last edit
-                                                                                    {$commenta.edittime} by {$commenta.editname}
-                                                                                </span>
-                                                                            {/if}
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            {/foreach}
-                                                        </ul>
-                                                    {else}
-                                                        <div class="padding">
-                                                            {$ban.commentdata}
-                                                        </div>
-                                                    {/if}
-                                                </div>
-                                            {/if}
-                                        </div>
+                      {if $view_comments}
+                        <div class="ban_list_comments margin-left">
+                          <div class="layout_box_title">
+                            <h2>Comments</h2>
+                          </div>
+                          {if $ban.commentdata != "None"}
+                            <ul>
+                              {foreach from=$ban.commentdata item=commenta}
+                                <li>
+                                  <div class="layout_box-child padding">
+                                    <div class="ban_list_comments_header">
+                                      {if !empty($commenta.comname)}
+                                        <span class="text:bold">{$commenta.comname|escape:'html'}</span>
+                                      {else}
+                                        <span class="text:italic">Admin deleted</span>
+                                      {/if}
+                                      <span>{$commenta.added}</span>
+                                      {if $commenta.editcomlink != ""}
+                                        {$commenta.editcomlink} {$commenta.delcomlink}
+                                      {/if}
                                     </div>
-                                </td>
-                            </tr>
-                        {/foreach}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+
+                                    <div class="margin-top flex flex-fd:column">
+                                      {$commenta.commenttxt}
+
+                                      {if !empty($commenta.edittime)}
+                                        <span class="margin-top:half text:italic">
+                                          <i class="fas fa-pencil-alt"></i> Last edit
+                                          {$commenta.edittime} by {$commenta.editname}
+                                        </span>
+                                      {/if}
+                                    </div>
+                                  </div>
+                                </li>
+                              {/foreach}
+                            </ul>
+                          {else}
+                            <div class="padding">
+                              {$ban.commentdata}
+                            </div>
+                          {/if}
+                        </div>
+                      {/if}
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            {/foreach}
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 
-    <div class="layout_box padding:half margin-top text:right">
-        <span class="text:italic">SourceComms plugin &#038; integration to SourceBans made by <a
-                href="https://github.com/ppalex7" class="text:bold" target="_blank" rel="noopener">Alex</a></span>
-    </div>
+  <div class="layout_box padding:half margin-top text:right">
+    <span class="text:italic">SourceComms plugin &#038; integration to SourceBans made by <a
+        href="https://github.com/ppalex7" class="text:bold" target="_blank" rel="noopener">Alex</a></span>
+  </div>
 
-    <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
+  <script type="text/javascript" src="themes/{$theme}/scripts/collapse.js"></script>
 
-    {literal}
-        <script type="text/javascript">
-            window.addEvent('domready', function() {
-            {/literal}
-            {if $view_bans}
-                $('tickswitch').value = 0;
-            {/if}
-            {literal}
-            });
-        </script>
-    {/literal}
+  {literal}
+    <script type="text/javascript">
+      window.addEvent('domready', function() {
+      {/literal}
+      {if $view_bans}
+        $('tickswitch').value = 0;
+      {/if}
+      {literal}
+      });
+    </script>
+  {/literal}
 {/if}
