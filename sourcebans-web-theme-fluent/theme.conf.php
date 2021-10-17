@@ -6,7 +6,7 @@ define('theme_name', "SourceBans++ Fluent Design Theme Edition");
 define('theme_author', "aXenDev");
 
 // Set the version of the theme here
-define('theme_version', "1.0.5-dev");
+define('theme_version', "1.0.5");
 
 // Set the link of the theme here
 define('theme_link', "https://axendev.net/");
