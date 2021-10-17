@@ -270,7 +270,7 @@ a {
 .ban {
     &_action {
         @include reset-list(0 15px 0 0, 0);
-        width: 200px;
+        flex: 0 0 200px;
 
         li:not(:last-child) {
             margin-bottom: 10px;
@@ -301,7 +301,7 @@ a {
                     &:last-child {
                         display: flex;
                         flex-wrap: wrap;
-                        flex: 0 0 100%;
+                        flex: 1;
 
                         > span {
                             flex: 0 1 99%;

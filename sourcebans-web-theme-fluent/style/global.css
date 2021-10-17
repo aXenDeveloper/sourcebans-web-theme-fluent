@@ -228,7 +228,6 @@ a:hover {
 .table table {
   width: 100%;
   border-spacing: 0;
-  white-space: nowrap;
 }
 
 .table table thead,
@@ -2220,7 +2219,9 @@ hr {
   margin: 0 15px 0 0;
   padding: 0;
   list-style: none;
-  width: 200px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
 }
 
 .ban_action li:not(:last-child) {
@@ -2270,9 +2271,9 @@ hr {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .ban_list_detal li > span:last-child > span {
