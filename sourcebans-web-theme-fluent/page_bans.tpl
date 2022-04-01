@@ -245,7 +245,7 @@
                           {if $ban.banlog == ""}
                             <span class="text:italic">Never</span>
                           {else}
-                            <span>{$ban.banlog}</span>
+                            <i>{$ban.banlog}</i>
                           {/if}
                         </li>
                       </ul>
