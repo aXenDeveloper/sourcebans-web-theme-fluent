@@ -25,6 +25,7 @@
   --input-disabled: #e6e6e6;
   --line-hr: rgba(0, 0, 0, 0.1);
   --button-success: #267b3c;
+  --button-infos: #e06d22;
   --button-important: #ca1e1e;
   --button-light: #e8f2fa;
   --button-light-text: #0e4c79;
@@ -58,7 +59,8 @@ html {
 }
 
 body {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+ 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 1.3rem;
   line-height: 1.5;
   color: var(--theme-text);
@@ -154,6 +156,11 @@ a:hover {
 .button-success,
 .ok-success {
   background-color: var(--button-success);
+}
+
+.button-infos,
+.ok-infos {
+  background-color: var(--button-infos);
 }
 
 .button-important,
@@ -264,8 +271,8 @@ a:hover {
 }
 
 .table table tbody td:first-child img {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
 }
 
 .table_hide > td {
@@ -337,10 +344,14 @@ a:hover {
           appearance: none;
   color-adjust: exact;
   cursor: pointer;
-  -webkit-transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
 .form-check:focus {
@@ -382,10 +393,14 @@ a:hover {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  -webkit-transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
 .form-select::-ms-expand {
@@ -410,10 +425,14 @@ a:hover {
   width: 100%;
   max-width: 100% !important;
   height: 200px;
-  -webkit-transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
 .form-text:focus {
@@ -462,10 +481,14 @@ a:hover {
           appearance: none;
   color-adjust: exact;
   cursor: pointer;
-  -webkit-transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, background-position 0.15s ease-in-out,
+ border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
 .form-radio:checked {
@@ -1349,13 +1372,39 @@ div.dialog-control {
 }
 
 .save {
-  background-color: #7d4071;
-  border: 1px solid #7d4071;
+  background-color: #ff8100;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  font-family: inherit;
+  padding: 5px 16px;
+  border-radius: var(--border--radius);
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0;
+  margin-top: 10px;
 }
 
 .cancel {
-  background-color: #cf7336;
-  border: 1px solid #cf7336;
+  background-color: #ff0000;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  font-family: inherit;
+  padding: 10px 20px;
+  border-radius: var(--border--radius);
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0;
+  margin-top: 10px;
 }
 
 .refresh {
@@ -1380,7 +1429,7 @@ div.dialog-control {
 /** ================ Admin ================ **/
 /* Admin table */
 .rowdesc {
-  color: #0b1b51;
+  color: #ff8100;
   font-weight: bold;
 }
 
