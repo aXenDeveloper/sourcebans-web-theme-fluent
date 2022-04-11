@@ -35,6 +35,7 @@
                             <tr id="server_{$server.sid}:desc" class="table_hide">
                                 <td colspan="8">
                                     <div class="collapse_content" id="sinfo_{$server.sid}">
+                                    <center class="text:center responsive_show:desktop"><a href="https://www.gametracker.com/server_info/{$server.ip}:{$server.port}/"><img style="width: auto; height: auto;" src='https://cache.gametracker.com/server_info/{$server.ip}:{$server.port}/banner_560x95.png'/></a></center>
                                         <table id="playerlist_{$server.sid}" class="table" name="playerlist_{$server.sid}">
                                         </table>
                                     </div>
