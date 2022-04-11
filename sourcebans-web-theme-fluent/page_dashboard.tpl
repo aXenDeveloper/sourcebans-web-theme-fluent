@@ -56,8 +56,8 @@
 <div class="flex flex-ai:start flex-jc:space-bwtween m:flex-fd:column">
   <div class="layout_box flex:11 margin-right margin-bottom">
     <div class="layout_box_title flex flex-jc:space-between flex-ai:center">
-      <h2>Latest Players Blocked</h2>
-      <span>Total Stopped: {$total_blocked}</span>
+      <h2>Latest Added Comms Block</h2>
+      <span>Total Blocked: {$total_comms}</span>
     </div>
 
     <div class="padding">
