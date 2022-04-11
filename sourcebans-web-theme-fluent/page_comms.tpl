@@ -149,16 +149,6 @@
                               rel="noopener">{$ban.communityid}</a>
                           {/if}
                         </li>
-						<!-- {if !$hideplayerips}
-                                                        <li>
-                                                            <span><i class="fas fa-network-wired"></i> IP address</span>
-                                                            {if $ban.ip == "none"}
-                                                                <span class="text:italic">No IP address present</span>
-                                                            {else}
-                                                                <span>{$ban.ip}</span>
-                                                            {/if}
-                                                        </li>
-                                                    {/if} -->
                         <li>
                           <span><i class="fas fa-play"></i> Invoked on</span>
                           <span>{$ban.ban_date}</span>
