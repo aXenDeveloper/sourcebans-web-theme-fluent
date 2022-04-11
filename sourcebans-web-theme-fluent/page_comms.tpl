@@ -22,8 +22,8 @@
 
           <input type="hidden" name="page" id="page" value="{$page}">
 
-          <a class="button button-primary" onclick="ProcessComment();">Add</a>
           <a class="button button-light" onclick="history.go(-1)">Cancel</a>
+		  <a class="button button-primary" onclick="ProcessComment();">Add</a>
         </div>
       </div>
     </div>
@@ -58,6 +58,10 @@
           </thead>
           <tbody>
             {foreach from=$ban_list item=ban name=banlist}
+			<tr class="collapse" {if $ban.server_id != 0}
+						onclick="xajax_ServerHostPlayers({$ban.server_id}, 'id', 'host_{$ban.ban_id}');"
+						{/if}
+						>
               <tr class="collapse">
                 <td class="text:center">{$ban.mod_icon}</td>
                 <td>
@@ -117,7 +121,7 @@
                           {/if}
                         </li>
                         <li>
-                          <span>Steam ID</span>
+                          <span><i class="fab fa-steam-symbol"></i> Steam ID</span>
 
                           {if empty($ban.steamid)}
                             <span class="text:italic">No Steam ID present</span>
@@ -126,7 +130,7 @@
                           {/if}
                         </li>
                         <li>
-                          <span>Steam3 ID</span>
+                          <span><i class="fab fa-steam-symbol"></i> Steam3 ID</span>
 
                           {if empty($ban.steamid)}
                             <span class="text:italic">No Steam3 ID present</span>
@@ -136,7 +140,7 @@
                           {/if}
                         </li>
                         <li>
-                          <span>Steam Community</span>
+                          <span><i class="fab fa-steam-symbol"></i> Steam Community</span>
 
                           {if empty($ban.steamid)}
                             <span class="text:italic">No Steam Community ID present</span>
@@ -145,26 +149,35 @@
                               rel="noopener">{$ban.communityid}</a>
                           {/if}
                         </li>
+						<!-- {if !$hideplayerips}
+                                                        <li>
+                                                            <span><i class="fas fa-network-wired"></i> IP address</span>
+                                                            {if $ban.ip == "none"}
+                                                                <span class="text:italic">No IP address present</span>
+                                                            {else}
+                                                                <span>{$ban.ip}</span>
+                                                            {/if}
+                                                        </li>
+                                                    {/if} -->
                         <li>
-                          <span>Invoked on</span>
+                          <span><i class="fas fa-play"></i> Invoked on</span>
                           <span>{$ban.ban_date}</span>
                         </li>
                         <li>
-                          <span>Block length</span>
+                          <span><i class="fas fa-hourglass-half"></i> Block length</span>
                           <span>{$ban.banlength}</span>
                         </li>
                         {if $ban.unbanned}
                           <li>
-                            <span>Unblock reason</span>
-
-                            {if empty($ban.removedby)}
+                            <span><i class="fas fa-user-shield"></i> Unblock reason</span>
+                            {if $ban.ureason == ""}
                               <span class="text:italic">No reason present</span>
                             {else}
                               <span>{$ban.ureason}</span>
                             {/if}
                           </li>
                           <li>
-                            <span>Unblocked by Admin</span>
+                            <span><i class="fas fa-user-shield"></i> Unblocked by Admin</span>
 
                             {if empty($ban.removedby)}
                               <span class="text:italic">Admin deleted</span>
@@ -174,7 +187,7 @@
                           </li>
                         {/if}
                         <li>
-                          <span>Expires on</span>
+                          <span><i class="fas fa-clock"></i> Expires on</span>
 
                           {if $ban.expires == "never"}
                             <span class="text:italic">Not applicable</span>
@@ -183,12 +196,16 @@
                           {/if}
                         </li>
                         <li>
-                          <span>Reason</span>
-                          <span>{$ban.reason|escape:'html'}</span>
+                          <span><i class="fas fa-question"></i> Reason</span>
+						  {if $ban.reason == ""}
+                              <span class="text:italic">No reason present</span>
+                            {else}
+                          <span>{$ban.reason}</span>
+						  {/if}
                         </li>
                         {if !$hideadminname}
                           <li>
-                            <span>Blocked by Admin</span>
+                            <span><i class="fas fa-ban"></i> Blocked by Admin</span>
 
                             {if empty($ban.admin)}
                               <span class="text:italic">Admin deleted</span>
@@ -197,8 +214,17 @@
                             {/if}
                           </li>
                         {/if}
+						<li>
+                                                        <span><i class="fas fa-server"></i> Blocked from </span>
+                                                            <span {if $ban.server_id != 0}id="host_{$ban.ban_id}"{/if}>
+											{if $ban.server_id == 0}
+											Web Ban
+											{else}
+											Please Wait...
+											{/if}</span>
+                                                    </li>
                         <li>
-                          <span>Total Blocks</span>
+                          <span><i class="fas fa-ban"></i> Total Blocks</span>
                           <span>{$ban.prevoff_link}</span>
                         </li>
                       </ul>
