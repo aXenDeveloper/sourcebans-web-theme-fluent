@@ -94,20 +94,28 @@
                 <td colspan="8">
                   <div class="collapse_content">
                     <div class="padding flex flex-jc:start">
-                      <ul class="ban_action">
-                        {if ($ban.unbanned == false && $ban.view_unban)}
-                          <li class="button button-success">{$ban.unban_link}</li>
-                        {/if}
-                        {if $ban.unbanned && $ban.reban_link != false}
-                          <li class="button button-important">{$ban.reban_link}</li>
-                        {/if}
-                        <li class="button button-success">{$ban.addcomment}</li>
-                        {if ($ban.view_edit && !$ban.unbanned)}
-                          <li class="button button-light">{$ban.edit_link}</li>
-                        {/if}
-                        {if $ban.view_delete}
-                          <li class="button button-light">{$ban.delete_link}</li>
-                        {/if}
+                      <ul class="ban_action responsive_show:desktop">
+			{if $view_bans}
+				{if $ban.unbanned && $ban.reban_link != false}
+                          		<li class="button button-important">{$ban.reban_link}</li>
+                        	{/if}
+				{if $view_comments}
+                        		<li class="button button-success">{$ban.addcomment}</li>
+				{/if}
+                        	{if ($ban.view_edit && !$ban.unbanned)}
+                          		<li class="button button-light">{$ban.edit_link}</li>
+                        	{/if}
+				{if ($ban.unbanned == false && $ban.view_unban)}
+                          		<li class="button button-light">{$ban.unban_link}</li>
+                        	{/if}
+                        	{if $ban.view_delete}
+                          		<li class="button button-light">{$ban.delete_link}</li>
+                        	{/if}
+			{else}
+				<li>
+					<a class="button button-success" href='index.php?p=login'>Admin ? Sign In</a>
+				</li>
+			{/if}
                       </ul>
 
                       <ul class="ban_list_detal">
