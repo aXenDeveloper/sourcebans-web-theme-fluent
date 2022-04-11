@@ -10,7 +10,7 @@
             srvcount += count;
             if(srvcount==-{$total}- || count=='-1') {
                 parent.document.getElementById('dialog-control').innerHTML = "<font color=\"green\" style=\"font-size: 12px;\"><b>Done searching.</b></font>"+parent.document.getElementById('dialog-control').innerHTML;
-                parent.document.getElementById('dialog-control').setStyle('display', 'block');
+                parent.document.getElementById('dialog-control').setStyle('display', '');
                 setTimeout("parent.document.getElementById('dialog-placement').setStyle('display', 'none');",5000);
                 setTimeout("window.location='../index.php?p=admin&c=bans'",5000);
             }
