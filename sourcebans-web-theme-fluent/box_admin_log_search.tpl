@@ -1,3 +1,6 @@
+<div class="layout_box margin-bottom">
+<div class="table padding">
+<div class="table box">
 <div align="center">
     <table width="80%" cellpadding="0" class="listtable" cellspacing="0">
         <tr class="sea_open">
@@ -27,13 +30,13 @@
                             <td align="center" class="listtable_1" ><input id="date_" type="radio" name="search_type" value="radiobutton"></td>
                             <td class="listtable_1" >Date</td>
                             <td class="listtable_1" >
-                                <input class="textbox" type="text" id="day" value="DD" onmouseup="$('date_').checked = true" maxlength="2" style="width: 18px;"> .
-                                <input class="textbox" type="text" id="month" value="MM" onmouseup="$('date_').checked = true" maxlength="2" style="width: 18px;"> .
-                                <input class="textbox" type="text" id="year" value="YYYY" onmouseup="$('date_').checked = true" maxlength="4" style="width: 30px;">
-                                &nbsp;<input class="textbox" type="text" id="fhour" value="00" onmouseup="$('date_').checked = true" maxlength="2" style="width: 16px;"> :
-                                <input class="textbox" type="text" id="fminute" value="00" onmouseup="$('date_').checked = true" maxlength="2" style="width: 16px;">
-                                -&nbsp;<input class="textbox" type="text" id="thour" value="23" onmouseup="$('date_').checked = true" maxlength="2" style="width: 16px;"> :
-                                <input class="textbox" type="text" id="tminute" value="59" onmouseup="$('date_').checked = true" maxlength="2" style="width: 16px;">
+                                <input class="textbox" type="text" id="day" value="DD" onmouseup="$('date_').checked = true" maxlength="2" style="width: 46px;"> .
+                                <input class="textbox" type="text" id="month" value="MM" onmouseup="$('date_').checked = true" maxlength="2" style="width: 46px;"> .
+                                <input class="textbox" type="text" id="year" value="YYYY" onmouseup="$('date_').checked = true" maxlength="4" style="width: 60px;">
+                                &nbsp;<input class="textbox" type="text" id="fhour" value="00" onmouseup="$('date_').checked = true" maxlength="2" style="width: 44px;"> :
+                                <input class="textbox" type="text" id="fminute" value="00" onmouseup="$('date_').checked = true" maxlength="2" style="width: 44px;">
+                                -&nbsp;<input class="textbox" type="text" id="thour" value="23" onmouseup="$('date_').checked = true" maxlength="2" style="width: 44px;"> :
+                                <input class="textbox" type="text" id="tminute" value="59" onmouseup="$('date_').checked = true" maxlength="2" style="width: 44px;">
                             </td>
                         </tr>
                         <tr>
@@ -48,12 +51,15 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="4">{sb_button text="Search" onclick="search_log();" class="ok" id="searchbtn" submit=false}</td>
+                            <td colspan="4" align="center">{sb_button text="Search" onclick="search_log();" class="ok" id="searchbtn" submit=false}</td>
                         </tr>
                     </table>
                 </div>
             </td>
         </tr>
     </table>
+</div>
+</div>
+</div>
 </div>
 <script>InitAccordion('tr.sea_open', 'div.panel', 'mainwrapper');</script>
